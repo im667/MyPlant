@@ -7,15 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040D451C2746688A0047E88E /* Extention+MainCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D451B2746688A0047E88E /* Extention+MainCollection.swift */; };
+		040D451E27466B1D0047E88E /* Extension+UIfont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D451D27466B1D0047E88E /* Extension+UIfont.swift */; };
+		040D4525274672EB0047E88E /* SpoqaHanSansNeo-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 040D451F274672E80047E88E /* SpoqaHanSansNeo-Bold.otf */; };
+		040D4526274672EB0047E88E /* SpoqaHanSansNeo-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 040D4520274672E90047E88E /* SpoqaHanSansNeo-Light.otf */; };
+		040D4527274672EB0047E88E /* SpoqaHanSansNeo-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 040D4521274672EA0047E88E /* SpoqaHanSansNeo-Medium.otf */; };
+		040D4528274672EB0047E88E /* SpoqaHanSansNeo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 040D4522274672EA0047E88E /* SpoqaHanSansNeo-Regular.otf */; };
+		040D4529274672EB0047E88E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 040D4523274672EB0047E88E /* LICENSE */; };
+		040D452A274672EB0047E88E /* SpoqaHanSansNeo-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 040D4524274672EB0047E88E /* SpoqaHanSansNeo-Thin.otf */; };
+		040D45332746771F0047E88E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 040D45322746771F0047E88E /* Kingfisher */; };
+		040D4536274677E30047E88E /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 040D4535274677E30047E88E /* Realm */; };
+		040D4538274677E30047E88E /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 040D4537274677E30047E88E /* RealmSwift */; };
+		040D453B274683E90047E88E /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D453A274683E90047E88E /* RealmModel.swift */; };
 		0470B8792743979800CC1DF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0470B8782743979800CC1DF7 /* AppDelegate.swift */; };
 		0470B87B2743979800CC1DF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0470B87A2743979800CC1DF7 /* SceneDelegate.swift */; };
 		0470B87D2743979800CC1DF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0470B87C2743979800CC1DF7 /* ViewController.swift */; };
 		0470B8802743979800CC1DF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0470B87E2743979800CC1DF7 /* Main.storyboard */; };
 		0470B8822743979B00CC1DF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0470B8812743979B00CC1DF7 /* Assets.xcassets */; };
 		0470B8852743979B00CC1DF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0470B8832743979B00CC1DF7 /* LaunchScreen.storyboard */; };
+		0470B88D27463E0D00CC1DF7 /* Content.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0470B88C27463E0D00CC1DF7 /* Content.storyboard */; };
+		0470B88F27463E4200CC1DF7 /* PlantBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0470B88E27463E4200CC1DF7 /* PlantBook.storyboard */; };
+		0470B89127463E4B00CC1DF7 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0470B89027463E4B00CC1DF7 /* Setting.storyboard */; };
+		04E7D4742746408B00050B83 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7D4732746408B00050B83 /* MainViewController.swift */; };
+		04E7D4762746409300050B83 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7D4752746409300050B83 /* SettingViewController.swift */; };
+		04E7D478274640A000050B83 /* PlantBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7D477274640A000050B83 /* PlantBookViewController.swift */; };
+		04E7D47A274640AB00050B83 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7D479274640AB00050B83 /* ContentViewController.swift */; };
+		04E7D47D2746427000050B83 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E7D47C2746427000050B83 /* TabBar.storyboard */; };
+		04E7D484274658BC00050B83 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7D482274658BC00050B83 /* MainCollectionViewCell.swift */; };
+		04E7D485274658BC00050B83 /* MainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E7D483274658BC00050B83 /* MainCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040D451B2746688A0047E88E /* Extention+MainCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+MainCollection.swift"; sourceTree = "<group>"; };
+		040D451D27466B1D0047E88E /* Extension+UIfont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIfont.swift"; sourceTree = "<group>"; };
+		040D451F274672E80047E88E /* SpoqaHanSansNeo-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Bold.otf"; sourceTree = "<group>"; };
+		040D4520274672E90047E88E /* SpoqaHanSansNeo-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Light.otf"; sourceTree = "<group>"; };
+		040D4521274672EA0047E88E /* SpoqaHanSansNeo-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Medium.otf"; sourceTree = "<group>"; };
+		040D4522274672EA0047E88E /* SpoqaHanSansNeo-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Regular.otf"; sourceTree = "<group>"; };
+		040D4523274672EB0047E88E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		040D4524274672EB0047E88E /* SpoqaHanSansNeo-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Thin.otf"; sourceTree = "<group>"; };
+		040D453A274683E90047E88E /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		0470B8752743979800CC1DF7 /* MyPlant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0470B8782743979800CC1DF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0470B87A2743979800CC1DF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +55,16 @@
 		0470B8812743979B00CC1DF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0470B8842743979B00CC1DF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0470B8862743979B00CC1DF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0470B88C27463E0D00CC1DF7 /* Content.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Content.storyboard; sourceTree = "<group>"; };
+		0470B88E27463E4200CC1DF7 /* PlantBook.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlantBook.storyboard; sourceTree = "<group>"; };
+		0470B89027463E4B00CC1DF7 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		04E7D4732746408B00050B83 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		04E7D4752746409300050B83 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		04E7D477274640A000050B83 /* PlantBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantBookViewController.swift; sourceTree = "<group>"; };
+		04E7D479274640AB00050B83 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		04E7D47C2746427000050B83 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		04E7D482274658BC00050B83 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		04E7D483274658BC00050B83 /* MainCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,12 +72,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				040D4538274677E30047E88E /* RealmSwift in Frameworks */,
+				040D4536274677E30047E88E /* Realm in Frameworks */,
+				040D45332746771F0047E88E /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040D451A274668770047E88E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				040D451B2746688A0047E88E /* Extention+MainCollection.swift */,
+				040D451D27466B1D0047E88E /* Extension+UIfont.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		040D452B274673AA0047E88E /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				040D4523274672EB0047E88E /* LICENSE */,
+				040D451F274672E80047E88E /* SpoqaHanSansNeo-Bold.otf */,
+				040D4520274672E90047E88E /* SpoqaHanSansNeo-Light.otf */,
+				040D4521274672EA0047E88E /* SpoqaHanSansNeo-Medium.otf */,
+				040D4522274672EA0047E88E /* SpoqaHanSansNeo-Regular.otf */,
+				040D4524274672EB0047E88E /* SpoqaHanSansNeo-Thin.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		040D4539274683D70047E88E /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				040D453A274683E90047E88E /* RealmModel.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		0470B86C2743979700CC1DF7 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +130,36 @@
 		0470B8772743979800CC1DF7 /* MyPlant */ = {
 			isa = PBXGroup;
 			children = (
+				040D4539274683D70047E88E /* Realm */,
+				040D452B274673AA0047E88E /* Font */,
+				040D451A274668770047E88E /* Extension */,
+				04E7D47B274640B500050B83 /* VC */,
 				0470B8782743979800CC1DF7 /* AppDelegate.swift */,
+				04E7D482274658BC00050B83 /* MainCollectionViewCell.swift */,
+				04E7D483274658BC00050B83 /* MainCollectionViewCell.xib */,
 				0470B87A2743979800CC1DF7 /* SceneDelegate.swift */,
 				0470B87C2743979800CC1DF7 /* ViewController.swift */,
+				04E7D47C2746427000050B83 /* TabBar.storyboard */,
 				0470B87E2743979800CC1DF7 /* Main.storyboard */,
+				0470B88C27463E0D00CC1DF7 /* Content.storyboard */,
+				0470B88E27463E4200CC1DF7 /* PlantBook.storyboard */,
+				0470B89027463E4B00CC1DF7 /* Setting.storyboard */,
 				0470B8812743979B00CC1DF7 /* Assets.xcassets */,
 				0470B8832743979B00CC1DF7 /* LaunchScreen.storyboard */,
 				0470B8862743979B00CC1DF7 /* Info.plist */,
 			);
 			path = MyPlant;
+			sourceTree = "<group>";
+		};
+		04E7D47B274640B500050B83 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				04E7D4732746408B00050B83 /* MainViewController.swift */,
+				04E7D4752746409300050B83 /* SettingViewController.swift */,
+				04E7D477274640A000050B83 /* PlantBookViewController.swift */,
+				04E7D479274640AB00050B83 /* ContentViewController.swift */,
+			);
+			path = VC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +178,11 @@
 			dependencies = (
 			);
 			name = MyPlant;
+			packageProductDependencies = (
+				040D45322746771F0047E88E /* Kingfisher */,
+				040D4535274677E30047E88E /* Realm */,
+				040D4537274677E30047E88E /* RealmSwift */,
+			);
 			productName = MyPlant;
 			productReference = 0470B8752743979800CC1DF7 /* MyPlant.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +211,10 @@
 				Base,
 			);
 			mainGroup = 0470B86C2743979700CC1DF7;
+			packageReferences = (
+				040D45312746771F0047E88E /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				040D4534274677E30047E88E /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = 0470B8762743979800CC1DF7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,9 +229,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0470B88F27463E4200CC1DF7 /* PlantBook.storyboard in Resources */,
+				04E7D485274658BC00050B83 /* MainCollectionViewCell.xib in Resources */,
+				040D4529274672EB0047E88E /* LICENSE in Resources */,
+				0470B88D27463E0D00CC1DF7 /* Content.storyboard in Resources */,
 				0470B8852743979B00CC1DF7 /* LaunchScreen.storyboard in Resources */,
 				0470B8822743979B00CC1DF7 /* Assets.xcassets in Resources */,
+				040D4527274672EB0047E88E /* SpoqaHanSansNeo-Medium.otf in Resources */,
+				040D4526274672EB0047E88E /* SpoqaHanSansNeo-Light.otf in Resources */,
+				040D4528274672EB0047E88E /* SpoqaHanSansNeo-Regular.otf in Resources */,
 				0470B8802743979800CC1DF7 /* Main.storyboard in Resources */,
+				040D4525274672EB0047E88E /* SpoqaHanSansNeo-Bold.otf in Resources */,
+				04E7D47D2746427000050B83 /* TabBar.storyboard in Resources */,
+				0470B89127463E4B00CC1DF7 /* Setting.storyboard in Resources */,
+				040D452A274672EB0047E88E /* SpoqaHanSansNeo-Thin.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +253,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				040D451E27466B1D0047E88E /* Extension+UIfont.swift in Sources */,
+				04E7D4762746409300050B83 /* SettingViewController.swift in Sources */,
+				04E7D478274640A000050B83 /* PlantBookViewController.swift in Sources */,
+				040D453B274683E90047E88E /* RealmModel.swift in Sources */,
 				0470B87D2743979800CC1DF7 /* ViewController.swift in Sources */,
+				04E7D484274658BC00050B83 /* MainCollectionViewCell.swift in Sources */,
 				0470B8792743979800CC1DF7 /* AppDelegate.swift in Sources */,
 				0470B87B2743979800CC1DF7 /* SceneDelegate.swift in Sources */,
+				04E7D4742746408B00050B83 /* MainViewController.swift in Sources */,
+				040D451C2746688A0047E88E /* Extention+MainCollection.swift in Sources */,
+				04E7D47A274640AB00050B83 /* ContentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +485,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		040D45312746771F0047E88E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		040D4534274677E30047E88E /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		040D45322746771F0047E88E /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 040D45312746771F0047E88E /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		040D4535274677E30047E88E /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 040D4534274677E30047E88E /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		040D4537274677E30047E88E /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 040D4534274677E30047E88E /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0470B86D2743979700CC1DF7 /* Project object */;
 }
