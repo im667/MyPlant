@@ -13,7 +13,7 @@ import RealmSwift
 
 class MainViewController: UIViewController {
     
-    var tasks: Results<UserMemo>!
+    var tasks: Results<plant>!
     let localRealm = try! Realm()
 
     @IBOutlet weak var searchBar: UISearchBar!
@@ -22,6 +22,8 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     
+
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,6 +32,9 @@ class MainViewController: UIViewController {
         
         self.titleLabel.text = "내 식물"
         self.titleLabel.font = UIFont().title
+        
+        
+       
         
         //flow 레이아웃
         let layout = UICollectionViewFlowLayout()
@@ -55,9 +60,19 @@ class MainViewController: UIViewController {
         UISearchBar.appearance().searchTextPositionAdjustment=UIOffset(horizontal: 10,vertical: 0)
     }
     
+    
+ 
 
  
     @IBAction func plusButton(_ sender: Any) {
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: ModalViewController.identifier) as! ModalViewController
+        let nav = UINavigationController(rootViewController: vc)
+        
+        nav.modalPresentationStyle = .automatic
+        
+        present(nav, animated: true, completion: nil)
     }
     
 }
