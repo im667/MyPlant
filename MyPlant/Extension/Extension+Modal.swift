@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension ModalViewController:UIPickerViewDelegate,UIPickerViewDataSource,UITextViewDelegate {
+extension ModalViewController:UIPickerViewDelegate,UIPickerViewDataSource,UITextViewDelegate, UITextFieldDelegate {
    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -30,20 +30,14 @@ extension ModalViewController:UIPickerViewDelegate,UIPickerViewDataSource,UIText
         
     }
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if nickName.textColor == UIColor.lightGray {
-            nickName.becomeFirstResponder()
-            nickName.text = nil
-            nickName.textColor = UIColor.systemGray2
-        }
-      }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+   
 
-      func textViewDidEndEditing(_ textView: UITextView) {
-        if nickName.text.isEmpty {
-            nickName.text = "식물 이름을 입력해주세요."
-            nickName.textColor = UIColor.systemGray5
-        }
-      }
+  
     
 }
 

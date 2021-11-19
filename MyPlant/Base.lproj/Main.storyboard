@@ -50,7 +50,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ol1-Cx-Vmc">
-                                <rect key="frame" x="20" y="255" width="374" height="607"/>
+                                <rect key="frame" x="20" y="254.5" width="374" height="607.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="up5-Hi-ZR2">
                                     <size key="itemSize" width="128" height="128"/>
@@ -70,7 +70,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 식물" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikN-gg-pVL">
-                                <rect key="frame" x="20" y="203" width="75" height="32"/>
+                                <rect key="frame" x="20" y="203" width="75" height="31.5"/>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -141,18 +141,16 @@
                                     <constraint firstAttribute="width" secondItem="eQZ-Oa-ZSj" secondAttribute="height" multiplier="1:1" id="JqR-PK-thz"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="식물의 이름을 입력해주세요." translatesAutoresizingMaskIntoConstraints="NO" id="xSm-tW-OUn">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JH1-Eq-gJs">
                                 <rect key="frame" x="40" y="422" width="334" height="38"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="6jd-wk-KT4"/>
+                                    <constraint firstAttribute="height" constant="38" id="WsN-fr-ZT1"/>
                                 </constraints>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="25"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물주기 주기 선택하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8u-8q-Ozd">
-                                <rect key="frame" x="40" y="482" width="180" height="27"/>
+                                <rect key="frame" x="40" y="482" width="140" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="F8u-8q-Ozd" secondAttribute="height" multiplier="20:3" id="beN-g0-KC2"/>
                                 </constraints>
@@ -161,10 +159,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0O-6m-umQ">
-                                <rect key="frame" x="292" y="480" width="82" height="31"/>
+                                <rect key="frame" x="292" y="477" width="82" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="VZE-Ca-Teo"/>
-                                    <constraint firstAttribute="width" constant="82" id="lEL-4k-Acj"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="82" id="lEL-4k-Acj"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="선택" image="arrowtriangle.down.fill" catalog="system">
@@ -175,7 +173,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물주기 주기에 따른 푸시 알림을 보내드려요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Std-Mf-JGD">
-                                <rect key="frame" x="40" y="525" width="334" height="24.5"/>
+                                <rect key="frame" x="40" y="519" width="334" height="24.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Std-Mf-JGD" secondAttribute="height" multiplier="27:2" id="6ch-ht-s7i"/>
                                 </constraints>
@@ -184,7 +182,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="키우기 시작한 날짜 선택하기" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNQ-7E-z3v">
-                                <rect key="frame" x="40" y="569.5" width="142" height="51"/>
+                                <rect key="frame" x="40" y="563.5" width="142" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="WNQ-7E-z3v" secondAttribute="height" multiplier="142:51" id="Fkv-Om-viq"/>
                                 </constraints>
@@ -193,13 +191,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p24-Qf-OA3">
-                                <rect key="frame" x="215" y="579.5" width="159" height="31"/>
+                                <rect key="frame" x="215" y="573.5" width="159" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="eH9-HA-ROh"/>
-                                    <constraint firstAttribute="width" constant="159" id="gZQ-mK-K9y"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="159" id="gZQ-mK-K9y"/>
                                 </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
                                     <action selector="DateButton:" destination="C08-lZ-Gy0" eventType="touchUpInside" id="4EI-Pd-emV"/>
                                 </connections>
@@ -208,16 +206,15 @@
                         <viewLayoutGuide key="safeArea" id="ig6-Sw-6pZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="JH1-Eq-gJs" firstAttribute="leading" secondItem="ig6-Sw-6pZ" secondAttribute="leading" constant="40" id="3j4-mS-ZX2"/>
                             <constraint firstItem="ig6-Sw-6pZ" firstAttribute="trailing" secondItem="RP0-O4-qMx" secondAttribute="trailing" constant="40" id="3tA-vT-h5r"/>
                             <constraint firstItem="Std-Mf-JGD" firstAttribute="leading" secondItem="ig6-Sw-6pZ" secondAttribute="leading" constant="40" id="499-Tc-c49"/>
                             <constraint firstItem="WNQ-7E-z3v" firstAttribute="leading" secondItem="ig6-Sw-6pZ" secondAttribute="leading" constant="40" id="4u4-S9-z0d"/>
-                            <constraint firstItem="xSm-tW-OUn" firstAttribute="centerX" secondItem="0dd-Sd-JNu" secondAttribute="centerX" id="7gc-i3-CmX"/>
-                            <constraint firstItem="i0O-6m-umQ" firstAttribute="top" secondItem="xSm-tW-OUn" secondAttribute="bottom" constant="20" id="AeD-p9-TNs"/>
                             <constraint firstItem="RP0-O4-qMx" firstAttribute="top" secondItem="ig6-Sw-6pZ" secondAttribute="top" constant="16" id="Bts-MI-TcU"/>
                             <constraint firstItem="WNQ-7E-z3v" firstAttribute="top" secondItem="Std-Mf-JGD" secondAttribute="bottom" constant="20" id="BxW-cP-St5"/>
                             <constraint firstAttribute="trailing" secondItem="Std-Mf-JGD" secondAttribute="trailing" constant="40" id="Dau-LD-OGp"/>
-                            <constraint firstItem="xSm-tW-OUn" firstAttribute="leading" secondItem="ig6-Sw-6pZ" secondAttribute="leading" constant="40" id="DbM-ra-CZl"/>
                             <constraint firstItem="p24-Qf-OA3" firstAttribute="centerY" secondItem="WNQ-7E-z3v" secondAttribute="centerY" id="Foa-hy-jWB"/>
+                            <constraint firstItem="JH1-Eq-gJs" firstAttribute="top" secondItem="eQZ-Oa-ZSj" secondAttribute="bottom" constant="20" id="LId-FQ-F4V"/>
                             <constraint firstItem="Std-Mf-JGD" firstAttribute="top" secondItem="F8u-8q-Ozd" secondAttribute="bottom" constant="16" id="NHq-E5-a1p"/>
                             <constraint firstItem="ig6-Sw-6pZ" firstAttribute="trailing" secondItem="p24-Qf-OA3" secondAttribute="trailing" constant="40" id="SSM-rz-ph2"/>
                             <constraint firstItem="F8u-8q-Ozd" firstAttribute="leading" secondItem="ig6-Sw-6pZ" secondAttribute="leading" constant="40" id="Tvy-Kf-dx2"/>
@@ -225,10 +222,10 @@
                             <constraint firstItem="p24-Qf-OA3" firstAttribute="top" secondItem="Std-Mf-JGD" secondAttribute="bottom" constant="30" id="aKL-FR-Enh"/>
                             <constraint firstItem="eQZ-Oa-ZSj" firstAttribute="top" secondItem="RP0-O4-qMx" secondAttribute="bottom" constant="20" id="hDt-Uc-I3I"/>
                             <constraint firstItem="ig6-Sw-6pZ" firstAttribute="trailing" secondItem="eQZ-Oa-ZSj" secondAttribute="trailing" constant="40" id="i97-Q9-4dj"/>
-                            <constraint firstItem="F8u-8q-Ozd" firstAttribute="top" secondItem="xSm-tW-OUn" secondAttribute="bottom" constant="22" id="jlC-Ll-NZy"/>
+                            <constraint firstItem="F8u-8q-Ozd" firstAttribute="top" secondItem="JH1-Eq-gJs" secondAttribute="bottom" constant="22" id="pPH-Vu-6Bv"/>
                             <constraint firstItem="eQZ-Oa-ZSj" firstAttribute="leading" secondItem="ig6-Sw-6pZ" secondAttribute="leading" constant="40" id="qLd-Jt-Egk"/>
+                            <constraint firstItem="ig6-Sw-6pZ" firstAttribute="trailing" secondItem="JH1-Eq-gJs" secondAttribute="trailing" constant="40" id="wgz-Il-ANS"/>
                             <constraint firstItem="ig6-Sw-6pZ" firstAttribute="trailing" secondItem="i0O-6m-umQ" secondAttribute="trailing" constant="40" id="xam-AY-rCS"/>
-                            <constraint firstItem="xSm-tW-OUn" firstAttribute="top" secondItem="eQZ-Oa-ZSj" secondAttribute="bottom" constant="20" id="xjn-gi-6oP"/>
                             <constraint firstItem="i0O-6m-umQ" firstAttribute="centerY" secondItem="F8u-8q-Ozd" secondAttribute="centerY" id="zbA-HG-xHP"/>
                         </constraints>
                     </view>
@@ -239,7 +236,7 @@
                         <outlet property="daysButton" destination="i0O-6m-umQ" id="pHj-7n-Myg"/>
                         <outlet property="infoSelectDayLabel" destination="F8u-8q-Ozd" id="O8O-op-puL"/>
                         <outlet property="modalTitleLabel" destination="RP0-O4-qMx" id="6jQ-ow-xhn"/>
-                        <outlet property="nickName" destination="xSm-tW-OUn" id="ztf-Ay-dWW"/>
+                        <outlet property="nickName" destination="JH1-Eq-gJs" id="bBE-dI-0Wm"/>
                         <outlet property="plantImageView" destination="eQZ-Oa-ZSj" id="1dr-2m-Sya"/>
                     </connections>
                 </viewController>
@@ -247,10 +244,10 @@
             </objects>
             <point key="canvasLocation" x="2673.913043478261" y="53.571428571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--Date Picker View Controller-->
         <scene sceneID="pS1-O1-Oxg">
             <objects>
-                <viewController id="gh0-6T-QLB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DatePickerViewController" id="gh0-6T-QLB" customClass="DatePickerViewController" customModule="MyPlant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P61-a8-4ks">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -268,6 +265,9 @@
                             <constraint firstItem="W20-B5-pJB" firstAttribute="leading" secondItem="lJ2-tq-Lzd" secondAttribute="leading" id="glg-LS-WtH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="W20-B5-pJB" id="chc-ER-RuU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SeD-hw-l4d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -297,9 +297,6 @@
         <image name="logo" width="116" height="23"/>
         <image name="plus" width="33" height="33"/>
         <image name="plus_white" width="57" height="57"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
