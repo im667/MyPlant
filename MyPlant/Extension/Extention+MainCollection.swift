@@ -11,7 +11,7 @@ import UIKit
 
 extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
+        4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -29,7 +29,15 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "Content", bundle: nil)
+        
+      
+        guard let vc = sb.instantiateViewController(withIdentifier: "ContentViewController") as? ContentViewController else { return }
+        
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     
 }

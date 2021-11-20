@@ -23,6 +23,8 @@
 		040D455E27474F280047E88E /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 040D455D27474F280047E88E /* Realm */; };
 		040D456027474F280047E88E /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 040D455F27474F280047E88E /* RealmSwift */; };
 		040D4562274788860047E88E /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D4561274788860047E88E /* DatePickerViewController.swift */; };
+		040D45662748E7320047E88E /* Extension+ContentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D45652748E7320047E88E /* Extension+ContentTableView.swift */; };
+		040D45682748E7970047E88E /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D45672748E7970047E88E /* ContentTableViewCell.swift */; };
 		0470B8792743979800CC1DF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0470B8782743979800CC1DF7 /* AppDelegate.swift */; };
 		0470B87B2743979800CC1DF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0470B87A2743979800CC1DF7 /* SceneDelegate.swift */; };
 		0470B87D2743979800CC1DF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0470B87C2743979800CC1DF7 /* ViewController.swift */; };
@@ -55,6 +57,8 @@
 		040D45532746AA680047E88E /* Extension+Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Modal.swift"; sourceTree = "<group>"; };
 		040D45552746AB190047E88E /* RealmQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmQuery.swift; sourceTree = "<group>"; };
 		040D4561274788860047E88E /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		040D45652748E7320047E88E /* Extension+ContentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ContentTableView.swift"; sourceTree = "<group>"; };
+		040D45672748E7970047E88E /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
 		0470B8752743979800CC1DF7 /* MyPlant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0470B8782743979800CC1DF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0470B87A2743979800CC1DF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				040D451B2746688A0047E88E /* Extention+MainCollection.swift */,
+				040D45652748E7320047E88E /* Extension+ContentTableView.swift */,
 				040D451D27466B1D0047E88E /* Extension+UIfont.swift */,
 				040D45532746AA680047E88E /* Extension+Modal.swift */,
 			);
@@ -152,6 +157,7 @@
 				04E7D47C2746427000050B83 /* TabBar.storyboard */,
 				0470B87E2743979800CC1DF7 /* Main.storyboard */,
 				0470B88C27463E0D00CC1DF7 /* Content.storyboard */,
+				040D45672748E7970047E88E /* ContentTableViewCell.swift */,
 				0470B88E27463E4200CC1DF7 /* PlantBook.storyboard */,
 				0470B89027463E4B00CC1DF7 /* Setting.storyboard */,
 				0470B8812743979B00CC1DF7 /* Assets.xcassets */,
@@ -267,9 +273,11 @@
 			files = (
 				040D451E27466B1D0047E88E /* Extension+UIfont.swift in Sources */,
 				04E7D4762746409300050B83 /* SettingViewController.swift in Sources */,
+				040D45662748E7320047E88E /* Extension+ContentTableView.swift in Sources */,
 				040D45562746AB190047E88E /* RealmQuery.swift in Sources */,
 				04E7D478274640A000050B83 /* PlantBookViewController.swift in Sources */,
 				040D453B274683E90047E88E /* RealmModel.swift in Sources */,
+				040D45682748E7970047E88E /* ContentTableViewCell.swift in Sources */,
 				040D45542746AA680047E88E /* Extension+Modal.swift in Sources */,
 				040D453D27468C840047E88E /* ModalViewController.swift in Sources */,
 				0470B87D2743979800CC1DF7 /* ViewController.swift in Sources */,

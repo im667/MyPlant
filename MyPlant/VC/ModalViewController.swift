@@ -187,8 +187,15 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         
         toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
         toolBar.barStyle = .default
-            toolBar.items = [UIBarButtonItem.init(title: "저장", style: .done, target: self, action: #selector(onDoneButtonTapped))]
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done = UIBarButtonItem.init(title: "저장", style: .done, target: self, action: #selector(onDoneButtonTapped))
+//            toolBar.items =
+        
+        toolBar.setItems([flexSpace, done], animated: true)
             self.view.addSubview(toolBar)
+        
+        
     }
     
     @objc func onDoneButtonTapped() {
@@ -196,7 +203,10 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         picker.removeFromSuperview()
     }
     
-    
+    @objc func onCancelButtonTapped() {
+        toolBar.removeFromSuperview()
+        picker.removeFromSuperview()
+    }
     
     
     @IBAction func DateButton(_ sender: UIButton) {

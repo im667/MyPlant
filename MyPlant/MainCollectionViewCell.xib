@@ -24,16 +24,19 @@
                         </constraints>
                     </imageView>
                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Nd4-O1-ils">
-                        <rect key="frame" x="8" y="152" width="140" height="4"/>
+                        <rect key="frame" x="8" y="152" width="140" height="8"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="8" id="n74-xT-VgQ"/>
+                        </constraints>
                     </progressView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NickName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d92-D9-30U">
-                        <rect key="frame" x="8" y="164" width="140" height="21"/>
+                        <rect key="frame" x="8" y="168" width="140" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12p-cU-nuU">
-                        <rect key="frame" x="8" y="189" width="140" height="21"/>
+                        <rect key="frame" x="8" y="193" width="140" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -46,16 +49,16 @@
                 <constraint firstItem="LPA-gZ-C3w" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="2Gp-8B-Bo7"/>
                 <constraint firstItem="Nd4-O1-ils" firstAttribute="top" secondItem="LPA-gZ-C3w" secondAttribute="bottom" constant="4" id="EMY-1m-8Qi"/>
                 <constraint firstItem="12p-cU-nuU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Ewy-my-VOF"/>
-                <constraint firstAttribute="bottom" secondItem="12p-cU-nuU" secondAttribute="bottom" constant="8" id="Idc-5e-96d"/>
+                <constraint firstItem="12p-cU-nuU" firstAttribute="top" secondItem="d92-D9-30U" secondAttribute="bottom" constant="4" id="JjM-mK-Kkj"/>
                 <constraint firstAttribute="trailing" secondItem="LPA-gZ-C3w" secondAttribute="trailing" constant="8" id="S8X-Wf-brH"/>
                 <constraint firstAttribute="trailing" secondItem="12p-cU-nuU" secondAttribute="trailing" constant="8" id="TKn-4d-QQq"/>
-                <constraint firstItem="d92-D9-30U" firstAttribute="top" secondItem="Nd4-O1-ils" secondAttribute="bottom" constant="8" symbolic="YES" id="ZLa-PR-R9C"/>
+                <constraint firstItem="d92-D9-30U" firstAttribute="top" secondItem="Nd4-O1-ils" secondAttribute="bottom" constant="8" id="Xrq-Zg-X6x"/>
                 <constraint firstAttribute="trailing" secondItem="Nd4-O1-ils" secondAttribute="trailing" constant="8" id="aJX-c0-dwN"/>
                 <constraint firstItem="Nd4-O1-ils" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="bNP-sH-I1E"/>
-                <constraint firstItem="12p-cU-nuU" firstAttribute="top" secondItem="d92-D9-30U" secondAttribute="bottom" constant="4" id="bbX-fw-LCX"/>
                 <constraint firstItem="d92-D9-30U" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="hOQ-Ic-NJh"/>
                 <constraint firstItem="LPA-gZ-C3w" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="iiq-RL-Frm"/>
                 <constraint firstAttribute="trailing" secondItem="d92-D9-30U" secondAttribute="trailing" constant="8" id="rbe-Pf-SEp"/>
+                <constraint firstAttribute="bottom" secondItem="12p-cU-nuU" secondAttribute="bottom" constant="4" id="xsx-Wi-kEf"/>
                 <constraint firstItem="LPA-gZ-C3w" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="zII-7h-de0"/>
             </constraints>
             <size key="customSize" width="156" height="218"/>

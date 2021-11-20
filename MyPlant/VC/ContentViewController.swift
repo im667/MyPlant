@@ -9,21 +9,26 @@ import UIKit
 
 class ContentViewController: UIViewController {
 
+    @IBOutlet weak var feedTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let backBtn = UIButton(type: .custom)
+        backBtn.setImage(UIImage(named: "backBtn.png"), for: .normal)
+        backBtn.addTarget(self, action: #selector(isClickedBackBtn), for: .touchUpInside)
+        let backBarBtn = UIBarButtonItem(customView: backBtn)
+        
+        self.navigationItem.leftBarButtonItem = backBarBtn
+     
+        feedTableView.delegate = self
+        feedTableView.dataSource = self
+        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func isClickedBackBtn() {
+        navigationController?.popViewController(animated: true)
     }
-    */
 
 }

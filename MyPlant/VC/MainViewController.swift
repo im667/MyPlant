@@ -34,6 +34,12 @@ class MainViewController: UIViewController {
         self.titleLabel.font = UIFont().title
         
         
+//        let backBtn = UIButton(type: .custom)
+//        backBtn.setImage(UIImage(named: "backBtn.png"), for: .normal)
+//        backBtn.addTarget(self, action: #selector(isClickedBackBtn), for: .touchUpInside)
+//        let backBarBtn = UIBarButtonItem(customView: backBtn)
+//
+//        self.navigationItem.leftBarButtonItem = backBarBtn
        
         
         //flow 레이아웃
@@ -60,8 +66,24 @@ class MainViewController: UIViewController {
         UISearchBar.appearance().searchTextPositionAdjustment=UIOffset(horizontal: 10,vertical: 0)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+    }
     
- 
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+        
+    }
+
+    
+//    @objc func isClickedBackBtn() {
+//        navigationController?.popViewController(animated: true)
+//    }
+
 
  
     @IBAction func plusButton(_ sender: Any) {
