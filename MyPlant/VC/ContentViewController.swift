@@ -11,6 +11,10 @@ class ContentViewController: UIViewController {
 
     @IBOutlet weak var feedTableView: UITableView!
     
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+    
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,10 +24,14 @@ class ContentViewController: UIViewController {
         let backBarBtn = UIBarButtonItem(customView: backBtn)
         
         self.navigationItem.leftBarButtonItem = backBarBtn
-     
+      
         feedTableView.delegate = self
         feedTableView.dataSource = self
-        
+        feedTableView.estimatedRowHeight = 168
+        feedTableView.rowHeight = UITableView.automaticDimension
+        DispatchQueue.main.async {
+                    self.tableViewHeight.constant = self.feedTableView.contentSize.height
+                }
     }
     
 

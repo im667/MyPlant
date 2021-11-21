@@ -211,19 +211,12 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     
     @IBAction func DateButton(_ sender: UIButton) {
         let alert = UIAlertController(title: "키우기 시작한 날짜", message: "날짜를 선택해주세요!", preferredStyle: .alert)
-        //얼럿 커스터마이징
-        //1.얼럿안에 안에 들어와서 그른가,,,
-        //2,,스토리보드 인식이 안되나 DatePickerViewController()
-        //3.스토리보드 씬 + 클래스 -> 화면 전환 코드
-        
-//        let contentView = DatePickerViewController()
-        
+   
         guard let contentView = self.storyboard?.instantiateViewController(withIdentifier: "DatePickerViewController")as? DatePickerViewController else {
             print("DatePickerViewController error")
             return
         }
         contentView.view.backgroundColor = .white
-//        contentView.preferredContentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height) //녹색괴물이 나온다~
         contentView.preferredContentSize.height = 200
         alert.setValue(contentView, forKey: "contentViewController")
         
@@ -235,7 +228,6 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
             format.dateFormat = "yyyy년 MM월 dd일"
             let value = format.string(from: contentView.datePicker.date)
             
-            //확인 버튼을 눌렀을 때 버튼의 타이틀 변경
             self.dateButton.setTitle(value, for: .normal)
         }
         

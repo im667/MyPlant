@@ -11,6 +11,9 @@ class ContentTableViewCell: UITableViewCell {
 
     static let identifier = "ContentTableViewCell"
     
+    
+    @IBOutlet var colorView: UIView!
+    
     @IBOutlet weak var feedImageView: UIImageView!
     
     @IBOutlet weak var feedTitleLabel: UILabel!

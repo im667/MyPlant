@@ -10,7 +10,7 @@ import UIKit
 
 extension ContentViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
+        30
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -19,12 +19,15 @@ extension ContentViewController: UITableViewDelegate,UITableViewDataSource {
         
         cell.feedTitleLabel.text = "isTitle"
         cell.feedContentLabel.text = "isContent"
-        
+        cell.colorView.clipsToBounds = true
+        cell.colorView.layer.cornerRadius = 10
         
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 168
+    }
     
     
 }
