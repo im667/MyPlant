@@ -11,7 +11,10 @@ import UIKit
 
 extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        tasks.count < 1 ? 1 : tasks.count
+        if !tasks.isEmpty {
+            return tasks.count
+        }
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -21,7 +24,7 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.identifier, for: indexPath) as? MainCollectionViewCell else {
             return UICollectionViewCell()
         }
-        let row = tasks[indexPath.row]
+      
         
         if tasks.count < 1 {
         
@@ -37,12 +40,16 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             cell.nickNameLabel.textColor = .lightGray
             cell.progressBar.progress = 0
             cell.progressBar.trackTintColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
+            
+            cell.dateLabel.isHidden = true
            
         } else {
            
+            let row = tasks[indexPath.row]
+            
             cell.mainImageView!.backgroundColor = UIColor(red: 238/255, green: 248/255, blue: 239/255, alpha: 1)
-//            cell.mainImageView!.image = row.profileImg
-            cell.mainImageView.contentMode = .center
+            cell.mainImageView!.image = loadImageFromDocuments(imageName: "\(row._id).jpg")
+            cell.mainImageView.contentMode = .scaleAspectFit
             
             cell.mainImageView.clipsToBounds = true
             cell.mainImageView.layer.cornerRadius = 5
@@ -54,7 +61,17 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             cell.progressBar.progressTintColor = UIColor(red: 132/255, green: 222/255, blue: 226/255, alpha: 1)
             cell.progressBar.trackTintColor = UIColor(red: 240/255, green: 237/255, blue: 237/255, alpha: 1)
            
-            cell.dateLabel.text = "\(row.startDate)"
+            let format = DateFormatter()
+            format.locale = Locale(identifier: "ko_KR")
+            format.dateFormat = "yyyy.MM.dd"
+            
+            let startDate = format.date(from:format.string(from: row.startDate))!
+            let endDate = format.date(from:format.string(from: Date()))!
+            let interval = endDate.timeIntervalSince(startDate)
+            let days = Int(interval / 86400)
+            print("\(days)일만큼 차이납니다.")
+            
+            cell.dateLabel.text = days == 0 ? "🌱반가워요" : "🪴 \(days)일 +"
             cell.dateLabel.font = UIFont().pBold
             cell.dateLabel.textColor = .systemGray
         }
@@ -64,7 +81,7 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        let row = tasks[indexPath.row]
         
-//        if   {
+        if  !tasks.isEmpty  {
         
         let sb = UIStoryboard(name: "Content", bundle: nil)
         
@@ -74,17 +91,17 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         
         self.navigationController?.pushViewController(vc, animated: true)
             
-//        } else {
-//
-//            let sb = UIStoryboard(name: "Main", bundle: nil)
-//            let vc = sb.instantiateViewController(withIdentifier: ModalViewController.identifier) as! ModalViewController
-//            let nav = UINavigationController(rootViewController: vc)
-//
-//            nav.modalPresentationStyle = .automatic
-//
-//            present(nav, animated: true, completion: nil)
-//
-//        }
+        } else {
+
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: ModalViewController.identifier) as! ModalViewController
+            let nav = UINavigationController(rootViewController: vc)
+
+            nav.modalPresentationStyle = .automatic
+
+            present(nav, animated: true, completion: nil)
+
+        }
         
     }
     

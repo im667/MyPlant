@@ -7,10 +7,15 @@
 
 import UIKit
 import MobileCoreServices
+import RealmSwift
+
+let DidDismissModalViewController: Notification.Name = Notification.Name("DidDismissModalViewController")
+
 
 class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     static let identifier = "ModalViewController"
+    let localRealm = try! Realm()
     
     var days:[Int] = [1,2,3,4,5,6,7,10,14,21,30,60,90]
     var picker = UIPickerView()
@@ -58,6 +63,8 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         nickName.layer.borderWidth = 1
         nickName.layer.borderColor = UIColor.white.cgColor
      
+        
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
 
@@ -146,10 +153,50 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     }
     
     
+    
+    
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
+        
     }
     
+    
+    func saveImageToDocumentDirectory(imageName:String, image:UIImage) {
+        //이미지 저장 경로 설정: 도큐먼트 폴더(위치:.documentDirectory)
+        //1. Desktop/user/mac~~~~~/folder/222.png
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        
+        //2.이미지 파일 이름
+        let imageURL = documentDirectory.appendingPathComponent(imageName)
+        
+        //3.이미지 압축 (image.pngDage())
+        guard let data = image.pngData() else { return }
+                
+        
+        
+        //4.이미지 저장: 동일한 경로에 이미지를 저장하게 될 경우, 덮어쓰기
+        //4-1. 이미지 경로 여부 확인
+        
+        if FileManager.default.fileExists(atPath: imageURL.path){
+            
+            //4-2.기존경로에 있는 이미지 삭제
+            do{
+                try FileManager.default.removeItem(at: imageURL)
+                print("이미지 삭제완료")
+            } catch {
+                print("이미지를 삭제하지 못했습니다.")
+            }
+            
+        }
+        
+        //5. 이미지를 도큐먼트에 저장
+        do{
+            try data.write(to: imageURL)
+        } catch {
+            print("이미지 저장 못함")
+        }
+    }
     
     
     @objc func keyboardWillShow(_ sender: Notification) {
@@ -173,10 +220,45 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     
     @objc func isClickedBackBtn (){
         navigationController?.dismiss(animated: true, completion: nil)
+        NotificationCenter.default.post(name: DidDismissModalViewController, object: nil, userInfo: nil)
     }
     
     
     @objc func isClickedSaveBtn() {
+        
+        
+        
+        if let waterDayString = daysButton.currentTitle {
+            
+            
+            
+            if let waterDay = Int(waterDayString) {
+                
+                print(waterDay)
+                let format = DateFormatter()
+                format.dateFormat = "yyyy년 MM월 dd일"
+                
+                guard let date =  dateButton.currentTitle, let value = format.date(from: date) else {return}
+                
+               
+                let task = plant(nickName: nickName.text!, waterDay: waterDay, startDate: value, regDate: Date())
+                
+                if let image = plantImageView.image {
+                    try! localRealm.write {
+                        localRealm.add(task)
+                        saveImageToDocumentDirectory(imageName: "\(task._id).jpg", image: image)
+                    }
+                } else {
+                    try! localRealm.write{
+                        localRealm.add(task)
+                        saveImageToDocumentDirectory(imageName: "\(task._id).jpg", image: UIImage(named: "basicImg")!)
+                    }
+                }
+             
+            }
+        }
+          print("Realm is located at:", localRealm.configuration.fileURL!)
+        NotificationCenter.default.post(name: DidDismissModalViewController, object: nil, userInfo: nil)
         navigationController?.dismiss(animated: true, completion: nil)
     }
    
@@ -196,7 +278,7 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let done = UIBarButtonItem.init(title: "저장", style: .done, target: self, action: #selector(onDoneButtonTapped))
-//            toolBar.items =
+
         
         toolBar.setItems([flexSpace, done], animated: true)
             self.view.addSubview(toolBar)

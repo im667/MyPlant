@@ -26,7 +26,7 @@ extension ModalViewController:UIPickerViewDelegate,UIPickerViewDataSource,UIText
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        self.daysButton.setTitle("\(days[row])  ", for: .normal)
+        self.daysButton.setTitle("\(days[row])", for: .normal)
         
     }
     

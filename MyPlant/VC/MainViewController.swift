@@ -46,12 +46,8 @@ class MainViewController: UIViewController {
         
         titleLabel.attributedText = attributedStr
         
-//        let backBtn = UIButton(type: .custom)
-//        backBtn.setImage(UIImage(named: "backBtn.png"), for: .normal)
-//        backBtn.addTarget(self, action: #selector(isClickedBackBtn), for: .touchUpInside)
-//        let backBarBtn = UIBarButtonItem(customView: backBtn)
-//
-//        self.navigationItem.leftBarButtonItem = backBarBtn
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didDismissModalNotification(_:)), name: DidDismissModalViewController, object: nil)
+        
        
         
         //flow 레이아웃
@@ -75,15 +71,20 @@ class MainViewController: UIViewController {
         
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).leftView = nil
         
-        UISearchBar.appearance().searchTextPositionAdjustment=UIOffset(horizontal: 10,vertical: 0)
+        UISearchBar.appearance().searchTextPositionAdjustment = UIOffset(horizontal: 10,vertical: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tasks = localRealm.objects(plant.self).sorted(byKeyPath: "regDate", ascending: false)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        print(#function)
         collectionView.reloadData()
-        titleLabel.text = tasks.count == 0 ? "식물을 추가해주세요." : "내 식물 \(tasks.count)"
         
+        let attributedStr = NSMutableAttributedString(string: titleLabel.text!)
+        attributedStr.addAttribute(.foregroundColor, value: UIColor.systemGray, range:(titleLabel.text! as NSString).range(of: "내 식물"))
+        titleLabel.text = tasks.count == 0 ? "식물을 추가해주세요." : "내 식물 \(tasks.count)"
+        titleLabel.attributedText = attributedStr
     }
     
     
@@ -93,10 +94,53 @@ class MainViewController: UIViewController {
         
     }
 
+    @objc func didDismissModalNotification(_ noti: Notification) {
+ 
+
+            OperationQueue.main.addOperation { // DispatchQueue도 가능.
+                self.collectionView.reloadData()
+            }
+
+        }
     
-//    @objc func isClickedBackBtn() {
-//        navigationController?.popViewController(animated: true)
-//    }
+    func loadImageFromDocuments(imageName:String) -> UIImage? {
+        let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+        let path = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true)
+        
+        if let directoryPath = path.first {
+            let imageURL = URL(fileURLWithPath: directoryPath).appendingPathComponent(imageName)
+            return UIImage(contentsOfFile: imageURL.path)
+        }
+        
+        return nil
+    }
+
+    func deleteImageFromDocuments( imageName:String ){
+        //1. Desktop/user/mac~~~~~/folder/222.png
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        
+        //2.이미지 파일 이름
+        let imageURL = documentDirectory.appendingPathComponent(imageName)
+        
+        //3.이미지 압축 (image.pngDage())
+//        guard let data = image.pngData() else { return }
+                
+        
+        //4.이미지 저장: 동일한 경로에 이미지를 저장하게 될 경우, 덮어쓰기
+        //4-1. 이미지 경로 여부 확인
+        
+        if FileManager.default.fileExists(atPath: imageURL.path){
+            
+            //4-2.기존경로에 있는 이미지 삭제
+            do{
+                try FileManager.default.removeItem(at: imageURL)
+                print("이미지 삭제완료")
+            } catch {
+                print("이미지를 삭제하지 못했습니다.")
+            }
+        }
+    }
 
 
  
@@ -109,6 +153,7 @@ class MainViewController: UIViewController {
         nav.modalPresentationStyle = .automatic
         
         present(nav, animated: true, completion: nil)
+        
     }
     
 }

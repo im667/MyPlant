@@ -13,7 +13,6 @@ import RealmSwift
 //@Persisted 컬럼
 class plant: Object {
     @Persisted var nickName: String = "" // 제목: 필수
-    @Persisted var profileImg: String? = "" // 사진: 옵션 없으면 기본이미지 제공
     @Persisted var waterDay: Int // 물주기 : 필수
     @Persisted var startDate = Date() //키우기시작한 날짜: 필수
     @Persisted var regDate = Date() //등록 날짜 : 필수(필터용)
@@ -21,10 +20,10 @@ class plant: Object {
    //PK(필수) ObjectID 사용
     @Persisted(primaryKey: true) var _id: ObjectId
    
-    convenience init(profileImg:String?, nickName:String, waterDay:Int, startDate:Date, regDate:Date){
+    convenience init(nickName:String, waterDay:Int, startDate:Date, regDate:Date){
         self.init()
         
-        self.profileImg = profileImg ?? nil
+        
         self.nickName = nickName
         self.waterDay = waterDay
         self.startDate = startDate
