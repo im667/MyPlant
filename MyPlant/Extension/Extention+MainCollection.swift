@@ -48,7 +48,7 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             let row = tasks[indexPath.row]
             
             cell.mainImageView!.backgroundColor = UIColor(red: 238/255, green: 248/255, blue: 239/255, alpha: 1)
-            cell.mainImageView!.image = loadImageFromDocuments(imageName: "\(row._id).jpg")
+            cell.mainImageView!.image = profileImage == false ? UIImage(named: "basicImg") : loadImageFromDocuments(imageName: "\(row._id).jpg")
             cell.mainImageView.contentMode = .scaleAspectFit
             
             cell.mainImageView.clipsToBounds = true

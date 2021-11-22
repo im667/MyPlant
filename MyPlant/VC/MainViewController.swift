@@ -16,7 +16,7 @@ class MainViewController: UIViewController {
     
     var tasks: Results<plant>!
     let localRealm = try! Realm()
-    
+    var profileImage = false
     
 
     @IBOutlet weak var searchBar: UISearchBar!

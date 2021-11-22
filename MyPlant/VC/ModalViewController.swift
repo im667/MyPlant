@@ -46,7 +46,7 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         backBtn.setImage(UIImage(named: "backBtn.png"), for: .normal)
         backBtn.addTarget(self, action: #selector(isClickedBackBtn), for: .touchUpInside)
         let backBarBtn = UIBarButtonItem(customView: backBtn)
-        
+        imagePickerVC.delegate = self
         
         self.navigationController?.navigationBar.tintColor = UIColor(red: 128/255, green: 166/255, blue: 34/255, alpha: 1)
         
@@ -117,6 +117,7 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
             if(UIImagePickerController.isSourceTypeAvailable(.photoLibrary)){
                 self.imagePickerVC.delegate = self
                 self.imagePickerVC.sourceType = .photoLibrary
+                self.present(self.imagePickerVC, animated: true, completion: nil)
                 self.imagePickerVC.mediaTypes = [kUTTypeImage as String]
                 //잘라내기 편집 기능 지원
                 self.imagePickerVC.allowsEditing = true
@@ -243,20 +244,15 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
                
                 let task = plant(nickName: nickName.text!, waterDay: waterDay, startDate: value, regDate: Date())
                 
-                if let image = plantImageView.image {
-                    try! localRealm.write {
-                        localRealm.add(task)
-                        saveImageToDocumentDirectory(imageName: "\(task._id).jpg", image: image)
-                    }
-                } else {
-                    try! localRealm.write{
-                        localRealm.add(task)
-                        saveImageToDocumentDirectory(imageName: "\(task._id).jpg", image: UIImage(named: "basicImg")!)
-                    }
+                try! localRealm.write {
+                    localRealm.add(task)
+                    saveImageToDocumentDirectory(imageName: "\(task._id).jpg", image: plantImageView.image!)
+                    
                 }
              
             }
         }
+
           print("Realm is located at:", localRealm.configuration.fileURL!)
         NotificationCenter.default.post(name: DidDismissModalViewController, object: nil, userInfo: nil)
         navigationController?.dismiss(animated: true, completion: nil)
