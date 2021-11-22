@@ -87,6 +87,14 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
       
     }
     
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+         self.view.endEditing(true)
+   }
+    
+    
+    
     @objc func imageTapped(_ sender: AnyObject) {
         
         let alert = UIAlertController(title: "사진추가", message: "사진을 선택해주세요", preferredStyle: .actionSheet)
@@ -137,7 +145,7 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         }
     }
     
-    //취소버튼 클릭시
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -161,9 +169,7 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
 
     
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-         self.view.endEditing(true)
-   }
+  
     
     @objc func isClickedBackBtn (){
         navigationController?.dismiss(animated: true, completion: nil)

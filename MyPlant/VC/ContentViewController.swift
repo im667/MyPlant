@@ -39,4 +39,19 @@ class ContentViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
+    
+    
+    @IBAction func isClickedAddFeedBtn(_ sender: UIButton) {
+        
+        let sb = UIStoryboard(name: "Content", bundle: nil)
+        
+      
+        guard let vc = sb.instantiateViewController(withIdentifier: "ContentModalViewController") as? ContentModalViewController else { return }
+        let nav = UINavigationController(rootViewController: vc)
+        
+        nav.modalPresentationStyle = .automatic
+        
+        present(nav, animated: true, completion: nil)
+    }
+    
 }

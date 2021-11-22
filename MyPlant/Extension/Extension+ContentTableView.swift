@@ -29,5 +29,17 @@ extension ContentViewController: UITableViewDelegate,UITableViewDataSource {
         return 168
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "Content", bundle: nil)
+        
+      
+        guard let vc = sb.instantiateViewController(withIdentifier: "ContentModalViewController") as? ContentModalViewController else { return }
+        
+        
+        let nav = UINavigationController(rootViewController: vc)
+        
+        nav.modalPresentationStyle = .automatic
+        
+        present(nav, animated: true, completion: nil)
+    }
 }

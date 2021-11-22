@@ -17,6 +17,7 @@ class plant: Object {
     @Persisted var waterDay: Int // 물주기 : 필수
     @Persisted var startDate = Date() //키우기시작한 날짜: 필수
     @Persisted var regDate = Date() //등록 날짜 : 필수(필터용)
+    
    //PK(필수) ObjectID 사용
     @Persisted(primaryKey: true) var _id: ObjectId
    
@@ -28,6 +29,7 @@ class plant: Object {
         self.waterDay = waterDay
         self.startDate = startDate
         self.regDate = regDate
+    
     }
 }
 

@@ -10,7 +10,7 @@ import UIKit
 
 extension UIFont {
     var title: UIFont {
-        return UIFont(name: "SpoqaHanSansNeo-Bold", size: 25)!
+        return UIFont(name: "SpoqaHanSansNeo-Bold", size: 22)!
     }
     
     var subTitle: UIFont{
