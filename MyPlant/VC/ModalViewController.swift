@@ -110,6 +110,7 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
             in
             self.imagePickerVC.sourceType = .camera
             self.present(self.imagePickerVC, animated: true, completion: nil)
+             ㅠ88
            
         }
         let albumImage = UIAlertAction(title: "앨범에서 찾기", style: .default){ action
@@ -232,7 +233,6 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         if let waterDayString = daysButton.currentTitle {
             
             
-            
             if let waterDay = Int(waterDayString) {
                 
                 print(waterDay)
@@ -245,6 +245,7 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
                 let task = plant(nickName: nickName.text!, waterDay: waterDay, startDate: value, regDate: Date())
                 
                 try! localRealm.write {
+                    
                     localRealm.add(task)
                     saveImageToDocumentDirectory(imageName: "\(task._id).jpg", image: plantImageView.image!)
                     
