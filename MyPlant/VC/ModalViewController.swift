@@ -8,6 +8,7 @@
 import UIKit
 import MobileCoreServices
 import RealmSwift
+import SwiftUI
 
 let DidDismissModalViewController: Notification.Name = Notification.Name("DidDismissModalViewController")
 
@@ -23,7 +24,9 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     let imagePickerVC: UIImagePickerController! = UIImagePickerController()
     //선택된 이미지 데이터
     var captureImage: UIImage!
-   
+    var imageSelect = false
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var modalTitleLabel: UILabel!
     
@@ -42,6 +45,8 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         let backBtn = UIButton(type: .custom)
         backBtn.setImage(UIImage(named: "backBtn.png"), for: .normal)
         backBtn.addTarget(self, action: #selector(isClickedBackBtn), for: .touchUpInside)
@@ -55,6 +60,10 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         self.navigationItem.leftBarButtonItem = backBarBtn
         self.navigationItem.rightBarButtonItem = saveBarButtonItem
         
+        addKeyboardObserver()
+        scrollView.keyboardDismissMode = .onDrag
+    
+        
         nickName.delegate = self
         nickName.placeholder = "식물 이름을 입력해주세요."
         nickName.textColor = UIColor.darkGray
@@ -63,18 +72,17 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         nickName.layer.borderWidth = 1
         nickName.layer.borderColor = UIColor.white.cgColor
      
-        
-        
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        plantImageView.contentMode = .scaleAspectFill
+        
+
         daysButton.setTitle("선택", for: .normal)
         daysButton.backgroundColor = .systemGray5
         daysButton.clipsToBounds = true
         daysButton.layer.cornerRadius = 5
         daysButton.tintColor = .systemGray2
+        
         
         dateButton.setTitle("날짜 선택", for: .normal)
         dateButton.backgroundColor = .systemGray5
@@ -94,12 +102,51 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
       
     }
     
+   
+    
+    private func addKeyboardObserver() {
+            // Register Keyboard notifications
+            NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(keyboardWillShow),
+                name: UIResponder.keyboardWillShowNotification,
+                object: nil)
+            NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(keyboardWillHide),
+                name: UIResponder.keyboardWillHideNotification,
+                object: nil)
+        }
     
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-         self.view.endEditing(true)
-   }
-    
+    @objc func keyboardWillShow(_ notification: Notification) {
+
+        guard let userInfo = notification.userInfo,
+                let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+                    return
+            }
+            
+        scrollView.contentInset.bottom = keyboardFrame.size.height
+            
+            let firstResponder = UIResponder.currentFirstResponder
+            
+            if let textView = firstResponder as? UITextView {
+                scrollView.scrollRectToVisible(textView.frame, animated: true)
+            }
+
+        }
+
+
+
+     @objc func keyboardWillHide(_ sender: Notification) {
+
+         let contentInset = UIEdgeInsets.zero
+             scrollView.contentInset = contentInset
+             scrollView.scrollIndicatorInsets = contentInset // Move view to original position
+
+        }
+
+
     
     
     @objc func imageTapped(_ sender: AnyObject) {
@@ -108,21 +155,21 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
        
         let openCamera = UIAlertAction(title: "사진 촬영", style: .default){ action
             in
+            self.imagePickerVC.allowsEditing = true
             self.imagePickerVC.sourceType = .camera
             self.present(self.imagePickerVC, animated: true, completion: nil)
-             ㅠ88
+            
            
         }
         let albumImage = UIAlertAction(title: "앨범에서 찾기", style: .default){ action
             in
             if(UIImagePickerController.isSourceTypeAvailable(.photoLibrary)){
+                self.imagePickerVC.allowsEditing = true
                 self.imagePickerVC.delegate = self
                 self.imagePickerVC.sourceType = .photoLibrary
                 self.present(self.imagePickerVC, animated: true, completion: nil)
                 self.imagePickerVC.mediaTypes = [kUTTypeImage as String]
-                //잘라내기 편집 기능 지원
-                self.imagePickerVC.allowsEditing = true
-                
+           
             } else {
                 print("포토앨범에 접근할 수 없습니다")
             }
@@ -140,12 +187,14 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let mediaType = info[UIImagePickerController.InfoKey.mediaType] as! String
+        imageSelect = true
         
         if mediaType.isEqual(kUTTypeImage as NSString as String){
             if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as?
                 UIImage {
                 plantImageView.image = editedImage
                 captureImage = editedImage
+                
             } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
                 plantImageView.image = originalImage
                 captureImage = originalImage
@@ -167,6 +216,10 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     func saveImageToDocumentDirectory(imageName:String, image:UIImage) {
         //이미지 저장 경로 설정: 도큐먼트 폴더(위치:.documentDirectory)
         //1. Desktop/user/mac~~~~~/folder/222.png
+        
+        if imageSelect {
+            
+        
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
         
         //2.이미지 파일 이름
@@ -198,24 +251,12 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         } catch {
             print("이미지 저장 못함")
         }
+        }
     }
+
     
     
-    @objc func keyboardWillShow(_ sender: Notification) {
-
-            self.view.frame.origin.y = -150 // Move view 150 points upward
-
-        }
-
-
-
-     @objc func keyboardWillHide(_ sender: Notification) {
-
-            self.view.frame.origin.y = 0 // Move view to original position
-
-        }
-
-
+  
     
     
   
@@ -229,9 +270,7 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     @objc func isClickedSaveBtn() {
         
         
-        
         if let waterDayString = daysButton.currentTitle {
-            
             
             if let waterDay = Int(waterDayString) {
                 
@@ -245,7 +284,6 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
                 let task = plant(nickName: nickName.text!, waterDay: waterDay, startDate: value, regDate: Date())
                 
                 try! localRealm.write {
-                    
                     localRealm.add(task)
                     saveImageToDocumentDirectory(imageName: "\(task._id).jpg", image: plantImageView.image!)
                     
@@ -267,23 +305,29 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         picker.setValue(UIColor.darkGray, forKey: "textColor")
         picker.autoresizingMask = .flexibleWidth
         picker.contentMode = .center
+        
         picker.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
         self.view.addSubview(picker)
         
+        
         toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
         toolBar.barStyle = .default
+        toolBar.sizeToFit()
+        toolBar.isTranslucent = true
         
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let done = UIBarButtonItem.init(title: "저장", style: .done, target: self, action: #selector(onDoneButtonTapped))
-
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancel = UIBarButtonItem.init(title: "취소", style: .done, target: self, action: #selector(onCancelButtonTapped))
         
-        toolBar.setItems([flexSpace, done], animated: true)
+        toolBar.setItems([cancel,flexSpace,done], animated: true)
             self.view.addSubview(toolBar)
         
         
     }
     
     @objc func onDoneButtonTapped() {
+        let row = self.picker.selectedRow(inComponent: 0)
+        self.daysButton.setTitle("\(self.days[row])", for: .normal)
         toolBar.removeFromSuperview()
         picker.removeFromSuperview()
     }
@@ -295,6 +339,9 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     
     
     @IBAction func DateButton(_ sender: UIButton) {
+        
+        
+        
         let alert = UIAlertController(title: "키우기 시작한 날짜", message: "날짜를 선택해주세요!", preferredStyle: .alert)
    
         guard let contentView = self.storyboard?.instantiateViewController(withIdentifier: "DatePickerViewController")as? DatePickerViewController else {

@@ -34,16 +34,15 @@ class plant: Object {
 
 class feed: Object {
     @Persisted var feedTitle: String = "" // 제목: 필수
-    @Persisted var feedImg: String? = "" // 사진: 옵션 없으면 기본이미지 제공
     @Persisted var feedContent: String // 내용 : 필수
     @Persisted var regDate = Date() //등록 날짜 :필수
    //PK(필수) ObjectID 사용
     @Persisted(primaryKey: true) var _id: ObjectId
    
-    convenience init(feedImg:String?, feedTitle:String,feedContent:String, regDate:Date){
+    convenience init(feedTitle:String,feedContent:String, regDate:Date){
         self.init()
         
-        self.feedImg = feedImg ?? nil
+
         self.feedTitle = feedTitle
         self.feedContent = feedContent
         self.regDate = regDate

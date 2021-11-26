@@ -37,6 +37,8 @@
 		04C399EF274A2F18006B73A5 /* ContentModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C399EE274A2F18006B73A5 /* ContentModalViewController.swift */; };
 		04C399F1274A2F35006B73A5 /* Extension+contentModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C399F0274A2F35006B73A5 /* Extension+contentModal.swift */; };
 		04C399F3274A5880006B73A5 /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C399F2274A5880006B73A5 /* UIResponder.swift */; };
+		04C399F7274D3B4A006B73A5 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C399F6274D3B4A006B73A5 /* EditViewController.swift */; };
+		04C399F9274E0282006B73A5 /* Extension+Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C399F8274E0282006B73A5 /* Extension+Edit.swift */; };
 		04E7D4742746408B00050B83 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7D4732746408B00050B83 /* MainViewController.swift */; };
 		04E7D4762746409300050B83 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7D4752746409300050B83 /* SettingViewController.swift */; };
 		04E7D478274640A000050B83 /* PlantBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7D477274640A000050B83 /* PlantBookViewController.swift */; };
@@ -76,6 +78,8 @@
 		04C399EE274A2F18006B73A5 /* ContentModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModalViewController.swift; sourceTree = "<group>"; };
 		04C399F0274A2F35006B73A5 /* Extension+contentModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+contentModal.swift"; sourceTree = "<group>"; };
 		04C399F2274A5880006B73A5 /* UIResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
+		04C399F6274D3B4A006B73A5 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		04C399F8274E0282006B73A5 /* Extension+Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Edit.swift"; sourceTree = "<group>"; };
 		04E7D4732746408B00050B83 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		04E7D4752746409300050B83 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		04E7D477274640A000050B83 /* PlantBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantBookViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 				040D451D27466B1D0047E88E /* Extension+UIfont.swift */,
 				040D45532746AA680047E88E /* Extension+Modal.swift */,
 				04C399F0274A2F35006B73A5 /* Extension+contentModal.swift */,
+				04C399F8274E0282006B73A5 /* Extension+Edit.swift */,
 				04C399F2274A5880006B73A5 /* UIResponder.swift */,
 			);
 			path = Extension;
@@ -185,6 +190,7 @@
 				04E7D479274640AB00050B83 /* ContentViewController.swift */,
 				04C399EE274A2F18006B73A5 /* ContentModalViewController.swift */,
 				040D4561274788860047E88E /* DatePickerViewController.swift */,
+				04C399F6274D3B4A006B73A5 /* EditViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -289,6 +295,7 @@
 				040D453B274683E90047E88E /* RealmModel.swift in Sources */,
 				040D45682748E7970047E88E /* ContentTableViewCell.swift in Sources */,
 				04C399F1274A2F35006B73A5 /* Extension+contentModal.swift in Sources */,
+				04C399F9274E0282006B73A5 /* Extension+Edit.swift in Sources */,
 				040D45542746AA680047E88E /* Extension+Modal.swift in Sources */,
 				040D453D27468C840047E88E /* ModalViewController.swift in Sources */,
 				0470B87D2743979800CC1DF7 /* ViewController.swift in Sources */,
@@ -300,6 +307,7 @@
 				040D451C2746688A0047E88E /* Extention+MainCollection.swift in Sources */,
 				04C399EF274A2F18006B73A5 /* ContentModalViewController.swift in Sources */,
 				04E7D47A274640AB00050B83 /* ContentViewController.swift in Sources */,
+				04C399F7274D3B4A006B73A5 /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

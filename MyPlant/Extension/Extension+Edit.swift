@@ -1,15 +1,14 @@
 //
-//  Extension+Modal.swift
+//  Extension+Edit.swift
 //  MyPlant
 //
-//  Created by mac on 2021/11/19.
+//  Created by mac on 2021/11/24.
 //
 
-import Foundation
 import UIKit
 
-extension ModalViewController:UIPickerViewDelegate,UIPickerViewDataSource,UITextViewDelegate, UITextFieldDelegate {
-   
+extension EditViewController:UIPickerViewDelegate,UIPickerViewDataSource,UITextViewDelegate, UITextFieldDelegate {
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
@@ -28,7 +27,7 @@ extension ModalViewController:UIPickerViewDelegate,UIPickerViewDataSource,UIText
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        self.daysButton.setTitle("\(days[row])", for: .normal)
+        self.editWaterDayButton.setTitle("\(days[row])", for: .normal)
         
     }
     

@@ -33,8 +33,7 @@ class MainViewController: UIViewController {
         collectionView.reloadData()
         collectionView.dataSource = self
         collectionView.delegate = self
-        
-        
+        print("Realm:",localRealm.configuration.fileURL!)
         self.titleLabel.text = tasks.count == 0 ? "식물을 추가해주세요." : "내 식물 \(tasks.count)"
         self.titleLabel.font = tasks.count == 0 ? UIFont().subTitle : UIFont().title
         self.titleLabel.textColor = UIColor(red: 128/255, green: 166/255, blue: 34/255, alpha: 1)
@@ -96,11 +95,16 @@ class MainViewController: UIViewController {
 
     @objc func didDismissModalNotification(_ noti: Notification) {
  
-
-            OperationQueue.main.addOperation { // DispatchQueue도 가능.
-                self.collectionView.reloadData()
-            }
-
+        titleLabel.text = tasks.count == 0 ? "식물을 추가해주세요." : "내 식물 \(tasks.count)"
+        let attributedStr = NSMutableAttributedString(string: titleLabel.text!)
+        attributedStr.addAttribute(.foregroundColor, value: UIColor.systemGray, range:(titleLabel.text! as NSString).range(of: "내 식물"))
+      
+        titleLabel.attributedText = attributedStr
+        
+        OperationQueue.main.addOperation { // DispatchQueue도 가능.
+                       self.collectionView.reloadData()
+                   }
+        
         }
     
     func loadImageFromDocuments(imageName:String) -> UIImage? {

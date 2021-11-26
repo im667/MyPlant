@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 
+
 extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if !tasks.isEmpty {
@@ -28,7 +29,7 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         
         if tasks.count < 1 {
         
-            cell.mainImageView!.backgroundColor = UIColor(red: 238/255, green: 248/255, blue: 239/255, alpha: 1)
+          
             cell.mainImageView!.image = UIImage(named: "exPlant.png")
             cell.mainImageView.contentMode = .center
             
@@ -39,17 +40,21 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             cell.nickNameLabel.font = UIFont().subTitle
             cell.nickNameLabel.textColor = .lightGray
             cell.progressBar.progress = 0
-            cell.progressBar.trackTintColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
+           
             
             cell.dateLabel.isHidden = true
            
         } else {
            
+            
+            
             let row = tasks[indexPath.row]
+           
             
             cell.mainImageView!.backgroundColor = UIColor(red: 238/255, green: 248/255, blue: 239/255, alpha: 1)
             cell.mainImageView!.image = loadImageFromDocuments(imageName: "\(row._id).jpg") == nil ? UIImage(named: "basicImg") : loadImageFromDocuments(imageName: "\(row._id).jpg")
-            cell.mainImageView.contentMode = .scaleAspectFit
+            
+            cell.mainImageView.contentMode = .scaleAspectFill
             
             cell.mainImageView.clipsToBounds = true
             cell.mainImageView.layer.cornerRadius = 5
@@ -88,8 +93,13 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
       
         guard let vc = sb.instantiateViewController(withIdentifier: "ContentViewController") as? ContentViewController else { return }
         
-        
+            
         self.navigationController?.pushViewController(vc, animated: true)
+            
+            let row = tasks[indexPath.row]
+              
+            vc.id = row._id
+            
             
         } else {
 
