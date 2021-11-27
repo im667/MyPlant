@@ -45,13 +45,13 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        imagePickerVC.delegate = self
         
         let backBtn = UIButton(type: .custom)
         backBtn.setImage(UIImage(named: "backBtn.png"), for: .normal)
         backBtn.addTarget(self, action: #selector(isClickedBackBtn), for: .touchUpInside)
         let backBarBtn = UIBarButtonItem(customView: backBtn)
-        imagePickerVC.delegate = self
+       
         
         self.navigationController?.navigationBar.tintColor = UIColor(red: 128/255, green: 166/255, blue: 34/255, alpha: 1)
         
@@ -286,7 +286,6 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
                 try! localRealm.write {
                     localRealm.add(task)
                     saveImageToDocumentDirectory(imageName: "\(task._id).jpg", image: plantImageView.image!)
-                    
                 }
              
             }

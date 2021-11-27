@@ -10,14 +10,17 @@ import UIKit
 
 extension ContentViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        30
+        if !feedTask.isEmpty {
+            return feedTask.count
+        }
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ContentTableViewCell.identifier, for: indexPath) as? ContentTableViewCell else {
             return UITableViewCell()  }
         
-        cell.feedTitleLabel.text = "isTitle"
+        cell.feedTitleLabel.text = ""
         cell.feedContentLabel.text = "isContent"
         cell.colorView.clipsToBounds = true
         cell.colorView.layer.cornerRadius = 10

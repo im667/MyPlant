@@ -76,14 +76,16 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tasks = localRealm.objects(plant.self).sorted(byKeyPath: "regDate", ascending: false)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-        print(#function)
         collectionView.reloadData()
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+
+       
         
         let attributedStr = NSMutableAttributedString(string: titleLabel.text!)
         attributedStr.addAttribute(.foregroundColor, value: UIColor.systemGray, range:(titleLabel.text! as NSString).range(of: "내 식물"))
         titleLabel.text = tasks.count == 0 ? "식물을 추가해주세요." : "내 식물 \(tasks.count)"
         titleLabel.attributedText = attributedStr
+        
     }
     
     

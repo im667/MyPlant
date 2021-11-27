@@ -14,6 +14,8 @@ import UserNotifications
 class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
    
     var task: Results<plant>!
+    var feedTask: Results<feed>!
+    
     let localRealm = try! Realm()
     var id : ObjectId?
     let imagePickerVC: UIImagePickerController! = UIImagePickerController()
@@ -52,6 +54,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         let predicate = NSPredicate(format: "_id == %@", id!)
 
         task = localRealm.objects(plant.self).filter(predicate)
+        feedTask = localRealm.objects(feed.self).sorted(byKeyPath: "regDate", ascending: false)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.didDismissEditNotification(_:)), name: DidDismissEditViewController, object: nil)
         
@@ -102,9 +105,6 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         profileImage.isUserInteractionEnabled = true
         profileImage.addGestureRecognizer(tapGestureRecognizer)
      
-      
-
-        
         
     }
     
@@ -320,12 +320,12 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         content.userInfo = ["targetScene": "splash"]
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: String(describing: task!.first?._id), content: content, trigger: trigger)
         
         unc.add(request){ error in
             print("error")
         }
         
     }
-    
+    //물 줘야하는 날짜도 모델
 }

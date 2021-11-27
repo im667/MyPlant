@@ -16,6 +16,7 @@ class plant: Object {
     @Persisted var waterDay: Int // 물주기 : 필수
     @Persisted var startDate = Date() //키우기시작한 날짜: 필수
     @Persisted var regDate = Date() //등록 날짜 : 필수(필터용)
+    @Persisted var feeds = List<feed>
     
    //PK(필수) ObjectID 사용
     @Persisted(primaryKey: true) var _id: ObjectId
@@ -23,12 +24,11 @@ class plant: Object {
     convenience init(nickName:String, waterDay:Int, startDate:Date, regDate:Date){
         self.init()
         
-        
         self.nickName = nickName
         self.waterDay = waterDay
         self.startDate = startDate
         self.regDate = regDate
-    
+        self.feeds.append(objectsIn: feeds)
     }
 }
 
@@ -36,15 +36,17 @@ class feed: Object {
     @Persisted var feedTitle: String = "" // 제목: 필수
     @Persisted var feedContent: String // 내용 : 필수
     @Persisted var regDate = Date() //등록 날짜 :필수
+   
    //PK(필수) ObjectID 사용
     @Persisted(primaryKey: true) var _id: ObjectId
    
-    convenience init(feedTitle:String,feedContent:String, regDate:Date){
+    convenience init(feedTitle:String,feedContent:String,regDate:Date,feeds:[plant]){
         self.init()
-        
-
+    
         self.feedTitle = feedTitle
         self.feedContent = feedContent
         self.regDate = regDate
+     
+
     }
 }
