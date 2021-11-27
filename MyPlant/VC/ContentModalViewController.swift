@@ -238,7 +238,7 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
     
     @objc func isClickedSaveBtn() {
         
-        let task = feed(feedTitle: titleTextField.text!, feedContent: contentTextView.text!, regDate: Date(), feeds: plantList)
+        let task = feed(feedTitle: titleTextField.text!, feedContent: contentTextView.text!, regDate: Date(), feeds:)
         
         try! localRealm.write {
             localRealm.add(task)
