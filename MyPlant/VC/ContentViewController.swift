@@ -29,6 +29,8 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var waterResetButton: UIButton!
+    
     @IBOutlet weak var profileImage: UIImageView!
     
     @IBOutlet weak var nickName: UILabel!
@@ -51,6 +53,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         let predicate = NSPredicate(format: "_id == %@", id!)
 
         task = localRealm.objects(plant.self).filter(predicate)
@@ -97,9 +100,23 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
         waterDayLabel.text = String(task.first!.waterDay) + "일"
         
-        progressBar.progress = 1
+        progressBar.progress = progressDate()
+           
+        
+    
+        
+        
         progressBar.progressTintColor = UIColor(red: 132/255, green: 222/255, blue: 226/255, alpha: 1)
+        
+        if progressDate() > 0 {
+            waterResetButton.layer.isHidden = true
         progressBar.trackTintColor = UIColor(red: 240/255, green: 237/255, blue: 237/255, alpha: 1)
+        } else {
+                progressBar.trackTintColor = UIColor(red: 226/255, green: 132/255, blue: 132/255, alpha: 1)
+            waterResetButton.layer.isHidden = false
+        }
+        
+        
         
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(imageTapped(_:)))
         profileImage.isUserInteractionEnabled = true
@@ -108,10 +125,26 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        progressBar.progress = progressDate()
+           
+        progressBar.progressTintColor = UIColor(red: 132/255, green: 222/255, blue: 226/255, alpha: 1)
+        
+        if progressDate() > 0 {
+            waterResetButton.layer.isHidden = true
+        progressBar.trackTintColor = UIColor(red: 240/255, green: 237/255, blue: 237/255, alpha: 1)
+        } else {
+                progressBar.trackTintColor = UIColor(red: 226/255, green: 132/255, blue: 132/255, alpha: 1)
+            waterResetButton.layer.isHidden = false
+        }
+        
+    }
+    
     @objc func imageTapped(_ sender: AnyObject) {
    
        
-        progressDate()
         let alert = UIAlertController(title: "사진추가", message: "사진을 선택해주세요", preferredStyle: .actionSheet)
        
         let openCamera = UIAlertAction(title: "사진 촬영", style: .default){ action
@@ -244,6 +277,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         }
 
     @objc func isClickedBackBtn() {
+        print(progressDate())
         navigationController?.popViewController(animated: true)
     }
 
@@ -297,10 +331,26 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
     }
     
-    func progressDate() {
+    func progressDate() -> Float {
+        let afterWaterDate = task?.first!.afterWaterDate
+        let regDate = task?.first!.regDate
+        let today = Date()
         
-    
+        let dateGap = Calendar.current.dateComponents([.second], from: today, to: afterWaterDate!)
+        
+        let dateGap2 = Calendar.current.dateComponents([.second], from: regDate!, to: afterWaterDate!)
+
+        
+        if dateGap2.second! > 0 || dateGap.second! > 0 {
+            return (Float(dateGap.second! * 100 / dateGap2.second!) / 100)
+        } else {
+            return  0
+        }
+        
     }
+    
+    
+    
     
     @objc func requestNotificationAuthorization() {
         let options = UNAuthorizationOptions(arrayLiteral: [.badge, .sound, .alert])
@@ -327,5 +377,17 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         }
         
     }
-    //물 줘야하는 날짜도 모델
+    
+    @IBAction func isClickedWaterResetButton(_ sender: UIButton) {
+        
+      
+        guard let afterWaterDay = Calendar.current.date(byAdding: .day, value: task!.first!.waterDay, to: task!.first!.regDate) else { return }
+      
+        try! localRealm.write{
+            task.first?.regDate = Date()
+            task.first?.afterWaterDate = afterWaterDay
+        }
+        
+        
+    }
 }

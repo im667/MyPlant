@@ -57,31 +57,8 @@
                                                             <constraint firstAttribute="height" constant="8" id="TKk-Pn-ZaZ"/>
                                                         </constraints>
                                                     </progressView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="87" translatesAutoresizingMaskIntoConstraints="NO" id="fiC-z4-ssJ">
-                                                        <rect key="frame" x="234" y="40" width="160" height="20"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물주기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgb-A6-Ct3">
-                                                                <rect key="frame" x="0.0" y="0.0" width="42" height="20"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10일" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfJ-rZ-gmh">
-                                                                <rect key="frame" x="129" y="0.0" width="31" height="20"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="de0-Ea-KuR"/>
-                                                        </constraints>
-                                                    </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021/10/11~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQy-Lt-VJG">
-                                                        <rect key="frame" x="67.5" y="64.5" width="67" height="25"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="25" id="RQ3-lI-rD7"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="67.5" y="64.5" width="67" height="24.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -107,27 +84,60 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물주기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgb-A6-Ct3">
+                                                        <rect key="frame" x="234" y="34.5" width="42" height="19.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4XH-5K-RI5">
+                                                        <rect key="frame" x="323" y="32" width="71" height="24"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="10일" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfJ-rZ-gmh">
+                                                                <rect key="frame" x="0.0" y="0.0" width="39" height="24"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="jfJ-rZ-gmh" secondAttribute="height" multiplier="31:19" id="5GF-CZ-S4L"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5e-LD-LV1">
+                                                                <rect key="frame" x="47" y="0.0" width="24" height="24"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="24" id="AXW-7H-Mx7"/>
+                                                                    <constraint firstAttribute="height" constant="24" id="yxe-0F-zXq"/>
+                                                                </constraints>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="Button" image="waterBtn"/>
+                                                                <connections>
+                                                                    <action selector="isClickedWaterResetButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nQl-3Q-E0j"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="2uI-X9-rSg" firstAttribute="leading" secondItem="2uQ-Bf-06y" secondAttribute="leading" constant="20" symbolic="YES" id="1Qx-Di-MgA"/>
-                                                    <constraint firstItem="c57-44-rRy" firstAttribute="trailing" secondItem="fiC-z4-ssJ" secondAttribute="trailing" id="3t5-TD-gA5"/>
-                                                    <constraint firstItem="amc-Ur-iic" firstAttribute="leading" secondItem="2uQ-Bf-06y" secondAttribute="leading" constant="20" symbolic="YES" id="5eG-RX-qR6"/>
-                                                    <constraint firstAttribute="trailing" secondItem="c57-44-rRy" secondAttribute="trailing" constant="20" symbolic="YES" id="88W-fk-Mf4"/>
-                                                    <constraint firstItem="w4i-L3-miJ" firstAttribute="centerY" secondItem="2uI-X9-rSg" secondAttribute="centerY" id="9Jg-hH-xa3"/>
-                                                    <constraint firstItem="HQy-Lt-VJG" firstAttribute="leading" secondItem="amc-Ur-iic" secondAttribute="trailing" constant="8" symbolic="YES" id="Hio-4e-e2V"/>
-                                                    <constraint firstAttribute="bottom" secondItem="amc-Ur-iic" secondAttribute="bottom" constant="25.5" id="QhK-oo-VWO"/>
-                                                    <constraint firstItem="amc-Ur-iic" firstAttribute="top" secondItem="2uI-X9-rSg" secondAttribute="bottom" constant="10" id="fZ2-qB-B3n"/>
-                                                    <constraint firstAttribute="height" constant="112" id="fwZ-9C-U4v"/>
-                                                    <constraint firstItem="c57-44-rRy" firstAttribute="leading" secondItem="fiC-z4-ssJ" secondAttribute="leading" id="gi2-qD-U8p"/>
-                                                    <constraint firstAttribute="bottom" secondItem="c57-44-rRy" secondAttribute="bottom" constant="36" id="jtI-qu-NZQ"/>
-                                                    <constraint firstItem="w4i-L3-miJ" firstAttribute="leading" secondItem="2uI-X9-rSg" secondAttribute="trailing" constant="4" id="kBk-lC-1Vs"/>
-                                                    <constraint firstAttribute="trailing" secondItem="fiC-z4-ssJ" secondAttribute="trailing" constant="20" symbolic="YES" id="kk2-ql-Uqy"/>
-                                                    <constraint firstItem="fiC-z4-ssJ" firstAttribute="top" secondItem="2uQ-Bf-06y" secondAttribute="top" constant="40" id="lgw-wF-U0A"/>
-                                                    <constraint firstItem="c57-44-rRy" firstAttribute="centerX" secondItem="fiC-z4-ssJ" secondAttribute="centerX" id="pE3-Px-ieG"/>
-                                                    <constraint firstItem="c57-44-rRy" firstAttribute="top" secondItem="fiC-z4-ssJ" secondAttribute="bottom" constant="8" id="rw3-ub-DDW"/>
-                                                    <constraint firstItem="HQy-Lt-VJG" firstAttribute="centerY" secondItem="amc-Ur-iic" secondAttribute="centerY" id="sZE-Sc-I99"/>
-                                                    <constraint firstItem="2uI-X9-rSg" firstAttribute="top" secondItem="2uQ-Bf-06y" secondAttribute="top" constant="24" id="vKs-Rf-ngB"/>
+                                                    <constraint firstItem="4XH-5K-RI5" firstAttribute="centerY" secondItem="Mgb-A6-Ct3" secondAttribute="centerY" id="0KF-2D-xLP"/>
+                                                    <constraint firstItem="c57-44-rRy" firstAttribute="leading" secondItem="Mgb-A6-Ct3" secondAttribute="leading" id="4F8-6l-vRS"/>
+                                                    <constraint firstAttribute="bottom" secondItem="c57-44-rRy" secondAttribute="bottom" constant="36" id="ATz-mM-7uu"/>
+                                                    <constraint firstItem="w4i-L3-miJ" firstAttribute="top" secondItem="2uQ-Bf-06y" secondAttribute="top" constant="31.5" id="BTh-kX-uIq"/>
+                                                    <constraint firstItem="HQy-Lt-VJG" firstAttribute="top" secondItem="2uI-X9-rSg" secondAttribute="bottom" constant="7.5" id="CAE-4q-U27"/>
+                                                    <constraint firstItem="2uI-X9-rSg" firstAttribute="top" secondItem="2uQ-Bf-06y" secondAttribute="top" constant="24" id="Dp5-YL-RjK"/>
+                                                    <constraint firstAttribute="trailing" secondItem="4XH-5K-RI5" secondAttribute="trailing" constant="20" symbolic="YES" id="L8G-4J-bLR"/>
+                                                    <constraint firstItem="4XH-5K-RI5" firstAttribute="trailing" secondItem="c57-44-rRy" secondAttribute="trailing" id="MUm-jW-dDD"/>
+                                                    <constraint firstItem="amc-Ur-iic" firstAttribute="leading" secondItem="2uQ-Bf-06y" secondAttribute="leading" constant="20" symbolic="YES" id="QM3-xT-QfA"/>
+                                                    <constraint firstItem="HQy-Lt-VJG" firstAttribute="centerY" secondItem="amc-Ur-iic" secondAttribute="centerY" id="Wb3-yC-aI2"/>
+                                                    <constraint firstItem="HQy-Lt-VJG" firstAttribute="leading" secondItem="amc-Ur-iic" secondAttribute="trailing" constant="8" symbolic="YES" id="ZxO-pW-acM"/>
+                                                    <constraint firstItem="w4i-L3-miJ" firstAttribute="leading" secondItem="2uI-X9-rSg" secondAttribute="trailing" constant="4" id="aqI-ri-0OW"/>
+                                                    <constraint firstAttribute="trailing" secondItem="c57-44-rRy" secondAttribute="trailing" constant="20" symbolic="YES" id="c7q-TM-ibc"/>
+                                                    <constraint firstItem="c57-44-rRy" firstAttribute="top" secondItem="4XH-5K-RI5" secondAttribute="bottom" constant="12" id="gee-hI-WO4"/>
+                                                    <constraint firstItem="amc-Ur-iic" firstAttribute="top" secondItem="2uI-X9-rSg" secondAttribute="bottom" constant="10" id="h5c-zk-e4h"/>
+                                                    <constraint firstItem="2uI-X9-rSg" firstAttribute="leading" secondItem="2uQ-Bf-06y" secondAttribute="leading" constant="20" symbolic="YES" id="mf5-Wj-ja1"/>
+                                                    <constraint firstAttribute="height" constant="112" id="oS3-rS-BKN"/>
+                                                    <constraint firstItem="4XH-5K-RI5" firstAttribute="top" secondItem="2uQ-Bf-06y" secondAttribute="top" constant="32" id="rCX-A8-Qzt"/>
+                                                    <constraint firstItem="w4i-L3-miJ" firstAttribute="centerY" secondItem="2uI-X9-rSg" secondAttribute="centerY" id="tP0-sv-DFI"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xU2-Uc-ORw">
@@ -342,6 +352,7 @@
                         <outlet property="progressBar" destination="c57-44-rRy" id="2Uw-bc-39r"/>
                         <outlet property="tableViewHeight" destination="69e-RH-ThB" id="wEK-fb-IJB"/>
                         <outlet property="waterDayLabel" destination="jfJ-rZ-gmh" id="fw6-Kg-BPP"/>
+                        <outlet property="waterResetButton" destination="C5e-LD-LV1" id="vP1-Ys-DEy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -671,6 +682,7 @@
         <image name="photo.on.rectangle" catalog="system" width="128" height="97"/>
         <image name="plus" width="33" height="33"/>
         <image name="plus_white" width="57" height="57"/>
+        <image name="waterBtn" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

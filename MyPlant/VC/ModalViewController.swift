@@ -280,9 +280,11 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
                 
                 guard let date =  dateButton.currentTitle, let value = format.date(from: date) else {return}
                 
-               
-                let task = plant(nickName: nickName.text!, waterDay: waterDay, startDate: value, regDate: Date())
+                guard let afterWaterDay = Calendar.current.date(byAdding: .day, value: waterDay, to: Date()) else { return  }
                 
+                let task = plant(nickName: nickName.text!, waterDay: waterDay, startDate: value, regDate: Date(), afterWaterDate: afterWaterDay)
+                
+            
                 try! localRealm.write {
                     localRealm.add(task)
                     saveImageToDocumentDirectory(imageName: "\(task._id).jpg", image: plantImageView.image!)

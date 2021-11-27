@@ -30,7 +30,7 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
     
     @IBOutlet weak var contentTextView: UITextView!
     
-    var plantList: [feed] = []
+    var feedsList: [feed] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -236,14 +236,36 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
     }
     
     
-    @objc func isClickedSaveBtn() {
+    @objc func isClickedSaveBtn(plantId : Int, feedId : Int, feedTitle : String, regDate : Date? = nil ){
         
-        let task = feed(feedTitle: titleTextField.text!, feedContent: contentTextView.text!, regDate: Date(), feeds:)
-        
+//        let realm = try! Realm()
+//
+//                let feed = feed()
+//
+//        if let parent = realm.objects(plant.self).filter("id = \(plantId)").first {
+//                plantList.id  = id
+//            feedsList.feedTitle = titleTextField.text
+//            feedsList.feedContent = contentTextView.text
+//                    data.regdate = Date()
+//
+//
+//                    do {
+//                        try realm.write {
+//                            parent.feed.append(feedsList)
+//                            realm.add(feedsList)
+//                            print("saveToDo")
+//                        }
+//                    } catch let e as NSError {
+//                        print("\(e.description)")
+//                    }
+//                }
+        let task = feed(feedTitle: titleTextField.text!, feedContent: contentTextView.text!, regDate: Date())
+
         try! localRealm.write {
             localRealm.add(task)
+
             saveImageToDocumentDirectory(imageName: "\(task._id).jpg", image: imageView.image!)
-            
+
         }
         print("Realm is located at:", localRealm.configuration.fileURL!)
         navigationController?.dismiss(animated: true, completion: nil)
@@ -251,3 +273,4 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
 
 
 }
+
