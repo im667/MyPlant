@@ -161,23 +161,6 @@ class MainViewController: UIViewController {
         present(nav, animated: true, completion: nil)
     }
     
-    func progressDate() -> Float {
-        let afterWaterDate = tasks.first?.afterWaterDate
-        let regDate = tasks.first?.afterWaterDate
-        let today = Date()
-        
-        let dateGap = Calendar.current.dateComponents([.second], from: today, to: afterWaterDate!)
-        
-        let dateGap2 = Calendar.current.dateComponents([.second], from: regDate!, to: afterWaterDate!)
 
-        
-        let date3: Float = Float(dateGap.second!*100 / dateGap2.second!)
-
-        if date3 < 0 {
-            return 0
-        }
-        
-        return Float(date3 / 100)
-    }
     
 }

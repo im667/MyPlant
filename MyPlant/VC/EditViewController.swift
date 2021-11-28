@@ -121,6 +121,18 @@ class EditViewController: UIViewController {
         self.editWaterDayButton.setTitle("\(self.days[row])", for: .normal)
         toolBar.removeFromSuperview()
         picker.removeFromSuperview()
+        
+        
+         let afterWaterDay = Calendar.current.date(byAdding: .day, value: task!.waterDay, to: task!.regDate)
+            
+        
+        try! localRealm.write{
+            task?.afterWaterDate = afterWaterDay!
+            task?.waterDay = Int(editWaterDayButton.currentTitle!) ?? 00
+            task?.regDate = task!.regDate
+        }
+        
+        
     }
     
     @objc func onCancelButtonTapped() {
@@ -181,11 +193,18 @@ class EditViewController: UIViewController {
         let format = DateFormatter()
         format.dateFormat = "yyyy년 MM월 dd일"
         
+         let afterWaterDay = Calendar.current.date(byAdding: .day, value: task!.waterDay, to: task!.regDate)
+            
         guard let date =  editStartDayButton.currentTitle, let value = format.date(from: date) else {return}
+            
+        
         
         try! localRealm.write{
+            task?.afterWaterDate = afterWaterDay!
             task?.nickName = editNickNameTextField.text ?? ""
             task?.waterDay = Int(editWaterDayButton.currentTitle!) ?? 00
+            task?.regDate = task!.regDate
+            
             task?.startDate = value
         }
         

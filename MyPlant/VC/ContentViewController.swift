@@ -323,13 +323,13 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         present(vc, animated: false, completion: nil)
         
     }
-    @IBAction func alramSwitch(_ sender: UISwitch) {
-       
+//    @IBAction func alramSwitch(_ sender: UISwitch) {
+//
 //        alramSwitch.isOn = true // Set the event to be called when switching On / Off of Switch.
-//        alramSwitch.addTarget(self, action: #selector(requestNotificationAuthorization()), for: UIControl.Event.valueChanged)
-
-        
-    }
+//        alramSwitch.addTarget(self, action: #selector(requestNotificationAuthorization), for: UIControl.Event.valueChanged)
+//
+//
+//    }
     
     func progressDate() -> Float {
         let afterWaterDate = task?.first!.afterWaterDate
@@ -351,17 +351,17 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
     
     
-    
-    @objc func requestNotificationAuthorization() {
-        let options = UNAuthorizationOptions(arrayLiteral: [.badge, .sound, .alert])
-        unc.requestAuthorization(options: options){ [weak self] success, error in
-            if success {
-                self?.sendLocalNotification(seconds: 5)
-            } else {
-                print("error")
-            }
-        }
-    }
+//
+//   @objc func requestNotificationAuthorization() {
+//        let options = UNAuthorizationOptions(arrayLiteral: [.badge, .sound, .alert])
+//        unc.requestAuthorization(options: options){ [weak self] success, error in
+//            if success {
+//                self?.sendLocalNotification(seconds: 5)
+//            } else {
+//                print("error")
+//            }
+//        }
+//    }
     
     private func sendLocalNotification(seconds:Double){
         let content = UNMutableNotificationContent()
@@ -380,6 +380,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
     @IBAction func isClickedWaterResetButton(_ sender: UIButton) {
         
+        viewWillAppear(true)
       
         guard let afterWaterDay = Calendar.current.date(byAdding: .day, value: task!.first!.waterDay, to: task!.first!.regDate) else { return }
       

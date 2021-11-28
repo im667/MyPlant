@@ -11,6 +11,10 @@ import UIKit
 
 
 extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSource {
+    
+
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if !tasks.isEmpty {
             return tasks.count
@@ -62,7 +66,28 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             cell.nickNameLabel.text = row.nickName
             cell.nickNameLabel.font = UIFont().subTitle
             cell.nickNameLabel.textColor = .systemGray
-            cell.progressBar.progress = 1
+            
+            
+            
+            func progressDate() -> Float {
+                let afterWaterDate = row.afterWaterDate
+                let regDate = row.regDate
+                let today = Date()
+                
+                let dateGap = Calendar.current.dateComponents([.second], from: today, to: afterWaterDate)
+                
+                let dateGap2 = Calendar.current.dateComponents([.second], from: regDate, to: afterWaterDate)
+
+                
+                if dateGap2.second! > 0 || dateGap.second! > 0 {
+                    return (Float(dateGap.second! * 100 / dateGap2.second!) / 100)
+                } else {
+                    return  0
+                }
+                
+            }
+            
+            cell.progressBar.progress = progressDate()
             cell.progressBar.progressTintColor = UIColor(red: 132/255, green: 222/255, blue: 226/255, alpha: 1)
             cell.progressBar.trackTintColor = UIColor(red: 240/255, green: 237/255, blue: 237/255, alpha: 1)
            
