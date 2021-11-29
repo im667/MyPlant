@@ -303,7 +303,6 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
     @IBAction func isClickedAddFeedBtn(_ sender: UIButton) {
         
         let sb = UIStoryboard(name: "Content", bundle: nil)
-        
       
         guard let vc = sb.instantiateViewController(withIdentifier: "ContentModalViewController") as? ContentModalViewController else { return }
         let nav = UINavigationController(rootViewController: vc)
@@ -311,6 +310,11 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         nav.modalPresentationStyle = .automatic
         
         present(nav, animated: true, completion: nil)
+        
+        vc.id = task.first?._id
+        
+        
+        
     }
     
     func loadImageFromDocumentDirectory(imageName: String) -> UIImage? {

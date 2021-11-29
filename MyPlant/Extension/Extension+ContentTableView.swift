@@ -10,8 +10,8 @@ import UIKit
 
 extension ContentViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if !feedTask.isEmpty {
-            return feedTask.count
+        if ((task.first?.feeds.isEmpty) != nil)  {
+            return (task.first?.feeds.count)!
         }
         return 1
     }

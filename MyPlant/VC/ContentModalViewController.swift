@@ -13,6 +13,11 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
 
     static let identifier = "ContentModalViewController"
     let localRealm = try! Realm()
+
+    var task: Results<plant>!
+    var feedTask: Results<feed>!
+    var id : ObjectId?
+    
     let imagePickerVC: UIImagePickerController! = UIImagePickerController()
     var picker = UIPickerView()
     var captureImage : UIImage!
@@ -33,6 +38,11 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let predicate = NSPredicate(format: "_id == %@", id!)
+
+        task = localRealm.objects(plant.self).filter(predicate)
+        
         
         imagePickerVC.delegate = self
         
@@ -239,9 +249,9 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
         
         let realm = try! Realm()
 
-                let feeds = feed(feedTitle:titleTextField.text!, feedContent:contentTextView.text!, regDate: Date())
+        let feeds = MyPlant.feed(feedTitle:titleTextField.text!, feedContent:contentTextView.text!, regDate: Date())
         
-        let predicate = NSPredicate(format: "_id == %@", plant()._id)
+        let predicate = NSPredicate(format: "_id == %@", id!)
 
         if let parent = realm.objects(plant.self).filter(predicate).first {
 
@@ -263,6 +273,7 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
                 }
         
         print("Realm is located at:", localRealm.configuration.fileURL!)
+        
         navigationController?.dismiss(animated: true, completion: nil)
     }
 
