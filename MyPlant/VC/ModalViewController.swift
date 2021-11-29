@@ -342,7 +342,6 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     @IBAction func DateButton(_ sender: UIButton) {
         
         
-        
         let alert = UIAlertController(title: "키우기 시작한 날짜", message: "날짜를 선택해주세요!", preferredStyle: .alert)
    
         guard let contentView = self.storyboard?.instantiateViewController(withIdentifier: "DatePickerViewController")as? DatePickerViewController else {

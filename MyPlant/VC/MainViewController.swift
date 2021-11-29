@@ -76,7 +76,7 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tasks = localRealm.objects(plant.self).sorted(byKeyPath: "regDate", ascending: false)
-        collectionView.reloadData()
+        self.collectionView.reloadData()
         navigationController?.setNavigationBarHidden(true, animated: animated)
 
        
@@ -91,6 +91,7 @@ class MainViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        self.collectionView.reloadData()
         navigationController?.setNavigationBarHidden(false, animated: animated)
         
     }

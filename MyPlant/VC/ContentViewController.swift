@@ -142,6 +142,9 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
     }
     
+    
+   
+    
     @objc func imageTapped(_ sender: AnyObject) {
    
        
@@ -274,6 +277,20 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
         waterDayLabel.text = String(task.first!.waterDay)
         
+        
+        progressBar.progress = progressDate()
+           
+        progressBar.progressTintColor = UIColor(red: 132/255, green: 222/255, blue: 226/255, alpha: 1)
+        
+        if progressDate() > 0 {
+            waterResetButton.layer.isHidden = true
+        progressBar.trackTintColor = UIColor(red: 240/255, green: 237/255, blue: 237/255, alpha: 1)
+        } else {
+                progressBar.trackTintColor = UIColor(red: 226/255, green: 132/255, blue: 132/255, alpha: 1)
+            waterResetButton.layer.isHidden = false
+        }
+        
+        
         }
 
     @objc func isClickedBackBtn() {
@@ -379,9 +396,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
     }
     
     @IBAction func isClickedWaterResetButton(_ sender: UIButton) {
-        
-        viewWillAppear(true)
-      
+     
         guard let afterWaterDay = Calendar.current.date(byAdding: .day, value: task!.first!.waterDay, to: task!.first!.regDate) else { return }
       
         try! localRealm.write{
