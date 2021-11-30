@@ -101,7 +101,7 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             let days = Int(interval / 86400)
             print("\(days)일만큼 차이납니다.")
             
-            cell.dateLabel.text = days == 0 ? "🌱반가워요" : "🪴 \(days)일 +"
+            cell.dateLabel.text = days <= 0 ? "🌱반가워요" : "🪴 \(days)일 +"
             cell.dateLabel.font = UIFont().pBold
             cell.dateLabel.textColor = .systemGray
         }

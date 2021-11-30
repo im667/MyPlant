@@ -144,7 +144,7 @@
                                                     <constraint firstAttribute="height" constant="32" id="mOa-tw-Pt1"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="25"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageViewBtn" translatesAutoresizingMaskIntoConstraints="NO" id="eQZ-Oa-ZSj">
@@ -168,30 +168,16 @@
                                                     <constraint firstAttribute="height" constant="21" id="qGA-hq-PIE"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="16"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0O-6m-umQ">
-                                                <rect key="frame" x="292" y="471" width="82" height="31"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="31" id="RSk-Xm-e67"/>
-                                                    <constraint firstAttribute="width" secondItem="i0O-6m-umQ" secondAttribute="height" multiplier="82:31" id="fJT-JU-CnI"/>
-                                                </constraints>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="선택" image="arrowtriangle.down.fill" catalog="system">
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="daysButton:" destination="C08-lZ-Gy0" eventType="touchUpInside" id="rcb-Tq-6p4"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물주기 주기에 따른 푸시 알림을 보내드려요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Std-Mf-JGD">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물을 줘야할 시기를 알 수 있어요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Std-Mf-JGD">
                                                 <rect key="frame" x="40" y="510" width="334" height="24.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24.5" id="g1k-Qj-syG"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="키우기 시작한 날짜 선택하기" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNQ-7E-z3v">
@@ -201,7 +187,7 @@
                                                     <constraint firstAttribute="width" secondItem="WNQ-7E-z3v" secondAttribute="height" multiplier="142:51" id="tIr-JP-XLR"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="16"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p24-Qf-OA3">
@@ -223,25 +209,49 @@
                                                     <constraint firstAttribute="height" constant="150" id="vIg-kn-lnJ"/>
                                                 </constraints>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="INe-ic-EWq">
+                                                <rect key="frame" x="359" y="476" width="15" height="21"/>
+                                                <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="16"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0O-6m-umQ">
+                                                <rect key="frame" x="269" y="471" width="82" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="31" id="7Vu-X0-T4d"/>
+                                                    <constraint firstAttribute="width" constant="82" id="ZSo-aR-XIb"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="선택" image="arrowtriangle.down.fill" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="daysButton:" destination="C08-lZ-Gy0" eventType="touchUpInside" id="rcb-Tq-6p4"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="i0O-6m-umQ" firstAttribute="top" secondItem="JH1-Eq-gJs" secondAttribute="bottom" constant="15" id="0hA-Rm-bZA"/>
+                                            <constraint firstItem="i0O-6m-umQ" firstAttribute="centerY" secondItem="F8u-8q-Ozd" secondAttribute="centerY" id="2Ng-mC-dCO"/>
+                                            <constraint firstItem="INe-ic-EWq" firstAttribute="leading" secondItem="i0O-6m-umQ" secondAttribute="trailing" constant="8" symbolic="YES" id="7H7-dJ-oTe"/>
                                             <constraint firstItem="F8u-8q-Ozd" firstAttribute="leading" secondItem="rAx-Va-hgL" secondAttribute="leading" constant="40" id="7up-wO-3DA"/>
+                                            <constraint firstAttribute="trailing" secondItem="INe-ic-EWq" secondAttribute="trailing" constant="40" id="8v8-ex-AD3"/>
                                             <constraint firstAttribute="bottom" secondItem="nuz-d0-VBJ" secondAttribute="bottom" id="9uz-gR-cvl"/>
                                             <constraint firstAttribute="trailing" secondItem="nuz-d0-VBJ" secondAttribute="trailing" constant="40" id="A8d-NE-cyx"/>
+                                            <constraint firstItem="Std-Mf-JGD" firstAttribute="top" secondItem="i0O-6m-umQ" secondAttribute="bottom" constant="8" symbolic="YES" id="ATu-Eq-eHf"/>
                                             <constraint firstItem="Std-Mf-JGD" firstAttribute="leading" secondItem="rAx-Va-hgL" secondAttribute="leading" constant="40" id="HoW-QP-HVN"/>
                                             <constraint firstItem="eQZ-Oa-ZSj" firstAttribute="leading" secondItem="rAx-Va-hgL" secondAttribute="leading" constant="40" id="KdZ-DJ-14o"/>
                                             <constraint firstItem="nuz-d0-VBJ" firstAttribute="leading" secondItem="rAx-Va-hgL" secondAttribute="leading" constant="40" id="Nbk-U5-1cf"/>
                                             <constraint firstItem="JH1-Eq-gJs" firstAttribute="leading" secondItem="rAx-Va-hgL" secondAttribute="leading" constant="40" id="OOp-Xu-V7c"/>
-                                            <constraint firstItem="Std-Mf-JGD" firstAttribute="top" secondItem="i0O-6m-umQ" secondAttribute="bottom" constant="8" symbolic="YES" id="PFt-5m-X3G"/>
+                                            <constraint firstItem="i0O-6m-umQ" firstAttribute="leading" secondItem="F8u-8q-Ozd" secondAttribute="trailing" constant="59" id="UCC-9r-eIR"/>
                                             <constraint firstAttribute="trailing" secondItem="Std-Mf-JGD" secondAttribute="trailing" constant="40" id="aVU-UM-ijg"/>
                                             <constraint firstItem="eQZ-Oa-ZSj" firstAttribute="top" secondItem="RP0-O4-qMx" secondAttribute="bottom" constant="16" id="bFo-3c-jnv"/>
                                             <constraint firstItem="p24-Qf-OA3" firstAttribute="top" secondItem="Std-Mf-JGD" secondAttribute="bottom" constant="26.5" id="c7j-nC-Uv0"/>
                                             <constraint firstItem="JH1-Eq-gJs" firstAttribute="top" secondItem="eQZ-Oa-ZSj" secondAttribute="bottom" constant="16" id="fR7-Dn-awb"/>
-                                            <constraint firstItem="i0O-6m-umQ" firstAttribute="centerY" secondItem="F8u-8q-Ozd" secondAttribute="centerY" id="hgz-fD-AtZ"/>
+                                            <constraint firstItem="INe-ic-EWq" firstAttribute="centerY" secondItem="F8u-8q-Ozd" secondAttribute="centerY" id="fn7-dk-t7T"/>
                                             <constraint firstItem="nuz-d0-VBJ" firstAttribute="top" secondItem="WNQ-7E-z3v" secondAttribute="bottom" constant="20" id="hyd-OQ-cS8"/>
                                             <constraint firstAttribute="trailing" secondItem="JH1-Eq-gJs" secondAttribute="trailing" constant="40" id="iTf-fc-bSc"/>
+                                            <constraint firstItem="INe-ic-EWq" firstAttribute="top" secondItem="JH1-Eq-gJs" secondAttribute="bottom" constant="20" id="jSm-lA-8a0"/>
                                             <constraint firstItem="p24-Qf-OA3" firstAttribute="centerY" secondItem="WNQ-7E-z3v" secondAttribute="centerY" id="kXr-4Q-gd3"/>
                                             <constraint firstItem="RP0-O4-qMx" firstAttribute="leading" secondItem="rAx-Va-hgL" secondAttribute="leading" constant="40" id="qzX-5e-LT7"/>
                                             <constraint firstAttribute="trailing" secondItem="eQZ-Oa-ZSj" secondAttribute="trailing" constant="40" id="rGm-yj-463"/>
@@ -249,7 +259,6 @@
                                             <constraint firstItem="WNQ-7E-z3v" firstAttribute="leading" secondItem="rAx-Va-hgL" secondAttribute="leading" constant="40" id="tLm-K2-PQM"/>
                                             <constraint firstItem="RP0-O4-qMx" firstAttribute="top" secondItem="rAx-Va-hgL" secondAttribute="top" constant="20" symbolic="YES" id="tli-hy-TyE"/>
                                             <constraint firstItem="F8u-8q-Ozd" firstAttribute="top" secondItem="JH1-Eq-gJs" secondAttribute="bottom" constant="20" id="w0J-hK-FbT"/>
-                                            <constraint firstAttribute="trailing" secondItem="i0O-6m-umQ" secondAttribute="trailing" constant="40" id="wLa-3I-JYl"/>
                                             <constraint firstItem="WNQ-7E-z3v" firstAttribute="top" secondItem="Std-Mf-JGD" secondAttribute="bottom" constant="16" id="wmr-YZ-l0E"/>
                                             <constraint firstAttribute="trailing" secondItem="p24-Qf-OA3" secondAttribute="trailing" constant="40" id="yEa-50-oeJ"/>
                                         </constraints>

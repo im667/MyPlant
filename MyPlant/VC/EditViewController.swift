@@ -78,7 +78,14 @@ class EditViewController: UIViewController {
         editStartDayButton.layer.cornerRadius = 5
         editStartDayButton.tintColor = .systemGray2
         
+        successButton.clipsToBounds = true
+        successButton.layer.cornerRadius = 10
         
+        dismissButton.clipsToBounds = true
+        dismissButton.layer.cornerRadius = 10
+        
+        deleteButton.clipsToBounds = true
+        deleteButton.layer.cornerRadius = 10
         
     
     }
@@ -209,7 +216,7 @@ class EditViewController: UIViewController {
         }
         
         dismiss(animated: false, completion: nil)
-            NotificationCenter.default.post(name: DidDismissEditViewController, object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: DidDismissEditViewController, object: nil, userInfo: nil)
         }
    }
                 
@@ -226,14 +233,15 @@ class EditViewController: UIViewController {
     
     @IBAction func isClickedDeleteButton(_ sender: UIButton) {
         
-        NotificationCenter.default.post(name: DidDismissEditViewController, object: nil, userInfo: nil)
         
         let taskToDelete = task!
         try! localRealm.write {
           localRealm.delete(taskToDelete)
         }
+        
+        
+        
         dismiss(animated: false, completion: nil)
-       
       
     }
     

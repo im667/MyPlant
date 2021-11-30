@@ -65,7 +65,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.didDismissEditNotification(_:)), name: DidDismissEditViewController, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didDismissContentModalNotification(_:)), name: DidDismissContentModalViewController, object: nil)
+      
         
         print(task!)
         let backBtn = UIButton(type: .custom)
@@ -137,9 +137,12 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
 
         super.viewWillAppear(animated)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didDismissContentModalNotification(_:)), name: DidDismissContentModalViewController, object: nil)
+        
+        feedTableView.reloadData()
         
         feedTask = localRealm.objects(feed.self).sorted(byKeyPath: "regDate", ascending: true)
-        feedTableView.reloadData()
+     
         
         progressBar.progress = progressDate()
            
@@ -155,8 +158,6 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
     }
     
-    
-   
     
     @objc func imageTapped(_ sender: AnyObject) {
    
@@ -270,7 +271,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
     
     @objc func didDismissEditNotification(_ noti: Notification) {
- 
+        
 
         let predicate = NSPredicate(format: "_id == %@", id!)
 
@@ -303,7 +304,9 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
             waterResetButton.layer.isHidden = false
         }
         
+      
         
+
         }
 
     
@@ -311,7 +314,13 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
     @objc func didDismissContentModalNotification(_ noti: Notification) {
  
         feedTableView.reloadData()
+        
+        let predicate = NSPredicate(format: "_id == %@", id!)
+        task = localRealm.objects(plant.self).filter(predicate)
         feedTask = localRealm.objects(feed.self).sorted(byKeyPath: "regDate", ascending: false)
+        
+        
+        
         }
     
     
@@ -329,11 +338,12 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         let sb = UIStoryboard(name: "Content", bundle: nil)
       
         guard let vc = sb.instantiateViewController(withIdentifier: "ContentModalViewController") as? ContentModalViewController else { return }
-        let nav = UINavigationController(rootViewController: vc)
+//        let nav = UINavigationController(rootViewController: vc)
         
-        nav.modalPresentationStyle = .automatic
-        
-        present(nav, animated: true, completion: nil)
+//        nav.modalPresentationStyle = .fullScreen
+//
+        self.navigationController?.pushViewController(vc, animated: true)
+//        present(nav, animated: true, completion: nil)
         
         vc.id = task.first?._id
         

@@ -23,13 +23,20 @@ extension ContentViewController: UITableViewDelegate,UITableViewDataSource {
         
         cell.feedImageView.image = loadImageFromDocuments(imageName: "\(row!._id).jpg") == nil ? UIImage(named: "basicImg") : loadImageFromDocuments(imageName: "\(row!._id).jpg")
         
+ 
+        
+        if row?.feedTitle == "" {
+            cell.feedTitleLabel.text = "제목이 없습니다."
+        } else {
+            cell.feedTitleLabel.text = row?.feedTitle
+        }
         
         
         cell.feedImageView.contentMode = .scaleAspectFill
         cell.feedImageView.clipsToBounds = true
         cell.feedImageView.layer.cornerRadius = 10
         
-        cell.feedTitleLabel.text = row?.feedTitle
+        
         cell.feedContentLabel.text = row?.feedContent
         cell.colorView.clipsToBounds = true
         cell.colorView.layer.cornerRadius = 10

@@ -70,7 +70,7 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
         if SelectedFeed == false {
         
         titleTextField.delegate = self
-        titleTextField.placeholder = "식물 이름을 입력해주세요."
+        titleTextField.placeholder = "제목을 입력해주세요."
         titleTextField.textColor = UIColor.darkGray
         titleTextField.clipsToBounds = false
         titleTextField.font = UIFont(name: "SpoqaHanSansNeo-Bold", size: 25)
@@ -94,7 +94,7 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
         } else {
             
             titleTextField.delegate = self
-            titleTextField.placeholder = "식물 이름을 입력해주세요."
+            titleTextField.placeholder = "제목을 입력해주세요."
             titleTextField.text = feedTask.first?.feedTitle
             titleTextField.textColor = UIColor.darkGray
             titleTextField.clipsToBounds = false
@@ -288,10 +288,11 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
     
     @objc func isClickedBackBtn (){
         
-        dismiss(animated: false, completion: nil)
+//        dismiss(animated: false, completion: nil)
             NotificationCenter.default.post(name: DidDismissEditViewController, object: nil, userInfo: nil)
-        navigationController?.dismiss(animated: true, completion: nil)
-        
+//        navigationController?.dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
+//
     }
     
     
@@ -317,6 +318,7 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
                             saveImageToDocumentDirectory(imageName: "\(feeds._id).jpg", image: imageView.image!)
                             realm.add(feeds)
                             print("saveToDo")
+         
                             
                         }
                     } catch let e as NSError {
@@ -338,12 +340,14 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
             
             }
         }
-            
+        NotificationCenter.default.post(name: DidDismissContentModalViewController, object: nil, userInfo: nil)
         print("Realm is located at:", localRealm.configuration.fileURL!)
         
-        dismiss(animated: false, completion: nil)
-            NotificationCenter.default.post(name: DidDismissContentModalViewController, object: nil, userInfo: nil)
-        navigationController?.dismiss(animated: true, completion: nil)
+        
+//
+//        dismiss(animated: false, completion: nil)
+          
+        navigationController?.popViewController(animated: true)
 
     }
 }

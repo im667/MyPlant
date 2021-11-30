@@ -170,7 +170,6 @@
 				040D45672748E7970047E88E /* ContentTableViewCell.swift */,
 				0470B88E27463E4200CC1DF7 /* PlantBook.storyboard */,
 				0470B89027463E4B00CC1DF7 /* Setting.storyboard */,
-				04ED7DE0275687AC00EF280A /* OpenSourceViewController.swift */,
 				0470B8812743979B00CC1DF7 /* Assets.xcassets */,
 				0470B8832743979B00CC1DF7 /* LaunchScreen.storyboard */,
 				0470B8862743979B00CC1DF7 /* Info.plist */,
@@ -183,6 +182,7 @@
 			children = (
 				04E7D4752746409300050B83 /* SettingViewController.swift */,
 				040D453C27468C840047E88E /* ModalViewController.swift */,
+				04ED7DE0275687AC00EF280A /* OpenSourceViewController.swift */,
 				04E7D479274640AB00050B83 /* ContentViewController.swift */,
 				04C399EE274A2F18006B73A5 /* ContentModalViewController.swift */,
 				040D4561274788860047E88E /* DatePickerViewController.swift */,
