@@ -19,8 +19,6 @@ class MainViewController: UIViewController {
  
     
 
-    @IBOutlet weak var searchBar: UISearchBar!
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -29,7 +27,7 @@ class MainViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tasks = localRealm.objects(plant.self).sorted(byKeyPath: "regDate", ascending: false)
+        tasks = localRealm.objects(plant.self).sorted(byKeyPath: "regDate", ascending: true)
         collectionView.reloadData()
         collectionView.dataSource = self
         collectionView.delegate = self

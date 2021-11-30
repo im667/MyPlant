@@ -9,6 +9,10 @@ import UIKit
 import MobileCoreServices
 import RealmSwift
 
+
+let DidDismissContentModalViewController:Notification.Name = Notification.Name("DidDismissContentModalViewController")
+
+
 class ContentModalViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
     static let identifier = "ContentModalViewController"
@@ -17,12 +21,12 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
     var task: Results<plant>!
     var feedTask: Results<feed>!
     var id : ObjectId?
-    
+    var SelectedFeed = false
     let imagePickerVC: UIImagePickerController! = UIImagePickerController()
     var picker = UIPickerView()
     var captureImage : UIImage!
     var imageSelect = false
-    
+
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -41,8 +45,8 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
         
         let predicate = NSPredicate(format: "_id == %@", id!)
 
-        task = localRealm.objects(plant.self).filter(predicate)
-        
+        feedTask = localRealm.objects(feed.self).filter(predicate).sorted(byKeyPath: "regDate", ascending: false)
+
         
         imagePickerVC.delegate = self
         
@@ -62,6 +66,8 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
         addKeyboardObserver()
         
         scrollView.keyboardDismissMode = .onDrag
+        
+        if SelectedFeed == false {
         
         titleTextField.delegate = self
         titleTextField.placeholder = "식물 이름을 입력해주세요."
@@ -84,10 +90,39 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(imageTapped(_:)))
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(tapGestureRecognizer)
+            
+        } else {
+            
+            titleTextField.delegate = self
+            titleTextField.placeholder = "식물 이름을 입력해주세요."
+            titleTextField.text = feedTask.first?.feedTitle
+            titleTextField.textColor = UIColor.darkGray
+            titleTextField.clipsToBounds = false
+            titleTextField.font = UIFont(name: "SpoqaHanSansNeo-Bold", size: 25)
+            titleTextField.layer.borderWidth = 1
+            titleTextField.layer.borderColor = UIColor.white.cgColor
+            
+            contentTextView.text = feedTask.first?.feedContent
+            contentTextView.delegate = self
+            contentTextView.font = UIFont(name: "SpoqaHanSansNeo-Regular", size: 16)
+            contentTextView.textColor = UIColor.darkGray
+            contentTextView.isScrollEnabled = false
+            textViewDidChange(contentTextView)
+            
+            //image
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
+            imageView.layer.cornerRadius = 10
+            imageView.image = loadImageFromDocuments(imageName: "\(String(describing: feedTask.first!._id)).jpg") == nil ? UIImage(named: "basicImg") : loadImageFromDocuments(imageName: "\(String(describing: feedTask.first!._id)).jpg")
+            let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(imageTapped(_:)))
+            imageView.isUserInteractionEnabled = true
+            imageView.addGestureRecognizer(tapGestureRecognizer)
+            
+        }
         
     }
     
-        
+    
         
     private func addKeyboardObserver() {
             // Register Keyboard notifications
@@ -238,10 +273,25 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
     }
 
     
-    
+    func loadImageFromDocuments(imageName:String) -> UIImage? {
+        let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+        let path = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true)
+        
+        if let directoryPath = path.first {
+            let imageURL = URL(fileURLWithPath: directoryPath).appendingPathComponent(imageName)
+            return UIImage(contentsOfFile: imageURL.path)
+        }
+        
+        return nil
+    }
     
     @objc func isClickedBackBtn (){
+        
+        dismiss(animated: false, completion: nil)
+            NotificationCenter.default.post(name: DidDismissEditViewController, object: nil, userInfo: nil)
         navigationController?.dismiss(animated: true, completion: nil)
+        
     }
     
     
@@ -251,8 +301,10 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
 
         let feeds = MyPlant.feed(feedTitle:titleTextField.text!, feedContent:contentTextView.text!, regDate: Date())
         
+        if SelectedFeed == false {
+        
         let predicate = NSPredicate(format: "_id == %@", id!)
-
+        
         if let parent = realm.objects(plant.self).filter(predicate).first {
 
             feeds.feedTitle = self.titleTextField.text!
@@ -271,12 +323,27 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
                         print("\(e.description)")
                     }
                 }
-        
+        } else {
+            
+            let predicate = NSPredicate(format: "_id == %@", id!)
+            if let feedTask = realm.objects(feed.self).filter(predicate).first {
+
+              
+                try! localRealm.write{
+                    feedTask.feedTitle = self.titleTextField.text!
+                    feedTask.feedContent = self.contentTextView.text!
+                    feedTask.regDate = Date()
+                }
+                   
+            
+            }
+        }
+            
         print("Realm is located at:", localRealm.configuration.fileURL!)
         
+        dismiss(animated: false, completion: nil)
+            NotificationCenter.default.post(name: DidDismissContentModalViewController, object: nil, userInfo: nil)
         navigationController?.dismiss(animated: true, completion: nil)
+
     }
-
-
 }
-

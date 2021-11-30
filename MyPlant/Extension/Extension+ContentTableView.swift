@@ -10,18 +10,27 @@ import UIKit
 
 extension ContentViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if ((task.first?.feeds.isEmpty) != nil)  {
-            return (task.first?.feeds.count)!
-        }
-        return 1
+     
+        return task.first?.feeds.count ?? 0
+      
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ContentTableViewCell.identifier, for: indexPath) as? ContentTableViewCell else {
             return UITableViewCell()  }
         
-        cell.feedTitleLabel.text = ""
-        cell.feedContentLabel.text = "isContent"
+        let row = task.first?.feeds[indexPath.row]
+        
+        cell.feedImageView.image = loadImageFromDocuments(imageName: "\(row!._id).jpg") == nil ? UIImage(named: "basicImg") : loadImageFromDocuments(imageName: "\(row!._id).jpg")
+        
+        
+        
+        cell.feedImageView.contentMode = .scaleAspectFill
+        cell.feedImageView.clipsToBounds = true
+        cell.feedImageView.layer.cornerRadius = 10
+        
+        cell.feedTitleLabel.text = row?.feedTitle
+        cell.feedContentLabel.text = row?.feedContent
         cell.colorView.clipsToBounds = true
         cell.colorView.layer.cornerRadius = 10
         
@@ -33,16 +42,53 @@ extension ContentViewController: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
         let sb = UIStoryboard(name: "Content", bundle: nil)
         
       
         guard let vc = sb.instantiateViewController(withIdentifier: "ContentModalViewController") as? ContentModalViewController else { return }
         
+        let row = task.first?.feeds[indexPath.row]
         
+        vc.id = row?._id
+        vc.SelectedFeed = true
+      
         let nav = UINavigationController(rootViewController: vc)
         
         nav.modalPresentationStyle = .automatic
         
         present(nav, animated: true, completion: nil)
+        
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "", handler: { action, view, completionHandler in
+                        completionHandler(true)
+                        
+                        // 메모 삭제시 alert
+                        let alert = UIAlertController(title: "일기 삭제", message: "알기를 삭제합니다\n삭제하시겠습니까?", preferredStyle: .alert)
+               
+                        let ok = UIAlertAction(title: "삭제", style: .cancel) { _ in
+                            let toDelete = self.task.first!.feeds[indexPath.row]
+                            try! self.localRealm.write {
+                                self.localRealm.delete(toDelete)
+                            }
+                            self.feedTableView.reloadData()
+                        }
+                        let cancel = UIAlertAction(title: "취소", style: .default)
+                
+                        alert.addAction(ok)
+                        alert.addAction(cancel)
+                       
+                        self.present(alert, animated: true, completion: nil)
+                    })
+        
+            deleteAction.image = UIImage(systemName: "trash.fill")
+                  return UISwipeActionsConfiguration(actions: [deleteAction])
+                  
+    }
+    
+    
 }

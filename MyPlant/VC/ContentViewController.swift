@@ -15,6 +15,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
    
     var task: Results<plant>!
     var feedTask: Results<feed>!
+  
     
     let localRealm = try! Realm()
     var id : ObjectId?
@@ -24,6 +25,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
     //선택된 이미지 데이터
     var captureImage: UIImage!
     var alram = false
+    
     
     @IBOutlet weak var feedTableView: UITableView!
     
@@ -56,10 +58,14 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
       
         let predicate = NSPredicate(format: "_id == %@", id!)
 
-        task = localRealm.objects(plant.self).filter(predicate)
-        feedTask = localRealm.objects(feed.self).sorted(byKeyPath: "regDate", ascending: false)
+        task = localRealm.objects(plant.self).filter(predicate).sorted(byKeyPath: "regDate", ascending: false)
+        
+        feedTask = localRealm.objects(feed.self).filter(predicate).sorted(byKeyPath: "regDate", ascending: false)
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.didDismissEditNotification(_:)), name: DidDismissEditViewController, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didDismissContentModalNotification(_:)), name: DidDismissContentModalViewController, object: nil)
         
         print(task!)
         let backBtn = UIButton(type: .custom)
@@ -68,7 +74,9 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         let backBarBtn = UIBarButtonItem(customView: backBtn)
         
         self.navigationItem.leftBarButtonItem = backBarBtn
-      
+        
+        feedTableView.reloadData()
+
         feedTableView.delegate = self
         feedTableView.dataSource = self
         feedTableView.estimatedRowHeight = 168
@@ -126,7 +134,12 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
     }
     
     override func viewWillAppear(_ animated: Bool) {
+
         super.viewWillAppear(animated)
+        
+        
+        feedTask = localRealm.objects(feed.self).sorted(byKeyPath: "regDate", ascending: true)
+        feedTableView.reloadData()
         
         progressBar.progress = progressDate()
            
@@ -293,8 +306,19 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
         }
 
+    
+    
+    @objc func didDismissContentModalNotification(_ noti: Notification) {
+ 
+        feedTableView.reloadData()
+        feedTask = localRealm.objects(feed.self).sorted(byKeyPath: "regDate", ascending: false)
+        }
+    
+    
+    
+    
     @objc func isClickedBackBtn() {
-        print(progressDate())
+    
         navigationController?.popViewController(animated: true)
     }
 
@@ -384,20 +408,33 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
 //        }
 //    }
     
-    private func sendLocalNotification(seconds:Double){
-        let content = UNMutableNotificationContent()
-        content.title = "MyPlant"
-        content.body = "알림이와요"
-        content.userInfo = ["targetScene": "splash"]
+    func loadImageFromDocuments(imageName:String) -> UIImage? {
+        let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+        let path = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true)
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
-        let request = UNNotificationRequest(identifier: String(describing: task!.first?._id), content: content, trigger: trigger)
-        
-        unc.add(request){ error in
-            print("error")
+        if let directoryPath = path.first {
+            let imageURL = URL(fileURLWithPath: directoryPath).appendingPathComponent(imageName)
+            return UIImage(contentsOfFile: imageURL.path)
         }
         
+        return nil
     }
+//
+//    private func sendLocalNotification(seconds:Double){
+//        let content = UNMutableNotificationContent()
+//        content.title = "MyPlant"
+//        content.body = "알림이와요"
+//        content.userInfo = ["targetScene": "splash"]
+//
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
+//        let request = UNNotificationRequest(identifier: String(describing: task!.first?._id), content: content, trigger: trigger)
+//
+//        unc.add(request){ error in
+//            print("error")
+//        }
+//
+//    }
     
     @IBAction func isClickedWaterResetButton(_ sender: UIButton) {
      

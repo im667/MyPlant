@@ -15,7 +15,6 @@
 		040D4528274672EB0047E88E /* SpoqaHanSansNeo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 040D4522274672EA0047E88E /* SpoqaHanSansNeo-Regular.otf */; };
 		040D4529274672EB0047E88E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 040D4523274672EB0047E88E /* LICENSE */; };
 		040D452A274672EB0047E88E /* SpoqaHanSansNeo-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 040D4524274672EB0047E88E /* SpoqaHanSansNeo-Thin.otf */; };
-		040D45332746771F0047E88E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 040D45322746771F0047E88E /* Kingfisher */; };
 		040D453B274683E90047E88E /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D453A274683E90047E88E /* RealmModel.swift */; };
 		040D453D27468C840047E88E /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D453C27468C840047E88E /* ModalViewController.swift */; };
 		040D45542746AA680047E88E /* Extension+Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D45532746AA680047E88E /* Extension+Modal.swift */; };
@@ -41,11 +40,11 @@
 		04C399F9274E0282006B73A5 /* Extension+Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C399F8274E0282006B73A5 /* Extension+Edit.swift */; };
 		04E7D4742746408B00050B83 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7D4732746408B00050B83 /* MainViewController.swift */; };
 		04E7D4762746409300050B83 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7D4752746409300050B83 /* SettingViewController.swift */; };
-		04E7D478274640A000050B83 /* PlantBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7D477274640A000050B83 /* PlantBookViewController.swift */; };
 		04E7D47A274640AB00050B83 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7D479274640AB00050B83 /* ContentViewController.swift */; };
-		04E7D47D2746427000050B83 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E7D47C2746427000050B83 /* TabBar.storyboard */; };
 		04E7D484274658BC00050B83 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7D482274658BC00050B83 /* MainCollectionViewCell.swift */; };
 		04E7D485274658BC00050B83 /* MainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E7D483274658BC00050B83 /* MainCollectionViewCell.xib */; };
+		04ED7DE1275687AC00EF280A /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED7DE0275687AC00EF280A /* OpenSourceViewController.swift */; };
+		04ED7DE427568E1600EF280A /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 04ED7DE327568E1600EF280A /* Zip */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,11 +81,10 @@
 		04C399F8274E0282006B73A5 /* Extension+Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Edit.swift"; sourceTree = "<group>"; };
 		04E7D4732746408B00050B83 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		04E7D4752746409300050B83 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		04E7D477274640A000050B83 /* PlantBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantBookViewController.swift; sourceTree = "<group>"; };
 		04E7D479274640AB00050B83 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
-		04E7D47C2746427000050B83 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		04E7D482274658BC00050B83 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		04E7D483274658BC00050B83 /* MainCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCollectionViewCell.xib; sourceTree = "<group>"; };
+		04ED7DE0275687AC00EF280A /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +92,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04ED7DE427568E1600EF280A /* Zip in Frameworks */,
 				040D456027474F280047E88E /* RealmSwift in Frameworks */,
 				040D455E27474F280047E88E /* Realm in Frameworks */,
-				040D45332746771F0047E88E /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,12 +165,12 @@
 				04E7D483274658BC00050B83 /* MainCollectionViewCell.xib */,
 				0470B87A2743979800CC1DF7 /* SceneDelegate.swift */,
 				0470B87C2743979800CC1DF7 /* ViewController.swift */,
-				04E7D47C2746427000050B83 /* TabBar.storyboard */,
 				0470B87E2743979800CC1DF7 /* Main.storyboard */,
 				0470B88C27463E0D00CC1DF7 /* Content.storyboard */,
 				040D45672748E7970047E88E /* ContentTableViewCell.swift */,
 				0470B88E27463E4200CC1DF7 /* PlantBook.storyboard */,
 				0470B89027463E4B00CC1DF7 /* Setting.storyboard */,
+				04ED7DE0275687AC00EF280A /* OpenSourceViewController.swift */,
 				0470B8812743979B00CC1DF7 /* Assets.xcassets */,
 				0470B8832743979B00CC1DF7 /* LaunchScreen.storyboard */,
 				0470B8862743979B00CC1DF7 /* Info.plist */,
@@ -183,14 +181,13 @@
 		04E7D47B274640B500050B83 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				04E7D4732746408B00050B83 /* MainViewController.swift */,
 				04E7D4752746409300050B83 /* SettingViewController.swift */,
-				04E7D477274640A000050B83 /* PlantBookViewController.swift */,
 				040D453C27468C840047E88E /* ModalViewController.swift */,
 				04E7D479274640AB00050B83 /* ContentViewController.swift */,
 				04C399EE274A2F18006B73A5 /* ContentModalViewController.swift */,
 				040D4561274788860047E88E /* DatePickerViewController.swift */,
 				04C399F6274D3B4A006B73A5 /* EditViewController.swift */,
+				04E7D4732746408B00050B83 /* MainViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -212,9 +209,9 @@
 			);
 			name = MyPlant;
 			packageProductDependencies = (
-				040D45322746771F0047E88E /* Kingfisher */,
 				040D455D27474F280047E88E /* Realm */,
 				040D455F27474F280047E88E /* RealmSwift */,
+				04ED7DE327568E1600EF280A /* Zip */,
 			);
 			productName = MyPlant;
 			productReference = 0470B8752743979800CC1DF7 /* MyPlant.app */;
@@ -245,8 +242,8 @@
 			);
 			mainGroup = 0470B86C2743979700CC1DF7;
 			packageReferences = (
-				040D45312746771F0047E88E /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				040D455C27474F280047E88E /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				04ED7DE227568E1600EF280A /* XCRemoteSwiftPackageReference "Zip" */,
 			);
 			productRefGroup = 0470B8762743979800CC1DF7 /* Products */;
 			projectDirPath = "";
@@ -273,7 +270,6 @@
 				040D4528274672EB0047E88E /* SpoqaHanSansNeo-Regular.otf in Resources */,
 				0470B8802743979800CC1DF7 /* Main.storyboard in Resources */,
 				040D4525274672EB0047E88E /* SpoqaHanSansNeo-Bold.otf in Resources */,
-				04E7D47D2746427000050B83 /* TabBar.storyboard in Resources */,
 				0470B89127463E4B00CC1DF7 /* Setting.storyboard in Resources */,
 				040D452A274672EB0047E88E /* SpoqaHanSansNeo-Thin.otf in Resources */,
 			);
@@ -290,7 +286,6 @@
 				04E7D4762746409300050B83 /* SettingViewController.swift in Sources */,
 				040D45662748E7320047E88E /* Extension+ContentTableView.swift in Sources */,
 				040D45562746AB190047E88E /* RealmQuery.swift in Sources */,
-				04E7D478274640A000050B83 /* PlantBookViewController.swift in Sources */,
 				04C399F3274A5880006B73A5 /* UIResponder.swift in Sources */,
 				040D453B274683E90047E88E /* RealmModel.swift in Sources */,
 				040D45682748E7970047E88E /* ContentTableViewCell.swift in Sources */,
@@ -304,6 +299,7 @@
 				0470B87B2743979800CC1DF7 /* SceneDelegate.swift in Sources */,
 				040D4562274788860047E88E /* DatePickerViewController.swift in Sources */,
 				04E7D4742746408B00050B83 /* MainViewController.swift in Sources */,
+				04ED7DE1275687AC00EF280A /* OpenSourceViewController.swift in Sources */,
 				040D451C2746688A0047E88E /* Extention+MainCollection.swift in Sources */,
 				04C399EF274A2F18006B73A5 /* ContentModalViewController.swift in Sources */,
 				04E7D47A274640AB00050B83 /* ContentViewController.swift in Sources */,
@@ -455,10 +451,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 75QD4ZR23L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyPlant/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -469,7 +468,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssac.MyPlant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -484,10 +483,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 75QD4ZR23L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyPlant/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -498,7 +500,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssac.MyPlant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -531,14 +533,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		040D45312746771F0047E88E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		040D455C27474F280047E88E /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa.git";
@@ -547,14 +541,17 @@
 				version = 10.18.0;
 			};
 		};
+		04ED7DE227568E1600EF280A /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		040D45322746771F0047E88E /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 040D45312746771F0047E88E /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
 		040D455D27474F280047E88E /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 040D455C27474F280047E88E /* XCRemoteSwiftPackageReference "realm-cocoa" */;
@@ -564,6 +561,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 040D455C27474F280047E88E /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = RealmSwift;
+		};
+		04ED7DE327568E1600EF280A /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04ED7DE227568E1600EF280A /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -269,6 +269,16 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     
     @objc func isClickedSaveBtn() {
         
+        if nickName.text == "" {
+            
+            let alert = UIAlertController(title: "올바른 형식이 아닙니다.", message: "프로필 정보를 완성해주세요.", preferredStyle: UIAlertController.Style.alert)
+            
+            let ok = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+            
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
+            
+        } else {
         
         if let waterDayString = daysButton.currentTitle {
             
@@ -288,8 +298,9 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
                 try! localRealm.write {
                     localRealm.add(task)
                     saveImageToDocumentDirectory(imageName: "\(task._id).jpg", image: plantImageView.image!)
-                }
+                    }
              
+                }
             }
         }
 
