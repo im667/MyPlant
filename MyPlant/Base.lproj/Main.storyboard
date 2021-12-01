@@ -177,7 +177,7 @@
                                                     <constraint firstAttribute="height" constant="24.5" id="g1k-Qj-syG"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" red="0.34572322150000001" green="0.61054316259999997" blue="0.274612727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="키우기 시작한 날짜 선택하기" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNQ-7E-z3v">
@@ -218,13 +218,11 @@
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0O-6m-umQ">
                                                 <rect key="frame" x="269" y="471" width="82" height="31"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="31" id="7Vu-X0-T4d"/>
-                                                    <constraint firstAttribute="width" constant="82" id="ZSo-aR-XIb"/>
+                                                    <constraint firstAttribute="width" secondItem="i0O-6m-umQ" secondAttribute="height" multiplier="82:31" id="Vaa-az-EyA"/>
+                                                    <constraint firstAttribute="height" constant="31" id="sLo-JN-aVp"/>
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="선택" image="arrowtriangle.down.fill" catalog="system">
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
-                                                </state>
+                                                <state key="normal" title="선택"/>
                                                 <connections>
                                                     <action selector="daysButton:" destination="C08-lZ-Gy0" eventType="touchUpInside" id="rcb-Tq-6p4"/>
                                                 </connections>
@@ -243,7 +241,6 @@
                                             <constraint firstItem="eQZ-Oa-ZSj" firstAttribute="leading" secondItem="rAx-Va-hgL" secondAttribute="leading" constant="40" id="KdZ-DJ-14o"/>
                                             <constraint firstItem="nuz-d0-VBJ" firstAttribute="leading" secondItem="rAx-Va-hgL" secondAttribute="leading" constant="40" id="Nbk-U5-1cf"/>
                                             <constraint firstItem="JH1-Eq-gJs" firstAttribute="leading" secondItem="rAx-Va-hgL" secondAttribute="leading" constant="40" id="OOp-Xu-V7c"/>
-                                            <constraint firstItem="i0O-6m-umQ" firstAttribute="leading" secondItem="F8u-8q-Ozd" secondAttribute="trailing" constant="59" id="UCC-9r-eIR"/>
                                             <constraint firstAttribute="trailing" secondItem="Std-Mf-JGD" secondAttribute="trailing" constant="40" id="aVU-UM-ijg"/>
                                             <constraint firstItem="eQZ-Oa-ZSj" firstAttribute="top" secondItem="RP0-O4-qMx" secondAttribute="bottom" constant="16" id="bFo-3c-jnv"/>
                                             <constraint firstItem="p24-Qf-OA3" firstAttribute="top" secondItem="Std-Mf-JGD" secondAttribute="bottom" constant="26.5" id="c7j-nC-Uv0"/>
@@ -382,7 +379,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowtriangle.down.fill" catalog="system" width="128" height="124"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="imageViewBtn" width="334" height="334"/>
         <image name="logo" width="116" height="23"/>

@@ -84,7 +84,13 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         daysButton.tintColor = .systemGray2
         
         
-        dateButton.setTitle("날짜 선택", for: .normal)
+        let format = DateFormatter()
+        format.locale = Locale(identifier: "ko_KR")
+        format.dateFormat = "yyyy년 MM월 dd일"
+        guard let firstStartDay = Calendar.current.date(byAdding: .hour , value: -1 , to: Date()) else { return }
+        
+        
+        dateButton.setTitle(format.string(from: firstStartDay), for: .normal)
         dateButton.backgroundColor = .systemGray5
         dateButton.clipsToBounds = true
         dateButton.layer.cornerRadius = 5

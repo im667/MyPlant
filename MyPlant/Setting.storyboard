@@ -26,13 +26,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Da-Pt-WCX">
-                                <rect key="frame" x="186.5" y="214" width="41" height="28"/>
+                                <rect key="frame" x="186.5" y="168" width="41" height="28"/>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="22"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앱을 사용하는 디바이스를 교체할 경우 반드시 백업데이터를 공유해 사용하시는 디바이스로 옮겨야 복구할 수 있습니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6d-pC-YjN">
-                                <rect key="frame" x="20" y="414" width="374" height="44"/>
+                                <rect key="frame" x="20" y="368" width="374" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="7wM-dE-lUA"/>
                                 </constraints>
@@ -41,7 +41,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aaz-LK-f1m">
-                                <rect key="frame" x="20" y="278" width="374" height="56"/>
+                                <rect key="frame" x="20" y="232" width="374" height="56"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Ygb-uC-RUE"/>
@@ -55,7 +55,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXo-Vg-cVU">
-                                <rect key="frame" x="20" y="350" width="374" height="56"/>
+                                <rect key="frame" x="20" y="304" width="374" height="56"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="SRq-3A-6td"/>
@@ -69,7 +69,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBm-6v-7hO">
-                                <rect key="frame" x="20" y="478" width="374" height="56"/>
+                                <rect key="frame" x="20" y="432" width="374" height="56"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Lp3-tx-neb"/>
@@ -83,7 +83,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6G-CO-SKV">
-                                <rect key="frame" x="20" y="550" width="374" height="56"/>
+                                <rect key="frame" x="20" y="504" width="374" height="56"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="qsg-NI-zhY"/>
@@ -110,7 +110,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="a6d-pC-YjN" secondAttribute="trailing" constant="20" id="Glc-5U-Wx3"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="T6G-CO-SKV" secondAttribute="trailing" constant="20" id="KNO-oU-n5H"/>
                             <constraint firstItem="a6d-pC-YjN" firstAttribute="top" secondItem="qXo-Vg-cVU" secondAttribute="bottom" constant="8" symbolic="YES" id="Nu0-bD-IbF"/>
-                            <constraint firstItem="2Da-Pt-WCX" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="126" id="Otf-XE-ctM"/>
+                            <constraint firstItem="2Da-Pt-WCX" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="80" id="Otf-XE-ctM"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lBm-6v-7hO" secondAttribute="trailing" constant="20" id="WbU-xs-0Ud"/>
                             <constraint firstItem="qXo-Vg-cVU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="ecN-eP-D5F"/>
                             <constraint firstItem="a6d-pC-YjN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="il8-H6-h2n"/>

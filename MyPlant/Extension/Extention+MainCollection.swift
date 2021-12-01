@@ -99,9 +99,14 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             let endDate = format.date(from:format.string(from: Date()))!
             let interval = endDate.timeIntervalSince(startDate)
             let days = Int(interval / 86400)
-            print("\(days)일만큼 차이납니다.")
+
+            if days == 0  {
+                cell.dateLabel.text = "🌱반가워요"
+            } else {
+                cell.dateLabel.text = "🪴 \(days)일 +"
+            }
             
-            cell.dateLabel.text = days <= 0 ? "🌱반가워요" : "🪴 \(days)일 +"
+        
             cell.dateLabel.font = UIFont().pBold
             cell.dateLabel.textColor = .systemGray
         }

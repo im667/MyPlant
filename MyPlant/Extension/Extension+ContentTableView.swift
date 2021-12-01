@@ -19,7 +19,8 @@ extension ContentViewController: UITableViewDelegate,UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ContentTableViewCell.identifier, for: indexPath) as? ContentTableViewCell else {
             return UITableViewCell()  }
         
-        let row = task.first?.feeds[indexPath.row]
+    
+        let row = task.last?.feeds.reversed()[indexPath.row]
         
         cell.feedImageView.image = loadImageFromDocuments(imageName: "\(row!._id).jpg") == nil ? UIImage(named: "basicImg") : loadImageFromDocuments(imageName: "\(row!._id).jpg")
         
@@ -56,17 +57,17 @@ extension ContentViewController: UITableViewDelegate,UITableViewDataSource {
       
         guard let vc = sb.instantiateViewController(withIdentifier: "ContentModalViewController") as? ContentModalViewController else { return }
         
-        let row = task.first?.feeds[indexPath.row]
+        let row =  task.last?.feeds.reversed()[indexPath.row]
         
         vc.id = row?._id
         vc.SelectedFeed = true
       
-        let nav = UINavigationController(rootViewController: vc)
-        
-        nav.modalPresentationStyle = .automatic
-        
-        present(nav, animated: true, completion: nil)
-        
+//        let nav = UINavigationController(rootViewController: vc)
+//
+//        nav.modalPresentationStyle = .fullScreen
+//
+//        present(nav, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

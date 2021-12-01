@@ -11,6 +11,8 @@ import MobileCoreServices
 import SwiftUI
 import UserNotifications
 
+let didpopVC:Notification.Name = Notification.Name("didpopVC")
+
 class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
    
     var task: Results<plant>!
@@ -75,7 +77,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
         self.navigationItem.leftBarButtonItem = backBarBtn
         
-        feedTableView.reloadData()
+        self.feedTableView.reloadData()
 
         feedTableView.delegate = self
         feedTableView.dataSource = self
@@ -137,14 +139,63 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
 
         super.viewWillAppear(animated)
         
+        let predicate = NSPredicate(format: "_id == %@", id!)
+
+        task = localRealm.objects(plant.self).filter(predicate).sorted(byKeyPath: "regDate", ascending: false)
+        
+        feedTask = localRealm.objects(feed.self).filter(predicate).sorted(byKeyPath: "regDate", ascending: false)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didDismissEditNotification(_:)), name: DidDismissEditViewController, object: nil)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.didDismissContentModalNotification(_:)), name: DidDismissContentModalViewController, object: nil)
         
-        feedTableView.reloadData()
+        let backBtn = UIButton(type: .custom)
+        backBtn.setImage(UIImage(named: "backBtn.png"), for: .normal)
+        backBtn.addTarget(self, action: #selector(isClickedBackBtn), for: .touchUpInside)
+        let backBarBtn = UIBarButtonItem(customView: backBtn)
         
-        feedTask = localRealm.objects(feed.self).sorted(byKeyPath: "regDate", ascending: true)
+        self.navigationItem.leftBarButtonItem = backBarBtn
+        
+        self.feedTableView.reloadData()
+
+        feedTableView.delegate = self
+        feedTableView.dataSource = self
+        feedTableView.estimatedRowHeight = 168
+        feedTableView.rowHeight = UITableView.automaticDimension
+        DispatchQueue.main.async {
+                    self.tableViewHeight.constant = self.feedTableView.contentSize.height
+                }
+
+        
+        profileImage.image =  loadImageFromDocumentDirectory(imageName: "\(task.first!._id).jpg") == nil ? UIImage(named: "basicImg") : loadImageFromDocumentDirectory(imageName: "\(task.first!._id).jpg")
+        profileImage.contentMode = .scaleAspectFill
+        
+        
+        
+        nickName.text = task.first!.nickName
+      
      
+        let format = DateFormatter()
+        format.locale = Locale(identifier: "ko_KR")
+        format.dateFormat = "yyyy.MM.dd"
+        let startDate = format.date(from:format.string(from: task.first!.startDate))!
+        let endDate = format.date(from:format.string(from: Date()))!
+        let interval = endDate.timeIntervalSince(startDate)
+        let days = Int(interval / 86400)
+        daysLable.text = "🪴\(days)일+"
+        daysLable.sizeToFit()
+        daysStartDateLabel.text = format.string(from: task.first!.startDate) + " ~"
+        
+        waterDayLabel.text = String(task.first!.waterDay) + "일"
         
         progressBar.progress = progressDate()
+        
+        
+        
+        self.feedTableView.reloadData()
+        
+        feedTask = localRealm.objects(feed.self).sorted(byKeyPath: "regDate", ascending: true)
            
         progressBar.progressTintColor = UIColor(red: 132/255, green: 222/255, blue: 226/255, alpha: 1)
         
@@ -313,7 +364,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
     @objc func didDismissContentModalNotification(_ noti: Notification) {
  
-        feedTableView.reloadData()
+        self.feedTableView.reloadData()
         
         let predicate = NSPredicate(format: "_id == %@", id!)
         task = localRealm.objects(plant.self).filter(predicate)
@@ -327,7 +378,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
     
     @objc func isClickedBackBtn() {
-    
+        NotificationCenter.default.post(name: didpopVC, object: nil, userInfo: nil)
         navigationController?.popViewController(animated: true)
     }
 
@@ -453,6 +504,18 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         try! localRealm.write{
             task.first?.regDate = Date()
             task.first?.afterWaterDate = afterWaterDay
+        }
+        
+        progressBar.progress = progressDate()
+           
+        progressBar.progressTintColor = UIColor(red: 132/255, green: 222/255, blue: 226/255, alpha: 1)
+        
+        if progressDate() > 0 {
+            waterResetButton.layer.isHidden = true
+        progressBar.trackTintColor = UIColor(red: 240/255, green: 237/255, blue: 237/255, alpha: 1)
+        } else {
+                progressBar.trackTintColor = UIColor(red: 226/255, green: 132/255, blue: 132/255, alpha: 1)
+            waterResetButton.layer.isHidden = false
         }
         
         

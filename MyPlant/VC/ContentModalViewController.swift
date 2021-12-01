@@ -211,6 +211,7 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
                 UIImage {
                 imageView.image = editedImage
                 captureImage = editedImage
+                saveImageToDocumentDirectory(imageName: "\(id!).jpg", image: captureImage)
                 
             } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
                 imageView.image = originalImage
@@ -306,7 +307,7 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
         
         let predicate = NSPredicate(format: "_id == %@", id!)
         
-        if let parent = realm.objects(plant.self).filter(predicate).first {
+        if let parent = realm.objects(plant.self).filter(predicate).last {
 
             feeds.feedTitle = self.titleTextField.text!
             feeds.feedContent = self.contentTextView.text!
@@ -335,6 +336,7 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
                     feedTask.feedTitle = self.titleTextField.text!
                     feedTask.feedContent = self.contentTextView.text!
                     feedTask.regDate = Date()
+                    saveImageToDocumentDirectory(imageName: "\(feeds._id).jpg", image: imageView.image!)
                 }
                    
             

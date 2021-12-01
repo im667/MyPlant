@@ -31,7 +31,7 @@ class MainViewController: UIViewController {
         collectionView.reloadData()
         collectionView.dataSource = self
         collectionView.delegate = self
-        print("Realm:",localRealm.configuration.fileURL!)
+        
         self.titleLabel.text = tasks.count == 0 ? "식물을 추가해주세요." : "내 식물 \(tasks.count)"
         self.titleLabel.font = tasks.count == 0 ? UIFont().subTitle : UIFont().title
         self.titleLabel.textColor = UIColor(red: 128/255, green: 166/255, blue: 34/255, alpha: 1)
@@ -45,7 +45,7 @@ class MainViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.didDismissModalNotification(_:)), name: DidDismissModalViewController, object: nil)
         
-       
+        NotificationCenter.default.addObserver(self, selector: #selector(didpopVC(_:)),name: NSNotification.Name("didpopVC"),object: nil)
         
         //flow 레이아웃
         let layout = UICollectionViewFlowLayout()
@@ -65,20 +65,18 @@ class MainViewController: UIViewController {
         
         let nibName = UINib(nibName: MainCollectionViewCell.identifier, bundle: nil)
         collectionView.register(nibName, forCellWithReuseIdentifier: MainCollectionViewCell.identifier)
-        
-        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).leftView = nil
-        
-        UISearchBar.appearance().searchTextPositionAdjustment = UIOffset(horizontal: 10,vertical: 0)
+//
+//        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).leftView = nil
+//        UISearchBar.appearance().searchTextPositionAdjustment = UIOffset(horizontal: 10,vertical: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         tasks = localRealm.objects(plant.self).sorted(byKeyPath: "regDate", ascending: false)
         self.collectionView.reloadData()
         navigationController?.setNavigationBarHidden(true, animated: animated)
 
-       
-        
         let attributedStr = NSMutableAttributedString(string: titleLabel.text!)
         attributedStr.addAttribute(.foregroundColor, value: UIColor.systemGray, range:(titleLabel.text! as NSString).range(of: "내 식물"))
         titleLabel.text = tasks.count == 0 ? "식물을 추가해주세요." : "내 식물 \(tasks.count)"
@@ -89,11 +87,34 @@ class MainViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        tasks = localRealm.objects(plant.self).sorted(byKeyPath: "regDate", ascending: false)
+
         self.collectionView.reloadData()
+
+
+        let attributedStr = NSMutableAttributedString(string: titleLabel.text!)
+        attributedStr.addAttribute(.foregroundColor, value: UIColor.systemGray, range:(titleLabel.text! as NSString).range(of: "내 식물"))
+        titleLabel.text = tasks.count == 0 ? "식물을 추가해주세요." : "내 식물 \(tasks.count)"
+        titleLabel.attributedText = attributedStr
+
         navigationController?.setNavigationBarHidden(false, animated: animated)
-        
+
     }
 
+    
+    @objc func didpopVC(_ noti: Notification){
+        
+        titleLabel.text = tasks.count == 0 ? "식물을 추가해주세요." : "내 식물 \(tasks.count)"
+        let attributedStr = NSMutableAttributedString(string: titleLabel.text!)
+        attributedStr.addAttribute(.foregroundColor, value: UIColor.systemGray, range:(titleLabel.text! as NSString).range(of: "내 식물"))
+      
+        titleLabel.attributedText = attributedStr
+        
+        OperationQueue.main.addOperation { // DispatchQueue도 가능.
+                       self.collectionView.reloadData()
+                   }
+    }
+    
     @objc func didDismissModalNotification(_ noti: Notification) {
  
         titleLabel.text = tasks.count == 0 ? "식물을 추가해주세요." : "내 식물 \(tasks.count)"
