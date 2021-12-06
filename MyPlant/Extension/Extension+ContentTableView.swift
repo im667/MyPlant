@@ -11,7 +11,7 @@ import UIKit
 extension ContentViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
      
-        return task.first?.feeds.count ?? 0
+        return feedTask.count
       
     }
     
@@ -19,17 +19,20 @@ extension ContentViewController: UITableViewDelegate,UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ContentTableViewCell.identifier, for: indexPath) as? ContentTableViewCell else {
             return UITableViewCell()  }
         
-    
-        let row = task.last?.feeds.reversed()[indexPath.row]
+  
+        let row = feedTask[indexPath.row]
         
-        cell.feedImageView.image = loadImageFromDocuments(imageName: "\(row!._id).jpg") == nil ? UIImage(named: "basicImg") : loadImageFromDocuments(imageName: "\(row!._id).jpg")
+        
+        
+    
+        cell.feedImageView.image = loadImageFromDocuments(imageName: "\(row._id).jpg") == nil ? UIImage(named: "basicImg") : loadImageFromDocuments(imageName: "\(row._id).jpg")
         
  
         
-        if row?.feedTitle == "" {
+        if row.feedTitle == "" {
             cell.feedTitleLabel.text = "제목이 없습니다."
         } else {
-            cell.feedTitleLabel.text = row?.feedTitle
+            cell.feedTitleLabel.text = row.feedTitle
         }
         
         
@@ -38,7 +41,7 @@ extension ContentViewController: UITableViewDelegate,UITableViewDataSource {
         cell.feedImageView.layer.cornerRadius = 10
         
         
-        cell.feedContentLabel.text = row?.feedContent
+        cell.feedContentLabel.text = row.feedContent
         cell.colorView.clipsToBounds = true
         cell.colorView.layer.cornerRadius = 10
         
@@ -57,9 +60,9 @@ extension ContentViewController: UITableViewDelegate,UITableViewDataSource {
       
         guard let vc = sb.instantiateViewController(withIdentifier: "ContentModalViewController") as? ContentModalViewController else { return }
         
-        let row =  task.last?.feeds.reversed()[indexPath.row]
+        let row = feedTask[indexPath.row]
         
-        vc.id = row?._id
+        vc.id = row._id
         vc.SelectedFeed = true
       
 //        let nav = UINavigationController(rootViewController: vc)
@@ -72,16 +75,22 @@ extension ContentViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
+   
+        
         let deleteAction = UIContextualAction(style: .destructive, title: "", handler: { action, view, completionHandler in
                         completionHandler(true)
-                        
+            
+            let row = self.feedTask[indexPath.row]
+            
                         // 메모 삭제시 alert
                         let alert = UIAlertController(title: "일기 삭제", message: "알기를 삭제합니다\n삭제하시겠습니까?", preferredStyle: .alert)
                
                         let ok = UIAlertAction(title: "삭제", style: .cancel) { _ in
                             let toDelete = self.task.first!.feeds[indexPath.row]
                             try! self.localRealm.write {
+                                self.deleteImageFromDocumentDirectory(imageName: "\(row._id).jpg")
                                 self.localRealm.delete(toDelete)
+                           
                             }
                             self.feedTableView.reloadData()
                         }
@@ -92,6 +101,7 @@ extension ContentViewController: UITableViewDelegate,UITableViewDataSource {
                        
                         self.present(alert, animated: true, completion: nil)
                     })
+        
         
             deleteAction.image = UIImage(systemName: "trash.fill")
                   return UISwipeActionsConfiguration(actions: [deleteAction])

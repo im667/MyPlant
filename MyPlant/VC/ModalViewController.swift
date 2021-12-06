@@ -157,7 +157,7 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     
     @objc func imageTapped(_ sender: AnyObject) {
         
-        let alert = UIAlertController(title: "사진추가", message: "사진을 선택해주세요", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "내 식물 사진추가", message: "사진을 선택해주세요", preferredStyle: .actionSheet)
        
         let openCamera = UIAlertAction(title: "사진 촬영", style: .default){ action
             in

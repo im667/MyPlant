@@ -90,7 +90,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4XH-5K-RI5">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" semanticContentAttribute="playback" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4XH-5K-RI5">
                                                         <rect key="frame" x="323" y="32" width="71" height="24"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="10일" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfJ-rZ-gmh">
@@ -102,7 +102,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5e-LD-LV1">
+                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5e-LD-LV1">
                                                                 <rect key="frame" x="47" y="0.0" width="24" height="24"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="24" id="AXW-7H-Mx7"/>
@@ -115,6 +115,9 @@
                                                                 </connections>
                                                             </button>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="C5e-LD-LV1" firstAttribute="leading" secondItem="jfJ-rZ-gmh" secondAttribute="trailing" constant="8" symbolic="YES" id="LXa-pw-ue9"/>
+                                                        </constraints>
                                                     </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -329,8 +332,10 @@
                         <outlet property="profileImage" destination="QDz-iG-m1S" id="2dz-bW-Iyw"/>
                         <outlet property="progressBar" destination="c57-44-rRy" id="2Uw-bc-39r"/>
                         <outlet property="tableViewHeight" destination="69e-RH-ThB" id="wEK-fb-IJB"/>
+                        <outlet property="waterDayBtnStackView" destination="4XH-5K-RI5" id="yiF-QZ-MHa"/>
                         <outlet property="waterDayLabel" destination="jfJ-rZ-gmh" id="fw6-Kg-BPP"/>
                         <outlet property="waterResetButton" destination="C5e-LD-LV1" id="vP1-Ys-DEy"/>
+                        <outlet property="waterResetButtonConstraints" destination="AXW-7H-Mx7" id="LuY-u3-mC2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

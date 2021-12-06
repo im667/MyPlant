@@ -20,13 +20,14 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
 
     var task: Results<plant>!
     var feedTask: Results<feed>!
-    var id : ObjectId?
+    var id : ObjectId!
+   
     var SelectedFeed = false
     let imagePickerVC: UIImagePickerController! = UIImagePickerController()
     var picker = UIPickerView()
     var captureImage : UIImage!
     var imageSelect = false
-
+    
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -45,8 +46,7 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
         
         let predicate = NSPredicate(format: "_id == %@", id!)
 
-        feedTask = localRealm.objects(feed.self).filter(predicate).sorted(byKeyPath: "regDate", ascending: false)
-
+           feedTask = localRealm.objects(feed.self).filter(predicate).sorted(byKeyPath: "regDate", ascending: false)
         
         imagePickerVC.delegate = self
         
@@ -113,7 +113,7 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             imageView.layer.cornerRadius = 10
-            imageView.image = loadImageFromDocuments(imageName: "\(String(describing: feedTask.first!._id)).jpg") == nil ? UIImage(named: "basicImg") : loadImageFromDocuments(imageName: "\(String(describing: feedTask.first!._id)).jpg")
+            imageView.image = loadImageFromDocuments(imageName: "\(String(describing: id!)).jpg") == nil ? UIImage(named: "basicImg") : loadImageFromDocuments(imageName: "\(String(describing: id!)).jpg")
             let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(imageTapped(_:)))
             imageView.isUserInteractionEnabled = true
             imageView.addGestureRecognizer(tapGestureRecognizer)
@@ -168,7 +168,7 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
 
     @objc func imageTapped(_ sender: AnyObject) {
         
-        let alert = UIAlertController(title: "사진추가", message: "사진을 선택해주세요", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "내 식물 사진추가", message: "사진을 선택해주세요", preferredStyle: .actionSheet)
        
         let openCamera = UIAlertAction(title: "사진 촬영", style: .default){ action
             in
@@ -204,11 +204,13 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let mediaType = info[UIImagePickerController.InfoKey.mediaType] as! String
-        imageSelect = true
+
+        
         
         if mediaType.isEqual(kUTTypeImage as NSString as String){
             if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as?
                 UIImage {
+                imageSelect = true
                 imageView.image = editedImage
                 captureImage = editedImage
                 saveImageToDocumentDirectory(imageName: "\(id!).jpg", image: captureImage)
@@ -216,6 +218,7 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
             } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
                 imageView.image = originalImage
                 captureImage = originalImage
+                imageSelect = true
             }
             self.dismiss(animated: true, completion: nil)
         }
@@ -232,60 +235,75 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
     }
     
     
-    func saveImageToDocumentDirectory(imageName:String, image:UIImage) {
-        //이미지 저장 경로 설정: 도큐먼트 폴더(위치:.documentDirectory)
-        //1. Desktop/user/mac~~~~~/folder/222.png
+    func saveImageToDocumentDirectory(imageName:String, image:UIImage)  {
+        //1. 이미지 저장할 경로 설정 : Document 폴더
         
         if imageSelect {
-            
         
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
         
-        //2.이미지 파일 이름
-        let imageURL = documentDirectory.appendingPathComponent(imageName)
-        
-        //3.이미지 압축 (image.pngDage())
-        guard let data = image.pngData() else { return }
-                
-        
-        
-        //4.이미지 저장: 동일한 경로에 이미지를 저장하게 될 경우, 덮어쓰기
-        //4-1. 이미지 경로 여부 확인
-        
-        if FileManager.default.fileExists(atPath: imageURL.path){
-            
-            //4-2.기존경로에 있는 이미지 삭제
-            do{
-                try FileManager.default.removeItem(at: imageURL)
-                print("이미지 삭제완료")
+        let filePath = documentDirectory.appendingPathComponent("feedImage")
+        if !FileManager.default.fileExists(atPath: filePath.path) {
+            do {
+                try FileManager.default.createDirectory(atPath: filePath.path, withIntermediateDirectories: true, attributes: nil)
             } catch {
-                print("이미지를 삭제하지 못했습니다.")
+                print(error.localizedDescription)
             }
-            
+        }
+        
+        //2. 이미지 파일 이름 & 최종 경로 설정
+        //Desktop/~~/~~/folder/222.png
+        let imageURL = filePath.appendingPathComponent(imageName)
+        
+        //3. 이미지 압축(optional) image.pngData()
+        guard let data = image.pngData() else { return }
+        
+        //4. 이미지 저장: 동일한 경로에 이미지를 저장하게 될 경우, 덮어쓰기
+        //4-1. 이미지 경로 여부 확인 (만약 최종 경로에 동일한 파일이 있는 경우)
+        if FileManager.default.fileExists(atPath: imageURL.path) {
+            //4-2. 기존 경로에 있는 이미지 삭제
+            do {
+                try FileManager.default.removeItem(at: imageURL)
+                print("이미지 삭제 완료")
+            }
+            catch {
+                print("이미지 삭제하지 못했습니다.")
+            }
         }
         
         //5. 이미지를 도큐먼트에 저장
-        do{
+        do {
             try data.write(to: imageURL)
-        } catch {
-            print("이미지 저장 못함")
         }
+        catch {
+            print("이미지 저장 실패")
         }
     }
-
+    }
+    
+    
+    
     
     func loadImageFromDocuments(imageName:String) -> UIImage? {
-        let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
-        let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
-        let path = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true)
-        
-        if let directoryPath = path.first {
-            let imageURL = URL(fileURLWithPath: directoryPath).appendingPathComponent(imageName)
-            return UIImage(contentsOfFile: imageURL.path)
-        }
-        
-        return nil
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+               
+               let filePath = documentDirectory.appendingPathComponent("feedImage")
+               if !FileManager.default.fileExists(atPath: filePath.path) {
+                   do {
+                       try FileManager.default.createDirectory(atPath: filePath.path, withIntermediateDirectories: true, attributes: nil)
+                   } catch {
+                       print(error.localizedDescription)
+                   }
+               }
+               
+               let imageURL = filePath.appendingPathComponent(imageName)
+               return UIImage(contentsOfFile: imageURL.path)
     }
+    
+    
+    
+    
+    
     
     @objc func isClickedBackBtn (){
         
@@ -303,40 +321,41 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
 
         let feeds = MyPlant.feed(feedTitle:titleTextField.text!, feedContent:contentTextView.text!, regDate: Date())
         
+        
         if SelectedFeed == false {
         
         let predicate = NSPredicate(format: "_id == %@", id!)
         
-        if let parent = realm.objects(plant.self).filter(predicate).last {
+        if let parent = realm.objects(plant.self).filter(predicate).first {
 
             feeds.feedTitle = self.titleTextField.text!
             feeds.feedContent = self.contentTextView.text!
             feeds.regDate = Date()
 
-                    do {
-                        try realm.write {
+
+                        try! realm.write {
                             parent.feeds.append(objectsIn: [feeds])
-                            saveImageToDocumentDirectory(imageName: "\(feeds._id).jpg", image: imageView.image!)
                             realm.add(feeds)
+                            saveImageToDocumentDirectory(imageName: "\(feeds._id).jpg", image: imageView.image!)
+                           
                             print("saveToDo")
          
                             
                         }
-                    } catch let e as NSError {
-                        print("\(e.description)")
-                    }
+
                 }
         } else {
-            
+    
             let predicate = NSPredicate(format: "_id == %@", id!)
             if let feedTask = realm.objects(feed.self).filter(predicate).first {
-
-              
+                imageSelect = true
                 try! localRealm.write{
+                  
                     feedTask.feedTitle = self.titleTextField.text!
                     feedTask.feedContent = self.contentTextView.text!
                     feedTask.regDate = Date()
                     saveImageToDocumentDirectory(imageName: "\(feeds._id).jpg", image: imageView.image!)
+                    print("\(feeds._id).jpg")
                 }
                    
             
