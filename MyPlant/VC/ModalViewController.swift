@@ -9,6 +9,8 @@ import UIKit
 import MobileCoreServices
 import RealmSwift
 import SwiftUI
+import AVFoundation
+import Photos
 
 let DidDismissModalViewController: Notification.Name = Notification.Name("DidDismissModalViewController")
 
@@ -104,7 +106,10 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         plantImageView.isUserInteractionEnabled = true
         plantImageView.addGestureRecognizer(tapGestureRecognizer)
 
-      
+        PHPhotoLibrary.requestAuthorization { status in
+           }
+           AVCaptureDevice.requestAccess(for: .video) { granted in
+           }
       
     }
     
@@ -157,6 +162,8 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     
     @objc func imageTapped(_ sender: AnyObject) {
         
+        
+        
         let alert = UIAlertController(title: "내 식물 사진추가", message: "사진을 선택해주세요", preferredStyle: .actionSheet)
        
         let openCamera = UIAlertAction(title: "사진 촬영", style: .default){ action
@@ -177,6 +184,7 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
                 self.imagePickerVC.mediaTypes = [kUTTypeImage as String]
            
             } else {
+              
                 print("포토앨범에 접근할 수 없습니다")
             }
         }

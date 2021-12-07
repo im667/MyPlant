@@ -41,7 +41,6 @@ extension ModalViewController:UIPickerViewDelegate,UIPickerViewDataSource,UIText
         self.view.endEditing(true)
     }
 
-  
-    
+   
 }
 

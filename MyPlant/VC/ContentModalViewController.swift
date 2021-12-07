@@ -8,7 +8,7 @@
 import UIKit
 import MobileCoreServices
 import RealmSwift
-
+import AVFoundation
 
 let DidDismissContentModalViewController:Notification.Name = Notification.Name("DidDismissContentModalViewController")
 
