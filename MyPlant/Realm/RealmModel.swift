@@ -18,6 +18,7 @@ class plant: Object {
     @Persisted var afterWaterDate = Date() //마지막으로 물 준 날짜
     @Persisted var regDate = Date() //등록 날짜 : 필수(필터용)
     @Persisted var feeds : List<feed>
+    @Persisted var created: Date = Date()
     
    //PK(필수) ObjectID 사용
     @Persisted(primaryKey: true) var _id: ObjectId

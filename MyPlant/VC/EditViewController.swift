@@ -222,6 +222,29 @@ class EditViewController: UIViewController {
                 
            
     
+    func deleteImageToDocumentDirectory(imageName:String) {
+        //이미지 저장 경로 설정: 도큐먼트 폴더(위치:.documentDirectory)
+        //1. Desktop/user/mac~~~~~/folder/222.png
+        
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        
+        //2.이미지 파일 이름
+        let imageURL = documentDirectory.appendingPathComponent(imageName)
+        
+        
+        if FileManager.default.fileExists(atPath: imageURL.path){
+            
+            //4-2.기존경로에 있는 이미지 삭제
+            do{
+                try FileManager.default.removeItem(at: imageURL)
+                print("이미지 삭제완료")
+            } catch {
+                print("이미지를 삭제하지 못했습니다.")
+            }
+            
+        }
+        
+    }
     
     
     @IBAction func isClickedDissmissButton(_ sender: UIButton) {
@@ -232,13 +255,13 @@ class EditViewController: UIViewController {
     
     
     @IBAction func isClickedDeleteButton(_ sender: UIButton) {
-        
+        deleteImageToDocumentDirectory(imageName: "\(task!._id).jpg")
         
         let taskToDelete = task!
         try! localRealm.write {
           localRealm.delete(taskToDelete)
         }
-        
+   
         
      
         dismiss(animated: false, completion: nil)

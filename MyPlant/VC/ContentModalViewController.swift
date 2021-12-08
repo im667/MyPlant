@@ -204,21 +204,21 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let mediaType = info[UIImagePickerController.InfoKey.mediaType] as! String
-
+        imageSelect = true
         
         
         if mediaType.isEqual(kUTTypeImage as NSString as String){
             if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as?
                 UIImage {
-                imageSelect = true
                 imageView.image = editedImage
                 captureImage = editedImage
+                if SelectedFeed  {
                 saveImageToDocumentDirectory(imageName: "\(id!).jpg", image: captureImage)
-                
+                }
             } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
                 imageView.image = originalImage
                 captureImage = originalImage
-                imageSelect = true
+               
             }
             self.dismiss(animated: true, completion: nil)
         }
@@ -301,7 +301,7 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
     }
     
     
-    
+
     
     
     
@@ -336,8 +336,9 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
                         try! realm.write {
                             parent.feeds.append(objectsIn: [feeds])
                             realm.add(feeds)
+                 
                             saveImageToDocumentDirectory(imageName: "\(feeds._id).jpg", image: imageView.image!)
-                           
+                       
                             print("saveToDo")
          
                             
@@ -348,14 +349,14 @@ class ContentModalViewController: UIViewController,UIImagePickerControllerDelega
     
             let predicate = NSPredicate(format: "_id == %@", id!)
             if let feedTask = realm.objects(feed.self).filter(predicate).first {
-                imageSelect = true
+          
                 try! localRealm.write{
                   
                     feedTask.feedTitle = self.titleTextField.text!
                     feedTask.feedContent = self.contentTextView.text!
-                    feedTask.regDate = Date()
-                    saveImageToDocumentDirectory(imageName: "\(feeds._id).jpg", image: imageView.image!)
-                    print("\(feeds._id).jpg")
+                    feedTask.regDate = feedTask.regDate
+               
+                    
                 }
                    
             

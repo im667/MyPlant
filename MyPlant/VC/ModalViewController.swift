@@ -108,7 +108,7 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
 
         PHPhotoLibrary.requestAuthorization { status in
            }
-           AVCaptureDevice.requestAccess(for: .video) { granted in
+        AVCaptureDevice.requestAccess(for: .video) { granted in
            }
       
     }
@@ -269,7 +269,7 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     }
 
     
-    
+   
   
     
     
@@ -311,6 +311,7 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
             
                 try! localRealm.write {
                     localRealm.add(task)
+                
                     saveImageToDocumentDirectory(imageName: "\(task._id).jpg", image: plantImageView.image!)
                     }
              

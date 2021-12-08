@@ -154,7 +154,7 @@
 		<key>MyPlant.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<key>SnapKitPlayground (Playground) 1.xcscheme</key>
 		<dict>
@@ -176,6 +176,14 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>16</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>0470B8742743979700CC1DF7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
