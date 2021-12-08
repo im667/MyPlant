@@ -44,7 +44,6 @@ class MainViewController: UIViewController {
         titleLabel.attributedText = attributedStr
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.didDismissModalNotification(_:)), name: DidDismissModalViewController, object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(didpopVC(_:)),name: NSNotification.Name("didpopVC"),object: nil)
         
         //flow 레이아웃
@@ -77,10 +76,17 @@ class MainViewController: UIViewController {
         self.collectionView.reloadData()
         navigationController?.setNavigationBarHidden(true, animated: animated)
 
+        self.titleLabel.text = tasks.count == 0 ? "식물을 추가해주세요." : "내 식물 \(tasks.count)"
+        self.titleLabel.font = tasks.count == 0 ? UIFont().subTitle : UIFont().title
+        self.titleLabel.textColor = UIColor(red: 128/255, green: 166/255, blue: 34/255, alpha: 1)
         let attributedStr = NSMutableAttributedString(string: titleLabel.text!)
+        
         attributedStr.addAttribute(.foregroundColor, value: UIColor.systemGray, range:(titleLabel.text! as NSString).range(of: "내 식물"))
-        titleLabel.text = tasks.count == 0 ? "식물을 추가해주세요." : "내 식물 \(tasks.count)"
+        
+        attributedStr.addAttribute(.foregroundColor, value: UIColor.systemGray3, range:(titleLabel.text! as NSString).range(of: "식물을 추가해주세요."))
+        
         titleLabel.attributedText = attributedStr
+        
         
     }
     
@@ -116,11 +122,18 @@ class MainViewController: UIViewController {
     }
     
     @objc func didDismissModalNotification(_ noti: Notification) {
- 
-        titleLabel.text = tasks.count == 0 ? "식물을 추가해주세요." : "내 식물 \(tasks.count)"
+        self.collectionView.reloadData()
+
+        self.titleLabel.text = tasks.count == 0 ? "식물을 추가해주세요." : "내 식물 \(tasks.count)"
+        self.titleLabel.font = tasks.count == 0 ? UIFont().subTitle : UIFont().title
+        self.titleLabel.textColor = UIColor(red: 128/255, green: 166/255, blue: 34/255, alpha: 1)
         let attributedStr = NSMutableAttributedString(string: titleLabel.text!)
+        
         attributedStr.addAttribute(.foregroundColor, value: UIColor.systemGray, range:(titleLabel.text! as NSString).range(of: "내 식물"))
-      
+        
+        attributedStr.addAttribute(.foregroundColor, value: UIColor.systemGray3, range:(titleLabel.text! as NSString).range(of: "식물을 추가해주세요."))
+        
+        titleLabel.attributedText = attributedStr
         titleLabel.attributedText = attributedStr
         
         OperationQueue.main.addOperation { // DispatchQueue도 가능.

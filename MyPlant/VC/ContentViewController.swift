@@ -493,17 +493,12 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
         vc.task = task.first
         
-        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: false, completion: nil)
         
+        
     }
-//    @IBAction func alramSwitch(_ sender: UISwitch) {
-//
-//        alramSwitch.isOn = true // Set the event to be called when switching On / Off of Switch.
-//        alramSwitch.addTarget(self, action: #selector(requestNotificationAuthorization), for: UIControl.Event.valueChanged)
-//
-//
-//    }
+
     
     func progressDate() -> Float {
         let afterWaterDate = task?.first!.afterWaterDate

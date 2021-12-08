@@ -48,7 +48,6 @@ class EditViewController: UIViewController {
         
        
         
-        
         editNickNameTextField.sizeToFit()
         
         editNickNameTextField.delegate = self

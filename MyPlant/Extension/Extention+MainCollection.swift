@@ -31,7 +31,7 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         }
       
         
-        if tasks.count < 1 {
+        if tasks.isEmpty {
         
           
             cell.mainImageView!.image = UIImage(named: "exPlant.png")
@@ -45,8 +45,8 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             cell.nickNameLabel.textColor = .lightGray
             cell.progressBar.progress = 0
            
-            
             cell.dateLabel.isHidden = true
+           
            
         } else {
            
@@ -99,7 +99,7 @@ extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             let endDate = format.date(from:format.string(from: Date()))!
             let interval = endDate.timeIntervalSince(startDate)
             let days = Int(interval / 86400)
-
+            cell.dateLabel.isHidden = false
             if days == 0  {
                 cell.dateLabel.text = "🌱반가워요"
             } else {

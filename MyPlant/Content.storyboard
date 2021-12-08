@@ -445,7 +445,7 @@
         <!--Edit View Controller-->
         <scene sceneID="9Gn-PD-sEa">
             <objects>
-                <viewController storyboardIdentifier="EditViewController" id="sly-Ki-TAR" customClass="EditViewController" customModule="MyPlant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditViewController" modalPresentationStyle="overFullScreen" id="sly-Ki-TAR" customClass="EditViewController" customModule="MyPlant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jCm-Ro-kyG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
