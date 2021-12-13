@@ -11,6 +11,8 @@ import RealmSwift
 import SwiftUI
 import AVFoundation
 import Photos
+import UserNotifications
+
 
 let DidDismissModalViewController: Notification.Name = Notification.Name("DidDismissModalViewController")
 
@@ -19,6 +21,8 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     
     static let identifier = "ModalViewController"
     let localRealm = try! Realm()
+    
+    let unc = UNUserNotificationCenter.current()
     
     var days:[Int] = [1,2,3,4,5,6,7,10,14,21,30,60,90]
     var picker = UIPickerView()
@@ -114,6 +118,8 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     }
     
    
+
+    
     
     private func addKeyboardObserver() {
             // Register Keyboard notifications
@@ -129,7 +135,7 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
                 object: nil)
         }
     
-    
+  
     @objc func keyboardWillShow(_ notification: Notification) {
 
         guard let userInfo = notification.userInfo,

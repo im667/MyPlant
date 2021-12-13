@@ -9,6 +9,7 @@ import UIKit
 import MobileCoreServices
 import RealmSwift
 import AVFoundation
+import Photos
 
 let DidDismissContentModalViewController:Notification.Name = Notification.Name("DidDismissContentModalViewController")
 

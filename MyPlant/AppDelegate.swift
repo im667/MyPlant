@@ -8,10 +8,10 @@
 import UIKit
 import UserNotifications
 import RealmSwift
-
+import Firebase
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
 
 
@@ -27,8 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        } else {
 //            // iOS 10.0 이하일 때
 //        }
-        
-        
+        FirebaseApp.configure()
         let config = Realm.Configuration(
             // Set the new schema version. This must be greater than the previously used
             // version (if you've never set a schema version before, the version is 0).
@@ -51,11 +50,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Tell Realm to use this new configuration object for the default Realm
         Realm.Configuration.defaultConfiguration = config
-
+        UNUserNotificationCenter.current().delegate = self
         // Now that we've told Realm how to handle the schema change, opening the file
         // will automatically perform the migration
-    
+        func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) { completionHandler() }
         
+        func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent noti: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) { completionHandler([.sound, .badge, .alert]) }
+        
+        
+   
         return true
     }
 
@@ -75,4 +78,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+
 

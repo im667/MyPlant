@@ -11,6 +11,7 @@ import MobileCoreServices
 import SwiftUI
 import UserNotifications
 
+
 let didpopVC:Notification.Name = Notification.Name("didpopVC")
 
 class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
@@ -23,6 +24,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
     var id : ObjectId?
     let imagePickerVC: UIImagePickerController! = UIImagePickerController()
     let unc = UNUserNotificationCenter.current()
+  
     
     //선택된 이미지 데이터
     var captureImage: UIImage!
@@ -61,7 +63,8 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+       
+        
         let predicate = NSPredicate(format: "_id == %@", id!)
 
         task = localRealm.objects(plant.self).filter(predicate)
@@ -126,6 +129,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
         if progressDate() > 0 {
             waterResetButton.layer.isHidden = true
+       
         progressBar.trackTintColor = UIColor(red: 240/255, green: 237/255, blue: 237/255, alpha: 1)
         } else {
                 progressBar.trackTintColor = UIColor(red: 226/255, green: 132/255, blue: 132/255, alpha: 1)
@@ -138,7 +142,9 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         profileImage.isUserInteractionEnabled = true
         profileImage.addGestureRecognizer(tapGestureRecognizer)
      
-        
+        self.requestAuthorizationForNotification()
+       sendLocalNotification(seconds: 3)
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -203,8 +209,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
         
         self.feedTableView.reloadData()
-//
-//        feedTask = localRealm.objects(feed.self).sorted(byKeyPath: "regDate", ascending: true)
+
            
         progressBar.progressTintColor = UIColor(red: 132/255, green: 222/255, blue: 226/255, alpha: 1)
         
@@ -217,6 +222,40 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         }
         
     }
+    
+    
+    private func requestAuthorizationForNotification(){
+        let options =  UNAuthorizationOptions(arrayLiteral: [.badge, .sound , .alert])
+        unc.requestAuthorization(options: options){
+            success, error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        
+    }
+    
+    
+    private func sendLocalNotification(seconds: Double){
+           let content = UNMutableNotificationContent()
+           content.title = "MyPlant"
+           content.body = "오늘은 물 주는 날 이에요! 식물을 확인해주세요!"
+           content.badge = 1
+           content.sound = UNNotificationSound.default
+
+
+        let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute], from: task.first!.afterWaterDate)
+
+
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
+
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+           unc.add(request){ error in
+               print("error:\(triggerDate)")
+           }
+
+       }
     
     
     @objc func imageTapped(_ sender: AnyObject) {
@@ -394,6 +433,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
             waterResetButton.layer.isHidden = true
         progressBar.trackTintColor = UIColor(red: 240/255, green: 237/255, blue: 237/255, alpha: 1)
         } else {
+            
                 progressBar.trackTintColor = UIColor(red: 226/255, green: 132/255, blue: 132/255, alpha: 1)
             waterResetButton.layer.isHidden = false
         }
@@ -520,46 +560,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
     
     
     
-//
-//   @objc func requestNotificationAuthorization() {
-//        let options = UNAuthorizationOptions(arrayLiteral: [.badge, .sound, .alert])
-//        unc.requestAuthorization(options: options){ [weak self] success, error in
-//            if success {
-//                self?.sendLocalNotification(seconds: 5)
-//            } else {
-//                print("error")
-//            }
-//        }
-//    }
-    
-//    func loadImageFromDocuments(imageName:String) -> UIImage? {
-//        let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
-//        let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
-//        let path = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true)
-//        
-//        if let directoryPath = path.first {
-//            let imageURL = URL(fileURLWithPath: directoryPath).appendingPathComponent(imageName)
-//            return UIImage(contentsOfFile: imageURL.path)
-//        }
-//        
-//        return nil
-//    }
-//
-//    private func sendLocalNotification(seconds:Double){
-//        let content = UNMutableNotificationContent()
-//        content.title = "MyPlant"
-//        content.body = "알림이와요"
-//        content.userInfo = ["targetScene": "splash"]
-//
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
-//        let request = UNNotificationRequest(identifier: String(describing: task!.first?._id), content: content, trigger: trigger)
-//
-//        unc.add(request){ error in
-//            print("error")
-//        }
-//
-//    }
-    
+
     @IBAction func isClickedWaterResetButton(_ sender: UIButton) {
         
         guard let afterWaterDay = Calendar.current.date(byAdding: .day, value: task!.first!.waterDay, to: task!.first!.regDate) else { return }
@@ -586,4 +587,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
         
     }
+    
+    
+    
 }

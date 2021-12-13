@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 import AVFoundation
-
+import UserNotifications
 
 
 class MainViewController: UIViewController {
@@ -16,7 +16,7 @@ class MainViewController: UIViewController {
     
     var tasks: Results<plant>!
     let localRealm = try! Realm()
- 
+    let unc = UNUserNotificationCenter.current()
     
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -31,6 +31,10 @@ class MainViewController: UIViewController {
         collectionView.reloadData()
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+   
+        
+        
         
         self.titleLabel.text = tasks.count == 0 ? "식물을 추가해주세요." : "내 식물 \(tasks.count)"
         self.titleLabel.font = tasks.count == 0 ? UIFont().subTitle : UIFont().title
@@ -64,9 +68,9 @@ class MainViewController: UIViewController {
         
         let nibName = UINib(nibName: MainCollectionViewCell.identifier, bundle: nil)
         collectionView.register(nibName, forCellWithReuseIdentifier: MainCollectionViewCell.identifier)
-//
-//        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).leftView = nil
-//        UISearchBar.appearance().searchTextPositionAdjustment = UIOffset(horizontal: 10,vertical: 0)
+
+        
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -106,6 +110,10 @@ class MainViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
 
     }
+    
+  
+    
+    
 
     
     @objc func didpopVC(_ noti: Notification){
@@ -184,7 +192,8 @@ class MainViewController: UIViewController {
 
  
     @IBAction func plusButton(_ sender: Any) {
-        
+        let numbers = [0]
+           let _ = numbers[1]
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: ModalViewController.identifier) as! ModalViewController
         let nav = UINavigationController(rootViewController: vc)
@@ -195,5 +204,6 @@ class MainViewController: UIViewController {
     }
     
 
+    
     
 }
