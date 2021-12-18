@@ -24,7 +24,7 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     
     let unc = UNUserNotificationCenter.current()
     
-    var days:[Int] = [1,2,3,4,5,6,7,10,14,21,30,60,90]
+    var days = [1,2,3,4,5,6,7,10,14,21,30,60,90]
     var picker = UIPickerView()
     var toolBar = UIToolbar()
     let imagePickerVC: UIImagePickerController! = UIImagePickerController()
@@ -309,7 +309,6 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
                 format.dateFormat = "yyyy년 MM월 dd일"
                 
                 guard let date =  dateButton.currentTitle, let value = format.date(from: date) else {return}
-                
                 guard let afterWaterDay = Calendar.current.date(byAdding: .day, value: waterDay, to: Date()) else { return  }
                 
                 let task = plant(nickName: nickName.text!, waterDay: waterDay, startDate: value, regDate: Date(), afterWaterDate: afterWaterDay)

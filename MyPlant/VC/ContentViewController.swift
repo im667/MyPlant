@@ -120,19 +120,17 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         waterDayLabel.text = String(task.first!.waterDay) + "일"
         
         progressBar.progress = progressDate()
-           
-        
-    
-        
-        
         progressBar.progressTintColor = UIColor(red: 132/255, green: 222/255, blue: 226/255, alpha: 1)
         
         if progressDate() > 0 {
             waterResetButton.layer.isHidden = true
-       
+        
         progressBar.trackTintColor = UIColor(red: 240/255, green: 237/255, blue: 237/255, alpha: 1)
         } else {
-                progressBar.trackTintColor = UIColor(red: 226/255, green: 132/255, blue: 132/255, alpha: 1)
+            
+            requestSendNoti(seconds: 1) // 현재 노티가 오는 부분입니다.
+            
+            progressBar.trackTintColor = UIColor(red: 226/255, green: 132/255, blue: 132/255, alpha: 1)
             waterResetButton.layer.isHidden = false
         }
         
@@ -142,8 +140,8 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         profileImage.isUserInteractionEnabled = true
         profileImage.addGestureRecognizer(tapGestureRecognizer)
      
-        self.requestAuthorizationForNotification()
-       sendLocalNotification(seconds: 3)
+        requestAuthNoti()
+        
     
     }
     
@@ -223,39 +221,37 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
     }
     
-    
-    private func requestAuthorizationForNotification(){
-        let options =  UNAuthorizationOptions(arrayLiteral: [.badge, .sound , .alert])
-        unc.requestAuthorization(options: options){
-            success, error in
-            if let error = error {
-                print(error.localizedDescription)
+    func requestAuthNoti() {
+            let notiAuthOptions = UNAuthorizationOptions(arrayLiteral: [.alert, .badge, .sound])
+            unc.requestAuthorization(options: notiAuthOptions) { (success, error) in
+                if let error = error {
+                    print(#function, error)
+                }
             }
         }
-        
-    }
+
     
+    func requestSendNoti(seconds: Double) {
+        let content = UNMutableNotificationContent()
+        content.title = "MyPlant"
+        content.body = "오늘은 물 주는 날 이에요! 식물을 확인해주세요!"
+        content.sound = UNNotificationSound.default
+
+            // 알림이 trigger되는 시간 설정
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
+
+            let request = UNNotificationRequest(
+                identifier: "test",
+                content: content,
+                trigger: trigger
+            )
+
+            unc.add(request) { (error) in
+                print(#function, error)
+            }
+
+        }
     
-    private func sendLocalNotification(seconds: Double){
-           let content = UNMutableNotificationContent()
-           content.title = "MyPlant"
-           content.body = "오늘은 물 주는 날 이에요! 식물을 확인해주세요!"
-           content.badge = 1
-           content.sound = UNNotificationSound.default
-
-
-        let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute], from: task.first!.afterWaterDate)
-
-
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
-
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
-           unc.add(request){ error in
-               print("error:\(triggerDate)")
-           }
-
-       }
     
     
     @objc func imageTapped(_ sender: AnyObject) {
@@ -558,7 +554,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
     }
     
-    
+  
     
 
     @IBAction func isClickedWaterResetButton(_ sender: UIButton) {

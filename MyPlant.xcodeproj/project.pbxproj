@@ -67,6 +67,8 @@
 		040D4561274788860047E88E /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		040D45652748E7320047E88E /* Extension+ContentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ContentTableView.swift"; sourceTree = "<group>"; };
 		040D45672748E7970047E88E /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
+		04118317276AC5290048344E /* MyPlant.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyPlant.entitlements; sourceTree = "<group>"; };
+		04118318276AC5370048344E /* MyPlantRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyPlantRelease.entitlements; sourceTree = "<group>"; };
 		0470B8752743979800CC1DF7 /* MyPlant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0470B8782743979800CC1DF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0470B87A2743979800CC1DF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +168,8 @@
 		0470B8772743979800CC1DF7 /* MyPlant */ = {
 			isa = PBXGroup;
 			children = (
+				04118318276AC5370048344E /* MyPlantRelease.entitlements */,
+				04118317276AC5290048344E /* MyPlant.entitlements */,
 				040D4539274683D70047E88E /* Realm */,
 				040D452B274673AA0047E88E /* Font */,
 				040D451A274668770047E88E /* Extension */,
@@ -497,15 +501,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyPlant/MyPlant.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 75QD4ZR23L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyPlant/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME)에 사진을 추가하고 저장하시려면 카메라 접근 권한을 허용해야 합니다.";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "$(PRODUCT_NAME)에 사진을 추가하고 저장하시려면 포토 라이브러리 접근 권한을 허용해야 합니다.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME)에 사진을 추가하고 저장하시려면 포토 라이브러리 접근 권한을 허용해야 합니다.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "MyPlant에 사진을 추가하고 저장하시려면 카메라 접근 권한을 허용해야 합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "MyPlant에 사진을 추가하고 저장하시려면 포토 라이브러리 접근 권한을 허용해야 합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "MyPlant에 사진을 추가하고 저장하시려면 포토 라이브러리 접근 권한을 허용해야 합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -536,14 +541,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyPlant/MyPlantRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 75QD4ZR23L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyPlant/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME)에 사진을 추가하고 저장하시려면 카메라 접근 권한을 허용해야 합니다.";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "$(PRODUCT_NAME)에 사진을 추가하고 저장하시려면 포토 라이브러리 접근 권한을 허용해야 합니다.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME)에 사진을 추가하고 저장하시려면 포토 라이브러리 접근 권한을 허용해야 합니다.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "MyPlant에 사진을 추가하고 저장하시려면 카메라 접근 권한을 허용해야 합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "MyPlant에 사진을 추가하고 저장하시려면 포토 라이브러리 접근 권한을 허용해야 합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "MyPlant에 사진을 추가하고 저장하시려면 포토 라이브러리 접근 권한을 허용해야 합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -192,8 +192,7 @@ class MainViewController: UIViewController {
 
  
     @IBAction func plusButton(_ sender: Any) {
-        let numbers = [0]
-           let _ = numbers[1]
+
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: ModalViewController.identifier) as! ModalViewController
         let nav = UINavigationController(rootViewController: vc)
