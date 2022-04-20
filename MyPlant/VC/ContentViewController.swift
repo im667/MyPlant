@@ -579,7 +579,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
            
         progressBar.trackTintColor = UIColor(red: 240/255, green: 237/255, blue: 237/255, alpha: 1)
         } else {
-                progressBar.trackTintColor = UIColor(red: 226/255, green: 132/255, blue: 132/255, alpha: 1)
+            progressBar.trackTintColor = UIColor(red: 226/255, green: 132/255, blue: 132/255, alpha: 1)
             waterResetButton.layer.isHidden = false
         }
         
