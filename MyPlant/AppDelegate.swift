@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                (didAllow, e) in
 //            }
 //        } else {
-//            // iOS 10.0 이하일 때
+//            // iOS 10.0 이하일
 ////        }
         FirebaseApp.configure()
         let config = Realm.Configuration(
