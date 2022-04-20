@@ -11,8 +11,4 @@ struct PushNotification:Codable {
     var id:String = UUID().uuidString
     let date:Date
     let isOn:Bool
-    
-    var time:String {
-        
-    }
 }

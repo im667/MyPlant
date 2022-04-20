@@ -17,7 +17,7 @@ class MainViewController: UIViewController {
     var tasks: Results<plant>!
     let localRealm = try! Realm()
     let unc = UNUserNotificationCenter.current()
-    
+    var pushNoti : [PushNotification] = []
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -87,8 +87,8 @@ class MainViewController: UIViewController {
         attributedStr.addAttribute(.foregroundColor, value: UIColor.systemGray3, range:(titleLabel.text! as NSString).range(of: "식물을 추가해주세요."))
         
         titleLabel.attributedText = attributedStr
-        
-        
+       
+        pushNoti = pushNotiList()
     }
     
     
@@ -194,12 +194,28 @@ class MainViewController: UIViewController {
         let vc = sb.instantiateViewController(withIdentifier: ModalViewController.identifier) as! ModalViewController
         let nav = UINavigationController(rootViewController: vc)
         
+        vc.pickedDate = {[weak self] date in
+            guard let self = self else { return }
+            
+            var notiList = self.pushNotiList()
+            let newNoti = PushNotification(date: date, isOn: true)
+            
+            notiList.append(newNoti)
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(self.pushNoti), forKey: "noti")
+            self.unc.addNotificationRequest(by: newNoti)
+            self.pushNoti = notiList
+        }
+        
         nav.modalPresentationStyle = .automatic
         
         present(nav, animated: true, completion: nil)
     }
     
-
+    func pushNotiList()->[PushNotification]{
+        guard let data = UserDefaults.standard.value(forKey: "noti") as? Data,
+              let noties = try? PropertyListDecoder().decode([PushNotification].self, from: data) else { return [] }
+        return noties
+    }
     
     
 }

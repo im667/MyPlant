@@ -13,20 +13,11 @@ import Firebase
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var userNotificationCenter :UNUserNotificationCenter?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:
     [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        UNUserNotificationCenter.current().delegate = self
-//        
-//        if #available(iOS 10.0, *) {
-//            let notiCenter = UNUserNotificationCenter.current()
-//            notiCenter.requestAuthorization(options: [.alert, .badge, .sound]){
-//                (didAllow, e) in
-//            }
-//        } else {
-//            // iOS 10.0 이하일
-////        }
+
         FirebaseApp.configure()
         let config = Realm.Configuration(
             // Set the new schema version. This must be greater than the previously used
@@ -53,7 +44,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().delegate = self
         // Now that we've told Realm how to handle the schema change, opening the file
         // will automatically perform the migration
+        let authrizationOptions = UNAuthorizationOptions(arrayLiteral: [.alert, .badge, .sound])
         
+        userNotificationCenter?.requestAuthorization(options: authrizationOptions) { _, error in
+            if let error = error {
+                print("ERROR:notification authrization request\(error.localizedDescription)")
+            }
+        }
         
         return true
     }
@@ -90,16 +87,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
-
-        func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-            if #available(iOS 14.0, *) {
-                completionHandler([.badge, .sound, .banner, .list])
-            } else {
-                // Fallback on earlier versions
-            }
-        }
-        // deep link처리 시 아래 url값 가지고 처리
-//        let url = response.notification.request.content.userInfo
 
         completionHandler()
     }

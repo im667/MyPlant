@@ -21,9 +21,6 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     
     static let identifier = "ModalViewController"
     let localRealm = try! Realm()
-    
-    let unc = UNUserNotificationCenter.current()
-    
     var days = [1,2,3,4,5,6,7,10,14,21,30,60,90]
     var picker = UIPickerView()
     var toolBar = UIToolbar()
@@ -31,6 +28,10 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     //선택된 이미지 데이터
     var captureImage: UIImage!
     var imageSelect = false
+    
+    //psuh notification
+    var pickedDate : ((_ date: Date)->Void)?
+    
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -275,12 +276,6 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     }
 
     
-   
-  
-    
-    
-  
-    
     @objc func isClickedBackBtn (){
         navigationController?.dismiss(animated: true, completion: nil)
         NotificationCenter.default.post(name: DidDismissModalViewController, object: nil, userInfo: nil)
@@ -312,7 +307,7 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
                 guard let afterWaterDay = Calendar.current.date(byAdding: .day, value: waterDay, to: Date()) else { return  }
                 
                 let task = plant(nickName: nickName.text!, waterDay: waterDay, startDate: value, regDate: Date(), afterWaterDate: afterWaterDay)
-                
+              
             
                 try! localRealm.write {
                     localRealm.add(task)
@@ -328,7 +323,8 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         NotificationCenter.default.post(name: DidDismissModalViewController, object: nil, userInfo: nil)
         navigationController?.dismiss(animated: true, completion: nil)
     }
-   
+    
+ 
     @IBAction func daysButton(_ sender: UIButton) {
     
         picker.dataSource = self
