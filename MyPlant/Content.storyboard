@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z8F-9q-HdB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z8F-9q-HdB">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -64,7 +64,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4i-L3-miJ">
-                                                        <rect key="frame" x="176.5" y="31.5" width="17.5" height="18"/>
+                                                        <rect key="frame" x="176.5" y="31.5" width="18.5" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="18" id="vtU-wC-Fmj"/>
                                                         </constraints>
@@ -351,7 +351,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8G-AF-3Cw">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="798"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cHg-d3-cVm">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="703"/>
@@ -451,7 +451,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NSz-hY-yAD">
-                                <rect key="frame" x="40" y="255" width="334" height="386"/>
+                                <rect key="frame" x="40" y="240" width="334" height="416"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물 프로필 수정하기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AaN-lI-5z0">
                                         <rect key="frame" x="20" y="20" width="294" height="21"/>
@@ -510,7 +510,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wmD-oH-lvW">
-                                        <rect key="frame" x="20" y="194" width="294" height="52"/>
+                                        <rect key="frame" x="20" y="224" width="294" height="52"/>
                                         <color key="backgroundColor" red="0.68407130240000003" green="0.83181846140000004" blue="0.41444122789999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="xa2-2k-1rQ"/>
@@ -525,7 +525,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZP-gr-z3U">
-                                        <rect key="frame" x="20" y="254" width="294" height="52"/>
+                                        <rect key="frame" x="20" y="284" width="294" height="52"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="xU3-qN-uA4"/>
@@ -540,7 +540,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAK-vV-iXa">
-                                        <rect key="frame" x="20" y="314" width="294" height="52"/>
+                                        <rect key="frame" x="20" y="344" width="294" height="52"/>
                                         <color key="backgroundColor" red="1" green="0.3461958085002157" blue="0.44004750131471715" alpha="0.69803921568627447" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="nOD-mD-RES"/>
@@ -570,15 +570,23 @@
                                             <action selector="isClickedEditStartDay:" destination="sly-Ki-TAR" eventType="touchUpInside" id="Wat-6H-FHb"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물주기 알람 설정" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wB5-ro-jf0">
+                                        <rect key="frame" x="20" y="186" width="111" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b8L-1L-mCt">
+                                        <rect key="frame" x="263" y="184" width="51" height="31"/>
+                                    </switch>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="G6g-c0-Bmt" secondAttribute="trailing" constant="20" symbolic="YES" id="2LM-RN-2Up"/>
                                     <constraint firstAttribute="trailing" secondItem="2Tj-9d-UqD" secondAttribute="trailing" constant="20" symbolic="YES" id="3Eq-IG-bdf"/>
                                     <constraint firstAttribute="trailing" secondItem="AaN-lI-5z0" secondAttribute="trailing" constant="20" symbolic="YES" id="67L-lE-lAN"/>
-                                    <constraint firstAttribute="width" secondItem="NSz-hY-yAD" secondAttribute="height" multiplier="167:193" id="6f5-K1-D68"/>
+                                    <constraint firstItem="wB5-ro-jf0" firstAttribute="leading" secondItem="NSz-hY-yAD" secondAttribute="leading" constant="20" symbolic="YES" id="7lr-aL-Xh5"/>
                                     <constraint firstItem="wmD-oH-lvW" firstAttribute="leading" secondItem="NSz-hY-yAD" secondAttribute="leading" constant="20" symbolic="YES" id="8Cf-sD-kUh"/>
-                                    <constraint firstItem="wmD-oH-lvW" firstAttribute="top" secondItem="mOq-GB-UYz" secondAttribute="bottom" constant="20" id="BQb-oq-bR0"/>
                                     <constraint firstAttribute="trailing" secondItem="lAK-vV-iXa" secondAttribute="trailing" constant="20" symbolic="YES" id="EJD-iu-bv2"/>
                                     <constraint firstItem="lAK-vV-iXa" firstAttribute="top" secondItem="ZZP-gr-z3U" secondAttribute="bottom" constant="8" symbolic="YES" id="Ei6-PV-bgi"/>
                                     <constraint firstAttribute="trailing" secondItem="mOq-GB-UYz" secondAttribute="trailing" constant="20" symbolic="YES" id="GR2-OE-npG"/>
@@ -587,7 +595,9 @@
                                     <constraint firstAttribute="trailing" secondItem="ZZP-gr-z3U" secondAttribute="trailing" constant="20" symbolic="YES" id="PKF-hj-BcE"/>
                                     <constraint firstItem="G6g-c0-Bmt" firstAttribute="top" secondItem="AaN-lI-5z0" secondAttribute="bottom" constant="16" id="R0u-nj-Lie"/>
                                     <constraint firstItem="ZZP-gr-z3U" firstAttribute="top" secondItem="wmD-oH-lvW" secondAttribute="bottom" constant="8" symbolic="YES" id="RXF-OI-wDK"/>
-                                    <constraint firstAttribute="height" constant="386" id="T31-KS-1OO"/>
+                                    <constraint firstAttribute="height" constant="416" id="T31-KS-1OO"/>
+                                    <constraint firstItem="wmD-oH-lvW" firstAttribute="top" secondItem="b8L-1L-mCt" secondAttribute="bottom" constant="9" id="W3H-ne-PoI"/>
+                                    <constraint firstItem="wB5-ro-jf0" firstAttribute="top" secondItem="yCw-5y-Osi" secondAttribute="bottom" constant="16" id="YIO-ia-g78"/>
                                     <constraint firstAttribute="trailing" secondItem="wmD-oH-lvW" secondAttribute="trailing" constant="20" symbolic="YES" id="ZXR-bz-7gn"/>
                                     <constraint firstItem="ZZP-gr-z3U" firstAttribute="leading" secondItem="NSz-hY-yAD" secondAttribute="leading" constant="20" symbolic="YES" id="ZfA-68-It2"/>
                                     <constraint firstAttribute="width" constant="334" id="dPu-ct-nTm"/>
@@ -595,10 +605,12 @@
                                     <constraint firstItem="G6g-c0-Bmt" firstAttribute="leading" secondItem="NSz-hY-yAD" secondAttribute="leading" constant="20" symbolic="YES" id="fMZ-P7-nJ5"/>
                                     <constraint firstItem="zvT-ZS-awT" firstAttribute="top" secondItem="G6g-c0-Bmt" secondAttribute="bottom" constant="16" id="ibg-GS-Q6V"/>
                                     <constraint firstItem="mOq-GB-UYz" firstAttribute="centerY" secondItem="yCw-5y-Osi" secondAttribute="centerY" id="jI5-8G-lph"/>
+                                    <constraint firstAttribute="trailing" secondItem="b8L-1L-mCt" secondAttribute="trailing" constant="22" id="jdp-Cb-hxR"/>
                                     <constraint firstItem="2Tj-9d-UqD" firstAttribute="centerY" secondItem="zvT-ZS-awT" secondAttribute="centerY" id="pAR-z3-KcT"/>
                                     <constraint firstItem="AaN-lI-5z0" firstAttribute="top" secondItem="NSz-hY-yAD" secondAttribute="top" constant="20" symbolic="YES" id="ptT-22-d3D"/>
                                     <constraint firstItem="lAK-vV-iXa" firstAttribute="leading" secondItem="NSz-hY-yAD" secondAttribute="leading" constant="20" symbolic="YES" id="qhx-qS-WJm"/>
                                     <constraint firstItem="AaN-lI-5z0" firstAttribute="leading" secondItem="NSz-hY-yAD" secondAttribute="leading" constant="20" symbolic="YES" id="ufi-s1-8Wn"/>
+                                    <constraint firstItem="b8L-1L-mCt" firstAttribute="top" secondItem="mOq-GB-UYz" secondAttribute="bottom" constant="10" id="vyq-M9-SaH"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -616,6 +628,7 @@
                         <outlet property="editStartDayButton" destination="mOq-GB-UYz" id="7OQ-iD-zut"/>
                         <outlet property="editWaterDayButton" destination="2Tj-9d-UqD" id="KFc-n0-Vgm"/>
                         <outlet property="infoLabel" destination="AaN-lI-5z0" id="hFe-Eh-CHd"/>
+                        <outlet property="notiSwitch" destination="b8L-1L-mCt" id="pK0-HF-Cmk"/>
                         <outlet property="successButton" destination="wmD-oH-lvW" id="0fq-sd-Xdi"/>
                     </connections>
                 </viewController>

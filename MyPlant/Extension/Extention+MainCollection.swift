@@ -13,8 +13,6 @@ import UIKit
 extension MainViewController: UICollectionViewDelegate,UICollectionViewDataSource {
     
 
-    
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if !tasks.isEmpty {
             return tasks.count

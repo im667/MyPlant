@@ -24,6 +24,7 @@ class EditViewController: UIViewController {
     var toolBar = UIToolbar()
     
     
+    @IBOutlet weak var notiSwitch: UISwitch!
     
     @IBOutlet weak var infoLabel: UILabel!
     
