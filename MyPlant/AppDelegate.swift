@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }
 //        } else {
 //            // iOS 10.0 이하일 때
-//        }
+////        }
         FirebaseApp.configure()
         let config = Realm.Configuration(
             // Set the new schema version. This must be greater than the previously used

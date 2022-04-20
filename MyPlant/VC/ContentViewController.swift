@@ -128,7 +128,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         progressBar.trackTintColor = UIColor(red: 240/255, green: 237/255, blue: 237/255, alpha: 1)
         } else {
             
-            requestSendNoti(seconds: 1) // 현재 노티가 오는 부분입니다.
+          
             
             progressBar.trackTintColor = UIColor(red: 226/255, green: 132/255, blue: 132/255, alpha: 1)
             waterResetButton.layer.isHidden = false
@@ -141,7 +141,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         profileImage.addGestureRecognizer(tapGestureRecognizer)
      
         requestAuthNoti()
-        
+        requestSendNoti(seconds: 1) // 현재 노티가 오는 부분입니다.
     
     }
     
@@ -238,7 +238,10 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         content.sound = UNNotificationSound.default
 
             // 알림이 trigger되는 시간 설정
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
+        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: task.first!.afterWaterDate)
+        print("\(dateComponents)")
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
 
             let request = UNNotificationRequest(
                 identifier: "test",
@@ -247,7 +250,7 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
             )
 
             unc.add(request) { (error) in
-                print(#function, error)
+                print(#function, error as Any)
             }
 
         }
@@ -542,7 +545,6 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         let today = Date()
         
         let dateGap = Calendar.current.dateComponents([.second], from: today, to: afterWaterDate!)
-        
         let dateGap2 = Calendar.current.dateComponents([.second], from: regDate!, to: afterWaterDate!)
 
         

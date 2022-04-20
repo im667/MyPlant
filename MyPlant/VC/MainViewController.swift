@@ -32,9 +32,6 @@ class MainViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-   
-        
-        
         
         self.titleLabel.text = tasks.count == 0 ? "식물을 추가해주세요." : "내 식물 \(tasks.count)"
         self.titleLabel.font = tasks.count == 0 ? UIFont().subTitle : UIFont().title
