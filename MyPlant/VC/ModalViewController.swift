@@ -21,14 +21,14 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     
     static let identifier = "ModalViewController"
     let localRealm = try! Realm()
-    var days = [1,2,3,4,5,6,7,10,14,21,30,60,90]
-    var picker = UIPickerView()
+    let days = [1,2,3,4,5,6,7,10,14,21,30,60,90]
+    let picker = UIPickerView()
     var toolBar = UIToolbar()
     let imagePickerVC: UIImagePickerController! = UIImagePickerController()
     //선택된 이미지 데이터
     var captureImage: UIImage!
     var imageSelect = false
-    
+    var unc = UNUserNotificationCenter.current()
     //psuh notification
     var pickedDate : ((_ date: Date)->Void)?
     
@@ -296,7 +296,7 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         } else {
         
         if let waterDayString = daysButton.currentTitle {
-            
+          
             if let waterDay = Int(waterDayString) {
                 
                 print(waterDay)
@@ -306,9 +306,9 @@ class ModalViewController: UIViewController,UIImagePickerControllerDelegate,UINa
                 guard let date =  dateButton.currentTitle, let value = format.date(from: date) else {return}
                 guard let afterWaterDay = Calendar.current.date(byAdding: .day, value: waterDay, to: Date()) else { return  }
                 
-                let task = plant(nickName: nickName.text!, waterDay: waterDay, startDate: value, regDate: Date(), afterWaterDate: afterWaterDay)
+                let task = plant(nickName: nickName.text!, waterDay: waterDay, startDate: value, regDate: Date(), afterWaterDate: afterWaterDay, notiIsOn: true)
               
-            
+                self.unc.addNotificationRequest(by: task)
                 try! localRealm.write {
                     localRealm.add(task)
                 

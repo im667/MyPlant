@@ -22,7 +22,7 @@ class EditViewController: UIViewController {
     var days:[Int] = [1,2,3,4,5,6,7,10,14,21,30,60,90]
     var picker = UIPickerView()
     var toolBar = UIToolbar()
-    
+    let unc = UNUserNotificationCenter.current()
     
     @IBOutlet weak var notiSwitch: UISwitch!
     
@@ -60,7 +60,7 @@ class EditViewController: UIViewController {
         editNickNameTextField.layer.borderWidth = 1
         editNickNameTextField.layer.borderColor = UIColor.white.cgColor
         
-    
+        notiSwitch.isOn = task.notiIsOn
         
         editWaterDayButton.setTitle("\(task!.waterDay)", for: .normal)
         editWaterDayButton.backgroundColor = .systemGray5
@@ -92,7 +92,23 @@ class EditViewController: UIViewController {
     
 
    
-
+    @IBAction func notiSwith(_ sender: UISwitch) {
+        
+        if sender.isOn == true {
+            
+            try! localRealm.write{
+                self.unc.addNotificationRequest(by: task)
+            task.notiIsOn = true
+            }
+            
+        } else {
+            try! localRealm.write{
+            task.notiIsOn = false
+                self.unc.removePendingNotificationRequests(withIdentifiers: [String(describing:task._id)])
+            }
+        }
+    }
+    
     @IBAction func isClickedEditWaterDay(_ sender: UIButton) {
         picker.dataSource = self
         picker.delegate = self
@@ -211,7 +227,6 @@ class EditViewController: UIViewController {
             task?.nickName = editNickNameTextField.text ?? ""
             task?.waterDay = Int(editWaterDayButton.currentTitle!) ?? 00
             task?.regDate = task!.regDate
-            
             task?.startDate = value
         }
         
@@ -256,7 +271,7 @@ class EditViewController: UIViewController {
     
     @IBAction func isClickedDeleteButton(_ sender: UIButton) {
         deleteImageToDocumentDirectory(imageName: "\(task!._id).jpg")
-        
+        self.unc.removePendingNotificationRequests(withIdentifiers: [String(describing:task._id)])
         let taskToDelete = task!
         try! localRealm.write {
           localRealm.delete(taskToDelete)

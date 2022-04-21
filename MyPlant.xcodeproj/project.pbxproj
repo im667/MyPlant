@@ -24,7 +24,6 @@
 		040D45682748E7970047E88E /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D45672748E7970047E88E /* ContentTableViewCell.swift */; };
 		040E272E2787D28300E319CA /* InAppViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E272D2787D28300E319CA /* InAppViewcontroller.swift */; };
 		041EAFAA280FF48700532E97 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 041EAFA9280FF48700532E97 /* GoogleService-Info.plist */; };
-		041EAFAC28105CB000532E97 /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041EAFAB28105CB000532E97 /* PushNotification.swift */; };
 		041EAFAE28106CB500532E97 /* UNNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041EAFAD28106CB500532E97 /* UNNotificationCenter.swift */; };
 		0470B8792743979800CC1DF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0470B8782743979800CC1DF7 /* AppDelegate.swift */; };
 		0470B87B2743979800CC1DF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0470B87A2743979800CC1DF7 /* SceneDelegate.swift */; };
@@ -69,7 +68,6 @@
 		04118317276AC5290048344E /* MyPlant.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyPlant.entitlements; sourceTree = "<group>"; };
 		04118318276AC5370048344E /* MyPlantRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyPlantRelease.entitlements; sourceTree = "<group>"; };
 		041EAFA9280FF48700532E97 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		041EAFAB28105CB000532E97 /* PushNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotification.swift; sourceTree = "<group>"; };
 		041EAFAD28106CB500532E97 /* UNNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNNotificationCenter.swift; sourceTree = "<group>"; };
 		0470B8752743979800CC1DF7 /* MyPlant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0470B8782743979800CC1DF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 				04C399F0274A2F35006B73A5 /* Extension+contentModal.swift */,
 				04C399F8274E0282006B73A5 /* Extension+Edit.swift */,
 				04C399F2274A5880006B73A5 /* UIResponder.swift */,
-				041EAFAB28105CB000532E97 /* PushNotification.swift */,
 				041EAFAD28106CB500532E97 /* UNNotificationCenter.swift */,
 			);
 			path = Extension;
@@ -373,7 +370,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				041EAFAC28105CB000532E97 /* PushNotification.swift in Sources */,
 				040D451E27466B1D0047E88E /* Extension+UIfont.swift in Sources */,
 				04E7D4762746409300050B83 /* SettingViewController.swift in Sources */,
 				040D45662748E7320047E88E /* Extension+ContentTableView.swift in Sources */,

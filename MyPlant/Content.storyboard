@@ -578,6 +578,9 @@
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b8L-1L-mCt">
                                         <rect key="frame" x="263" y="184" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="notiSwith:" destination="sly-Ki-TAR" eventType="valueChanged" id="wXc-06-KMw"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
