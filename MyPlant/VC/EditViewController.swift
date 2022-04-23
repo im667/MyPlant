@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import Toast_Swift
 
 
 let DidDismissEditViewController:Notification.Name = Notification.Name("DidDismissEditViewController")
@@ -230,8 +231,10 @@ class EditViewController: UIViewController {
             task?.startDate = value
         }
         
+            self.view.makeToast("식물 정보를 수정했습니다.")
         dismiss(animated: false, completion: nil)
         NotificationCenter.default.post(name: DidDismissEditViewController, object: nil, userInfo: nil)
+        
         }
    }
                 
@@ -277,7 +280,7 @@ class EditViewController: UIViewController {
         try! localRealm.write {
           localRealm.delete(taskToDelete)
         }
-   
+        self.view.makeToast("식물을 삭제했습니다.")
         
 //
 //        let sb = UIStoryboard(name: "Content", bundle: nil)

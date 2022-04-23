@@ -38,6 +38,22 @@
 		04C399F3274A5880006B73A5 /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C399F2274A5880006B73A5 /* UIResponder.swift */; };
 		04C399F7274D3B4A006B73A5 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C399F6274D3B4A006B73A5 /* EditViewController.swift */; };
 		04C399F9274E0282006B73A5 /* Extension+Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C399F8274E0282006B73A5 /* Extension+Edit.swift */; };
+		04DDDDC1281482D6009A320C /* Zip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDDDC0281482D6009A320C /* Zip.framework */; };
+		04DDDDC3281482DC009A320C /* Toast_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDDDC2281482DC009A320C /* Toast_Swift.framework */; };
+		04DDDDC5281482E4009A320C /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDDDC4281482E4009A320C /* Realm.framework */; };
+		04DDDDC7281482EA009A320C /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDDDC6281482EA009A320C /* RealmSwift.framework */; };
+		04DDDDC9281482FB009A320C /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDDDC8281482FB009A320C /* FBLPromises.framework */; };
+		04DDDDCB281482FB009A320C /* FirebaseAnalytics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDDDCA281482FB009A320C /* FirebaseAnalytics.xcframework */; };
+		04DDDDCD281482FB009A320C /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDDDCC281482FB009A320C /* FirebaseCore.framework */; };
+		04DDDDCF281482FB009A320C /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDDDCE281482FB009A320C /* FirebaseCoreDiagnostics.framework */; };
+		04DDDDD1281482FB009A320C /* FirebaseCrashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDDDD0281482FB009A320C /* FirebaseCrashlytics.framework */; };
+		04DDDDD3281482FB009A320C /* FirebaseInstallations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDDDD2281482FB009A320C /* FirebaseInstallations.framework */; };
+		04DDDDD5281482FB009A320C /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDDDD4281482FB009A320C /* GoogleAppMeasurement.xcframework */; };
+		04DDDDD7281482FB009A320C /* GoogleAppMeasurementIdentitySupport.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDDDD6281482FB009A320C /* GoogleAppMeasurementIdentitySupport.xcframework */; };
+		04DDDDD9281482FB009A320C /* GoogleDataTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDDDD8281482FB009A320C /* GoogleDataTransport.framework */; };
+		04DDDDDB281482FB009A320C /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDDDDA281482FB009A320C /* GoogleUtilities.framework */; };
+		04DDDDDD281482FB009A320C /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDDDDC281482FB009A320C /* nanopb.framework */; };
+		04DDDDDF28148309009A320C /* realm-monorepo.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDDDDE28148309009A320C /* realm-monorepo.xcframework */; };
 		04E7D4742746408B00050B83 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7D4732746408B00050B83 /* MainViewController.swift */; };
 		04E7D4762746409300050B83 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7D4752746409300050B83 /* SettingViewController.swift */; };
 		04E7D47A274640AB00050B83 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7D479274640AB00050B83 /* ContentViewController.swift */; };
@@ -84,6 +100,22 @@
 		04C399F2274A5880006B73A5 /* UIResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
 		04C399F6274D3B4A006B73A5 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		04C399F8274E0282006B73A5 /* Extension+Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Edit.swift"; sourceTree = "<group>"; };
+		04DDDDC0281482D6009A320C /* Zip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Zip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DDDDC2281482DC009A320C /* Toast_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Toast_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DDDDC4281482E4009A320C /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DDDDC6281482EA009A320C /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DDDDC8281482FB009A320C /* FBLPromises.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBLPromises.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DDDDCA281482FB009A320C /* FirebaseAnalytics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseAnalytics.xcframework; path = Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.xcframework; sourceTree = "<group>"; };
+		04DDDDCC281482FB009A320C /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DDDDCE281482FB009A320C /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DDDDD0281482FB009A320C /* FirebaseCrashlytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCrashlytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DDDDD2281482FB009A320C /* FirebaseInstallations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstallations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DDDDD4281482FB009A320C /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = Pods/GoogleAppMeasurement/Frameworks/GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
+		04DDDDD6281482FB009A320C /* GoogleAppMeasurementIdentitySupport.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurementIdentitySupport.xcframework; path = Pods/GoogleAppMeasurement/Frameworks/GoogleAppMeasurementIdentitySupport.xcframework; sourceTree = "<group>"; };
+		04DDDDD8281482FB009A320C /* GoogleDataTransport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleDataTransport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DDDDDA281482FB009A320C /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DDDDDC281482FB009A320C /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DDDDDE28148309009A320C /* realm-monorepo.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = "realm-monorepo.xcframework"; path = "Pods/Realm/core/realm-monorepo.xcframework"; sourceTree = "<group>"; };
 		04E7D4732746408B00050B83 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		04E7D4752746409300050B83 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		04E7D479274640AB00050B83 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +133,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DDDDDF28148309009A320C /* realm-monorepo.xcframework in Frameworks */,
+				04DDDDC9281482FB009A320C /* FBLPromises.framework in Frameworks */,
+				04DDDDCB281482FB009A320C /* FirebaseAnalytics.xcframework in Frameworks */,
+				04DDDDCD281482FB009A320C /* FirebaseCore.framework in Frameworks */,
+				04DDDDCF281482FB009A320C /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				04DDDDD1281482FB009A320C /* FirebaseCrashlytics.framework in Frameworks */,
+				04DDDDD3281482FB009A320C /* FirebaseInstallations.framework in Frameworks */,
+				04DDDDD5281482FB009A320C /* GoogleAppMeasurement.xcframework in Frameworks */,
+				04DDDDD7281482FB009A320C /* GoogleAppMeasurementIdentitySupport.xcframework in Frameworks */,
+				04DDDDD9281482FB009A320C /* GoogleDataTransport.framework in Frameworks */,
+				04DDDDDB281482FB009A320C /* GoogleUtilities.framework in Frameworks */,
+				04DDDDDD281482FB009A320C /* nanopb.framework in Frameworks */,
+				04DDDDC7281482EA009A320C /* RealmSwift.framework in Frameworks */,
+				04DDDDC5281482E4009A320C /* Realm.framework in Frameworks */,
+				04DDDDC3281482DC009A320C /* Toast_Swift.framework in Frameworks */,
+				04DDDDC1281482D6009A320C /* Zip.framework in Frameworks */,
 				04ED7E132764539E00EF280A /* libswift_Concurrency.tbd in Frameworks */,
 				0863C1B75B2ADEC6A649DB01 /* Pods_MyPlant.framework in Frameworks */,
 			);
@@ -209,6 +257,22 @@
 		04ED7E112764539D00EF280A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04DDDDDE28148309009A320C /* realm-monorepo.xcframework */,
+				04DDDDC8281482FB009A320C /* FBLPromises.framework */,
+				04DDDDCA281482FB009A320C /* FirebaseAnalytics.xcframework */,
+				04DDDDCC281482FB009A320C /* FirebaseCore.framework */,
+				04DDDDCE281482FB009A320C /* FirebaseCoreDiagnostics.framework */,
+				04DDDDD0281482FB009A320C /* FirebaseCrashlytics.framework */,
+				04DDDDD2281482FB009A320C /* FirebaseInstallations.framework */,
+				04DDDDD4281482FB009A320C /* GoogleAppMeasurement.xcframework */,
+				04DDDDD6281482FB009A320C /* GoogleAppMeasurementIdentitySupport.xcframework */,
+				04DDDDD8281482FB009A320C /* GoogleDataTransport.framework */,
+				04DDDDDA281482FB009A320C /* GoogleUtilities.framework */,
+				04DDDDDC281482FB009A320C /* nanopb.framework */,
+				04DDDDC6281482EA009A320C /* RealmSwift.framework */,
+				04DDDDC4281482E4009A320C /* Realm.framework */,
+				04DDDDC2281482DC009A320C /* Toast_Swift.framework */,
+				04DDDDC0281482D6009A320C /* Zip.framework */,
 				04ED7E122764539E00EF280A /* libswift_Concurrency.tbd */,
 				47525E31FA9811D0A86D1BFC /* Pods_MyPlant.framework */,
 			);
@@ -360,7 +424,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n# This script is used to fix a deploy process crash by commenting a line of code in Pods-AppName-frameworks.sh that was causing archiving process to fail\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -539,6 +603,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D10D8EFBBA9B3A0DE28C960F /* Pods-MyPlant.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyPlant/MyPlant.entitlements;
@@ -567,7 +632,8 @@
 					"$(SDKROOT)/usr/lib/swift",
 				);
 				MARKETING_VERSION = 2.0;
-				OTHER_LDFLAGS = "-objC";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssac.MyPlant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -580,6 +646,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 53F7F46380604F9646BF6264 /* Pods-MyPlant.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyPlant/MyPlantRelease.entitlements;
@@ -607,7 +674,8 @@
 					"$(SDKROOT)/usr/lib/swift",
 				);
 				MARKETING_VERSION = 2.0;
-				OTHER_LDFLAGS = "-objC";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssac.MyPlant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
