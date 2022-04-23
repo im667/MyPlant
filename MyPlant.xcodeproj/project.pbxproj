@@ -38,6 +38,7 @@
 		04C399F3274A5880006B73A5 /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C399F2274A5880006B73A5 /* UIResponder.swift */; };
 		04C399F7274D3B4A006B73A5 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C399F6274D3B4A006B73A5 /* EditViewController.swift */; };
 		04C399F9274E0282006B73A5 /* Extension+Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C399F8274E0282006B73A5 /* Extension+Edit.swift */; };
+		04DDDDBD281439E7009A320C /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DDDDBC281439E7009A320C /* AlertViewController.swift */; };
 		04E7D4742746408B00050B83 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7D4732746408B00050B83 /* MainViewController.swift */; };
 		04E7D4762746409300050B83 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7D4752746409300050B83 /* SettingViewController.swift */; };
 		04E7D47A274640AB00050B83 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7D479274640AB00050B83 /* ContentViewController.swift */; };
@@ -84,6 +85,7 @@
 		04C399F2274A5880006B73A5 /* UIResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
 		04C399F6274D3B4A006B73A5 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		04C399F8274E0282006B73A5 /* Extension+Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Edit.swift"; sourceTree = "<group>"; };
+		04DDDDBC281439E7009A320C /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		04E7D4732746408B00050B83 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		04E7D4752746409300050B83 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		04E7D479274640AB00050B83 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				040D4561274788860047E88E /* DatePickerViewController.swift */,
 				04C399F6274D3B4A006B73A5 /* EditViewController.swift */,
 				04E7D4732746408B00050B83 /* MainViewController.swift */,
+				04DDDDBC281439E7009A320C /* AlertViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DDDDBD281439E7009A320C /* AlertViewController.swift in Sources */,
 				040D451E27466B1D0047E88E /* Extension+UIfont.swift in Sources */,
 				04E7D4762746409300050B83 /* SettingViewController.swift in Sources */,
 				040D45662748E7320047E88E /* Extension+ContentTableView.swift in Sources */,
@@ -566,7 +570,7 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/swift",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 2.0;
 				OTHER_LDFLAGS = "-objC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssac.MyPlant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -606,7 +610,7 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/swift",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 2.0;
 				OTHER_LDFLAGS = "-objC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssac.MyPlant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
