@@ -14,10 +14,14 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var userNotificationCenter :UNUserNotificationCenter?
+    
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:
     [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+
+        
         FirebaseApp.configure()
         let config = Realm.Configuration(
             // Set the new schema version. This must be greater than the previously used
@@ -44,6 +48,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().delegate = self
         // Now that we've told Realm how to handle the schema change, opening the file
         // will automatically perform the migration
+        
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        
+        window?.rootViewController = vc
+        window?.makeKeyAndVisible()
+        
+        
         let authrizationOptions = UNAuthorizationOptions(arrayLiteral: [.alert, .badge, .sound])
         
         userNotificationCenter?.requestAuthorization(options: authrizationOptions) { _, error in

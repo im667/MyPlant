@@ -270,6 +270,7 @@ class EditViewController: UIViewController {
     
     
     @IBAction func isClickedDeleteButton(_ sender: UIButton) {
+        
         deleteImageToDocumentDirectory(imageName: "\(task!._id).jpg")
         self.unc.removePendingNotificationRequests(withIdentifiers: [String(describing:task._id)])
         let taskToDelete = task!
@@ -278,8 +279,15 @@ class EditViewController: UIViewController {
         }
    
         
-     
+//
+//        let sb = UIStoryboard(name: "Content", bundle: nil)
+//        let vc = sb.instantiateViewController(withIdentifier: AlertViewController.identifier) as! AlertViewController
+//        let nav = UINavigationController(rootViewController: vc)
+
+//        nav.modalPresentationStyle = .overCurrentContext
         dismiss(animated: false, completion: nil)
+        NotificationCenter.default.post(name: DidDismissEditViewController, object: nil, userInfo: nil)
+//        present(nav, animated: false, completion: nil)
       
     }
     

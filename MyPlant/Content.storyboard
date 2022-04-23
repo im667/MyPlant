@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z8F-9q-HdB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -639,26 +639,6 @@
             </objects>
             <point key="canvasLocation" x="2704.347826086957" y="67.633928571428569"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="B0d-YK-Lzf">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="z8F-9q-HdB" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pbx-fU-gv9">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="stB-gq-VtQ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ojn-s4-l9L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="28.985507246376812" y="67.633928571428569"/>
-        </scene>
         <!--Date Picker View Controller-->
         <scene sceneID="2Qh-zP-Smy">
             <objects>
@@ -687,61 +667,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JV7-Nb-AyZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3575.36231884058" y="53.571428571428569"/>
-        </scene>
-        <!--Alert View Controller-->
-        <scene sceneID="9IL-bk-hMu">
-            <objects>
-                <viewController modalPresentationStyle="overFullScreen" id="URj-Ex-92N" customClass="AlertViewController" customModule="MyPlant" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="MYJ-cx-9OY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6o-To-kfg">
-                                <rect key="frame" x="24" y="328" width="366" height="240"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식물이 삭제 되었어요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tq9-a3-6PW">
-                                        <rect key="frame" x="84" y="54" width="198" height="29"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2E-de-Bql">
-                                        <rect key="frame" x="24" y="135" width="318" height="52"/>
-                                        <color key="backgroundColor" red="0.68416082860000005" green="0.83178037410000005" blue="0.41452372069999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="52" id="cC6-nP-qrB"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="확인">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="w2E-de-Bql" firstAttribute="top" secondItem="tq9-a3-6PW" secondAttribute="bottom" constant="52" id="8j1-Yc-xNx"/>
-                                    <constraint firstItem="w2E-de-Bql" firstAttribute="leading" secondItem="w6o-To-kfg" secondAttribute="leading" constant="24" id="9Wo-Dv-z5t"/>
-                                    <constraint firstItem="tq9-a3-6PW" firstAttribute="centerX" secondItem="w6o-To-kfg" secondAttribute="centerX" id="A0H-FG-IK5"/>
-                                    <constraint firstAttribute="height" constant="240" id="WOE-8G-7qW"/>
-                                    <constraint firstItem="tq9-a3-6PW" firstAttribute="top" secondItem="w6o-To-kfg" secondAttribute="top" constant="54" id="ef9-hu-WyY"/>
-                                    <constraint firstAttribute="trailing" secondItem="w2E-de-Bql" secondAttribute="trailing" constant="24" id="tVe-Ip-s70"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="p48-p6-8RH"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.51901639562074831" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="w6o-To-kfg" firstAttribute="centerX" secondItem="MYJ-cx-9OY" secondAttribute="centerX" id="D2O-SW-2xA"/>
-                            <constraint firstItem="w6o-To-kfg" firstAttribute="centerY" secondItem="MYJ-cx-9OY" secondAttribute="centerY" id="fpo-Dg-no8"/>
-                            <constraint firstItem="p48-p6-8RH" firstAttribute="trailing" secondItem="w6o-To-kfg" secondAttribute="trailing" constant="24" id="lNr-Ee-H2e"/>
-                            <constraint firstItem="w6o-To-kfg" firstAttribute="leading" secondItem="p48-p6-8RH" secondAttribute="leading" constant="24" id="y9G-l5-Zo8"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VrD-r1-DSd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4452.1739130434789" y="53.571428571428569"/>
         </scene>
     </scenes>
     <resources>

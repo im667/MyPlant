@@ -401,44 +401,45 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
     @objc func didDismissEditNotification(_ noti: Notification) {
         
 
-        let predicate = NSPredicate(format: "_id == %@", id!)
-
-        task = localRealm.objects(plant.self).filter(predicate)
-        
-        let feeds = task.first!
-        feedTask = feeds.feeds.sorted(byKeyPath: "regDate", ascending: true)
-        
-        nickName.text = task.first!.nickName
-        
-        let format = DateFormatter()
-        format.locale = Locale(identifier: "ko_KR")
-        format.dateFormat = "yyyy.MM.dd"
-        let startDate = format.date(from:format.string(from: task.first!.startDate))!
-        let endDate = format.date(from:format.string(from: Date()))!
-        let interval = endDate.timeIntervalSince(startDate)
-        let days = Int(interval / 86400)
-        daysLable.text = "🪴\(days)일+"
-        daysLable.sizeToFit()
-        daysStartDateLabel.text = format.string(from: task.first!.startDate) + " ~"
-        
-        waterDayLabel.text = String(task.first!.waterDay)
-        
-        
-        progressBar.progress = progressDate()
-           
-        progressBar.progressTintColor = UIColor(red: 132/255, green: 222/255, blue: 226/255, alpha: 1)
-        
-        if progressDate() > 0 {
-            waterResetButton.layer.isHidden = true
-        progressBar.trackTintColor = UIColor(red: 240/255, green: 237/255, blue: 237/255, alpha: 1)
-        } else {
-            
-                progressBar.trackTintColor = UIColor(red: 226/255, green: 132/255, blue: 132/255, alpha: 1)
-            waterResetButton.layer.isHidden = false
-        }
-        
+//        let predicate = NSPredicate(format: "_id == %@", id!)
+//
+//        task = localRealm.objects(plant.self).filter(predicate)
+//        
+//        let feeds = task.first
+//        feedTask = feeds?.feeds.sorted(byKeyPath: "regDate", ascending: true)
+//        
+//        nickName.text = feeds.nickName
+//        
+//        let format = DateFormatter()
+//        format.locale = Locale(identifier: "ko_KR")
+//        format.dateFormat = "yyyy.MM.dd"
+//        let startDate = format.date(from:format.string(from: task.first!.startDate))!
+//        let endDate = format.date(from:format.string(from: Date()))!
+//        let interval = endDate.timeIntervalSince(startDate)
+//        let days = Int(interval / 86400)
+//        daysLable.text = "🪴\(days)일+"
+//        daysLable.sizeToFit()
+//        daysStartDateLabel.text = format.string(from: task.first!.startDate) + " ~"
+//        
+//        waterDayLabel.text = String(task.first!.waterDay)
+//        
+//        
+//        progressBar.progress = progressDate()
+//           
+//        progressBar.progressTintColor = UIColor(red: 132/255, green: 222/255, blue: 226/255, alpha: 1)
+//        
+//        if progressDate() > 0 {
+//            waterResetButton.layer.isHidden = true
+//        progressBar.trackTintColor = UIColor(red: 240/255, green: 237/255, blue: 237/255, alpha: 1)
+//        } else {
+//            
+//                progressBar.trackTintColor = UIColor(red: 226/255, green: 132/255, blue: 132/255, alpha: 1)
+//            waterResetButton.layer.isHidden = false
+//        }
+//        
       
         
+        self.navigationController?.popViewController(animated: true)
 
         }
 
@@ -454,7 +455,6 @@ class ContentViewController: UIViewController,UIImagePickerControllerDelegate,UI
         
         let feeds = task.first!
         feedTask = feeds.feeds.sorted(byKeyPath: "regDate", ascending: true)
-        
         
         
         }
