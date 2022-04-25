@@ -39,7 +39,6 @@
 		04C399F7274D3B4A006B73A5 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C399F6274D3B4A006B73A5 /* EditViewController.swift */; };
 		04C399F9274E0282006B73A5 /* Extension+Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C399F8274E0282006B73A5 /* Extension+Edit.swift */; };
 		04DDDDC1281482D6009A320C /* Zip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDDDC0281482D6009A320C /* Zip.framework */; };
-		04DDDDC3281482DC009A320C /* Toast_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDDDC2281482DC009A320C /* Toast_Swift.framework */; };
 		04DDDDC5281482E4009A320C /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDDDC4281482E4009A320C /* Realm.framework */; };
 		04DDDDC7281482EA009A320C /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDDDC6281482EA009A320C /* RealmSwift.framework */; };
 		04DDDDC9281482FB009A320C /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDDDC8281482FB009A320C /* FBLPromises.framework */; };
@@ -147,7 +146,6 @@
 				04DDDDDD281482FB009A320C /* nanopb.framework in Frameworks */,
 				04DDDDC7281482EA009A320C /* RealmSwift.framework in Frameworks */,
 				04DDDDC5281482E4009A320C /* Realm.framework in Frameworks */,
-				04DDDDC3281482DC009A320C /* Toast_Swift.framework in Frameworks */,
 				04DDDDC1281482D6009A320C /* Zip.framework in Frameworks */,
 				04ED7E132764539E00EF280A /* libswift_Concurrency.tbd in Frameworks */,
 				0863C1B75B2ADEC6A649DB01 /* Pods_MyPlant.framework in Frameworks */,

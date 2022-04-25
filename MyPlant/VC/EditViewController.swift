@@ -7,7 +7,7 @@
 
 import UIKit
 import RealmSwift
-import Toast_Swift
+
 
 
 let DidDismissEditViewController:Notification.Name = Notification.Name("DidDismissEditViewController")
@@ -88,7 +88,6 @@ class EditViewController: UIViewController {
         deleteButton.clipsToBounds = true
         deleteButton.layer.cornerRadius = 10
         
-    
     }
     
 
@@ -202,6 +201,7 @@ class EditViewController: UIViewController {
     
     
     @IBAction func isClickedSuccessButton(_ sender: UIButton) {
+        
         if editNickNameTextField.text == ""  {
          
             let alert = UIAlertController(title: "올바른 형식이 아닙니다.", message: "프로필 정보를 완성해주세요.", preferredStyle: UIAlertController.Style.alert)
@@ -221,7 +221,7 @@ class EditViewController: UIViewController {
             
         guard let date =  editStartDayButton.currentTitle, let value = format.date(from: date) else {return}
             
-        
+            
         
         try! localRealm.write{
             task?.afterWaterDate = afterWaterDay!
@@ -231,7 +231,7 @@ class EditViewController: UIViewController {
             task?.startDate = value
         }
         
-            self.view.makeToast("식물 정보를 수정했습니다.")
+       
         dismiss(animated: false, completion: nil)
         NotificationCenter.default.post(name: DidDismissEditViewController, object: nil, userInfo: nil)
         
@@ -273,14 +273,14 @@ class EditViewController: UIViewController {
     
     
     @IBAction func isClickedDeleteButton(_ sender: UIButton) {
-        
+      
         deleteImageToDocumentDirectory(imageName: "\(task!._id).jpg")
         self.unc.removePendingNotificationRequests(withIdentifiers: [String(describing:task._id)])
         let taskToDelete = task!
         try! localRealm.write {
           localRealm.delete(taskToDelete)
         }
-        self.view.makeToast("식물을 삭제했습니다.")
+       
         
 //
 //        let sb = UIStoryboard(name: "Content", bundle: nil)
@@ -293,6 +293,11 @@ class EditViewController: UIViewController {
 //        present(nav, animated: false, completion: nil)
       
     }
+    
+    
+ 
+
+ 
     
     
 }

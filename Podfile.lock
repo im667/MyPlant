@@ -102,14 +102,12 @@ PODS:
   - Realm/Headers (10.25.1)
   - RealmSwift (10.25.1):
     - Realm (= 10.25.1)
-  - Toast-Swift (5.0.1)
   - Zip (2.1.2)
 
 DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Crashlytics
   - RealmSwift
-  - Toast-Swift (~> 5.0.1)
   - Zip (~> 2.1)
 
 SPEC REPOS:
@@ -127,7 +125,6 @@ SPEC REPOS:
     - PromisesObjC
     - Realm
     - RealmSwift
-    - Toast-Swift
     - Zip
 
 SPEC CHECKSUMS:
@@ -144,9 +141,8 @@ SPEC CHECKSUMS:
   PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
   Realm: 1a6e9b4f6983711655d8c0bcb6d2d29c3afbb1f3
   RealmSwift: e72669550d27082aa4fad5d176f5076cfe806245
-  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   Zip: b3fef584b147b6e582b2256a9815c897d60ddc67
 
-PODFILE CHECKSUM: a619e7b18f00e973da574015daf65ef0aa68d9e9
+PODFILE CHECKSUM: 3e1da5df38c3fa93d397fb9ea7506d20816d2ecd
 
 COCOAPODS: 1.11.3

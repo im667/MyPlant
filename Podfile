@@ -10,5 +10,5 @@ pod 'RealmSwift'
 pod 'Zip', '~> 2.1'
 pod 'Firebase/Crashlytics'
 pod 'Firebase/Analytics'
-pod 'Toast-Swift', '~> 5.0.1'
+
 end
