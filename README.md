@@ -2,6 +2,8 @@
 
 # MyPlant🌱
 Project
+ 
+![FeedDetail_1](https://user-images.githubusercontent.com/56185581/165452778-c8a47b10-5796-4deb-b947-afdacd33eafb.gif)
 
 * * *
 
