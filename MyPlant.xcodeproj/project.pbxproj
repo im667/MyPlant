@@ -611,9 +611,9 @@
 				DEVELOPMENT_TEAM = 75QD4ZR23L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyPlant/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "MyPlant에 사진을 추가하고 저장하시려면 카메라 접근 권한을 허용해야 합니다.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "사진 촬영을 위해 카메라에 접근을 허용해주세요.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "MyPlant에 사진을 추가하고 저장하시려면 포토 라이브러리 접근 권한을 허용해야 합니다.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "MyPlant에 사진을 추가하고 저장하시려면 포토 라이브러리 접근 권한을 허용해야 합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 저장을 위해 앨범 접근을 허용해주세요.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -629,7 +629,7 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/swift",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssac.MyPlant;
@@ -653,9 +653,9 @@
 				DEVELOPMENT_TEAM = 75QD4ZR23L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyPlant/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "MyPlant에 사진을 추가하고 저장하시려면 카메라 접근 권한을 허용해야 합니다.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "사진 촬영을 위해 카메라에 접근을 허용해주세요.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "MyPlant에 사진을 추가하고 저장하시려면 포토 라이브러리 접근 권한을 허용해야 합니다.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "MyPlant에 사진을 추가하고 저장하시려면 포토 라이브러리 접근 권한을 허용해야 합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 저장을 위해 앨범 접근을 허용해주세요.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -671,7 +671,7 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/swift",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssac.MyPlant;
