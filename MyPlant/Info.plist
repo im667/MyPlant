@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>식물 사진 등록을 위해 앨범 접근 권한을 허용해주세요.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>촬영한 사진을 앨범에 저장하기 위해 권한을 허용해주세요. </string>
+	<key>NSCameraUsageDescription</key>
+	<string>식물 촬영을 위해 카메라 접근 권한을 허용해주세요.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>이 앱은 식물 등록 및 일기작성을 위한 카메라, 앨범 접근 권한이 필요합니다. 사용자 기기 외 별도의 서버에 저장되지 않습니다.</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>UIAppFonts</key>
